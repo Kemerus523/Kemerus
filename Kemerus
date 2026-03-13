@@ -1,634 +1,310 @@
--- NO MERCY HUB v2 by Kemerus
--- Redesigned: Cream/Ivory Theme with Gold Accents + Icons
+-- NO MERCY HUB by Kemerus (Cream Theme)
 
 local TweenService = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
 
 local KEY = "KEMERUS31"
 
--- ═══════════════════════════════════════════
--- TWEEN HELPER
--- ═══════════════════════════════════════════
-local function tween(obj, props, t, style, dir)
-    local info = TweenInfo.new(t or 0.3, style or Enum.EasingStyle.Quint, dir or Enum.EasingDirection.Out)
-    TweenService:Create(obj, info, props):Play()
-end
-
--- ═══════════════════════════════════════════
--- GUI ROOT
--- ═══════════════════════════════════════════
-local gui = Instance.new("ScreenGui")
-gui.Name = "NoMercyHub"
+-- GUI
+local gui = Instance.new("ScreenGui", game.CoreGui)
 gui.ResetOnSpawn = false
-gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-gui.Parent = game.CoreGui
 
--- ═══════════════════════════════════════════
--- OPEN BUTTON (floating pill)
--- ═══════════════════════════════════════════
-local openBtn = Instance.new("TextButton", gui)
-openBtn.Size = UDim2.new(0, 110, 0, 38)
-openBtn.Position = UDim2.new(0, 16, 0.5, -19)
-openBtn.Text = "⚔  NO MERCY"
-openBtn.BackgroundColor3 = Color3.fromRGB(240, 228, 196)
-openBtn.TextColor3 = Color3.fromRGB(80, 55, 20)
-openBtn.Font = Enum.Font.GothamBold
-openBtn.TextSize = 12
-openBtn.AutoButtonColor = false
-Instance.new("UICorner", openBtn).CornerRadius = UDim.new(1, 0)
+-- OPEN BUTTON
+local open = Instance.new("TextButton", gui)
+open.Size = UDim2.new(0,60,0,60)
+open.Position = UDim2.new(0,20,0.5,0)
+open.Text = "OPEN"
+open.BackgroundColor3 = Color3.fromRGB(220,210,190)
+open.TextColor3 = Color3.fromRGB(40,40,40)
+open.Font = Enum.Font.GothamBold
+open.TextScaled = true
+Instance.new("UICorner",open)
 
-local openStroke = Instance.new("UIStroke", openBtn)
-openStroke.Color = Color3.fromRGB(200, 170, 100)
-openStroke.Thickness = 1.5
-
--- shadow under open button
-local openShadow = Instance.new("Frame", openBtn)
-openShadow.Size = UDim2.new(1, 6, 1, 6)
-openShadow.Position = UDim2.new(0, -3, 0, 4)
-openShadow.BackgroundColor3 = Color3.fromRGB(160, 130, 70)
-openShadow.BackgroundTransparency = 0.7
-openShadow.ZIndex = openBtn.ZIndex - 1
-Instance.new("UICorner", openShadow).CornerRadius = UDim.new(1, 0)
-
--- ═══════════════════════════════════════════
 -- MAIN FRAME
--- ═══════════════════════════════════════════
 local frame = Instance.new("Frame", gui)
-frame.Size = UDim2.new(0, 500, 0, 320)
-frame.Position = UDim2.new(0.5, -250, 0.5, -160)
-frame.BackgroundColor3 = Color3.fromRGB(245, 238, 220)
+frame.Size = UDim2.new(0,460,0,280)
+frame.Position = UDim2.new(0.5,-230,0.5,-140)
+frame.BackgroundColor3 = Color3.fromRGB(245,236,215)
 frame.Visible = false
-frame.ClipsDescendants = true
-Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 14)
+Instance.new("UICorner",frame)
 
-local frameShadow = Instance.new("Frame", gui)
-frameShadow.Size = UDim2.new(0, 520, 0, 340)
-frameShadow.Position = UDim2.new(0.5, -260, 0.5, -170)
-frameShadow.BackgroundColor3 = Color3.fromRGB(100, 80, 40)
-frameShadow.BackgroundTransparency = 0.75
-frameShadow.Visible = false
-frameShadow.ZIndex = frame.ZIndex - 1
-Instance.new("UICorner", frameShadow).CornerRadius = UDim.new(0, 18)
-
-local frameStroke = Instance.new("UIStroke", frame)
-frameStroke.Color = Color3.fromRGB(210, 185, 130)
-frameStroke.Thickness = 1.5
-
--- ═══════════════════════════════════════════
 -- TOP BAR
--- ═══════════════════════════════════════════
-local topBar = Instance.new("Frame", frame)
-topBar.Size = UDim2.new(1, 0, 0, 42)
-topBar.BackgroundColor3 = Color3.fromRGB(228, 210, 162)
-topBar.ZIndex = 2
+local top = Instance.new("Frame", frame)
+top.Size = UDim2.new(1,0,0,35)
+top.BackgroundColor3 = Color3.fromRGB(220,210,190)
 
-local topCorner = Instance.new("UICorner", topBar)
-topCorner.CornerRadius = UDim.new(0, 14)
+local title = Instance.new("TextLabel", top)
+title.Size = UDim2.new(1,-80,1,0)
+title.Position = UDim2.new(0,10,0,0)
+title.Text = "NO MERCY HUB"
+title.TextColor3 = Color3.fromRGB(90,70,40)
+title.BackgroundTransparency = 1
+title.Font = Enum.Font.GothamBold
+title.TextScaled = true
+title.TextXAlignment = Enum.TextXAlignment.Left
 
--- fix bottom corners of topbar
-local topFix = Instance.new("Frame", topBar)
-topFix.Size = UDim2.new(1, 0, 0.5, 0)
-topFix.Position = UDim2.new(0, 0, 0.5, 0)
-topFix.BackgroundColor3 = Color3.fromRGB(228, 210, 162)
-topFix.BorderSizePixel = 0
-topFix.ZIndex = topBar.ZIndex
+-- MINIMIZE
+local mini = Instance.new("TextButton", top)
+mini.Size = UDim2.new(0,30,1,0)
+mini.Position = UDim2.new(1,-60,0,0)
+mini.Text = "-"
+mini.BackgroundColor3 = Color3.fromRGB(200,190,170)
+mini.TextColor3 = Color3.fromRGB(40,40,40)
+Instance.new("UICorner",mini)
 
-local topStroke = Instance.new("UIStroke", topBar)
-topStroke.Color = Color3.fromRGB(190, 165, 100)
-topStroke.Thickness = 1
+-- CLOSE
+local close = Instance.new("TextButton", top)
+close.Size = UDim2.new(0,30,1,0)
+close.Position = UDim2.new(1,-30,0,0)
+close.Text = "X"
+close.BackgroundColor3 = Color3.fromRGB(180,120,120)
+close.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner",close)
 
--- Icon (sword emoji as TextLabel)
-local titleIcon = Instance.new("TextLabel", topBar)
-titleIcon.Size = UDim2.new(0, 28, 0, 28)
-titleIcon.Position = UDim2.new(0, 10, 0.5, -14)
-titleIcon.Text = "⚔"
-titleIcon.TextScaled = true
-titleIcon.BackgroundColor3 = Color3.fromRGB(200, 60, 60)
-titleIcon.TextColor3 = Color3.new(1, 1, 1)
-titleIcon.ZIndex = 3
-Instance.new("UICorner", titleIcon).CornerRadius = UDim.new(0, 6)
-
-local titleLabel = Instance.new("TextLabel", topBar)
-titleLabel.Size = UDim2.new(1, -140, 1, 0)
-titleLabel.Position = UDim2.new(0, 46, 0, 0)
-titleLabel.Text = "NO MERCY HUB"
-titleLabel.TextColor3 = Color3.fromRGB(80, 50, 10)
-titleLabel.BackgroundTransparency = 1
-titleLabel.Font = Enum.Font.GothamBold
-titleLabel.TextScaled = true
-titleLabel.TextXAlignment = Enum.TextXAlignment.Left
-titleLabel.ZIndex = 3
-
-local versionLabel = Instance.new("TextLabel", topBar)
-versionLabel.Size = UDim2.new(0, 40, 0, 16)
-versionLabel.Position = UDim2.new(0, 46, 1, -18)
-versionLabel.Text = "v2.0"
-versionLabel.TextColor3 = Color3.fromRGB(150, 120, 70)
-versionLabel.BackgroundTransparency = 1
-versionLabel.Font = Enum.Font.Gotham
-versionLabel.TextSize = 10
-versionLabel.ZIndex = 3
-
--- Minimize button
-local miniBtn = Instance.new("TextButton", topBar)
-miniBtn.Size = UDim2.new(0, 28, 0, 28)
-miniBtn.Position = UDim2.new(1, -66, 0.5, -14)
-miniBtn.Text = "—"
-miniBtn.BackgroundColor3 = Color3.fromRGB(210, 195, 150)
-miniBtn.TextColor3 = Color3.fromRGB(80, 60, 20)
-miniBtn.Font = Enum.Font.GothamBold
-miniBtn.TextSize = 14
-miniBtn.AutoButtonColor = false
-miniBtn.ZIndex = 4
-Instance.new("UICorner", miniBtn).CornerRadius = UDim.new(0, 7)
-
--- Close button
-local closeBtn = Instance.new("TextButton", topBar)
-closeBtn.Size = UDim2.new(0, 28, 0, 28)
-closeBtn.Position = UDim2.new(1, -32, 0.5, -14)
-closeBtn.Text = "✕"
-closeBtn.BackgroundColor3 = Color3.fromRGB(210, 80, 70)
-closeBtn.TextColor3 = Color3.new(1, 1, 1)
-closeBtn.Font = Enum.Font.GothamBold
-closeBtn.TextSize = 12
-closeBtn.AutoButtonColor = false
-closeBtn.ZIndex = 4
-Instance.new("UICorner", closeBtn).CornerRadius = UDim.new(0, 7)
-
--- ═══════════════════════════════════════════
--- CONTENT AREA
--- ═══════════════════════════════════════════
+-- CONTENT
 local content = Instance.new("Frame", frame)
-content.Size = UDim2.new(1, 0, 1, -42)
-content.Position = UDim2.new(0, 0, 0, 42)
+content.Size = UDim2.new(1,0,1,-35)
+content.Position = UDim2.new(0,0,0,35)
 content.BackgroundTransparency = 1
 
--- ═══════════════════════════════════════════
 -- KEY PAGE
--- ═══════════════════════════════════════════
 local keyPage = Instance.new("Frame", content)
-keyPage.Size = UDim2.new(1, 0, 1, 0)
+keyPage.Size = UDim2.new(1,0,1,0)
 keyPage.BackgroundTransparency = 1
 
--- Decorative shield icon at top
-local shieldIcon = Instance.new("TextLabel", keyPage)
-shieldIcon.Size = UDim2.new(0, 48, 0, 48)
-shieldIcon.Position = UDim2.new(0.5, -24, 0, 16)
-shieldIcon.Text = "🔑"
-shieldIcon.TextScaled = true
-shieldIcon.BackgroundColor3 = Color3.fromRGB(235, 215, 155)
-shieldIcon.TextColor3 = Color3.new(1, 1, 1)
-Instance.new("UICorner", shieldIcon).CornerRadius = UDim.new(0, 12)
-local shieldStroke = Instance.new("UIStroke", shieldIcon)
-shieldStroke.Color = Color3.fromRGB(200, 170, 100)
-shieldStroke.Thickness = 1.5
-
 local keyTitle = Instance.new("TextLabel", keyPage)
-keyTitle.Size = UDim2.new(0.8, 0, 0, 30)
-keyTitle.Position = UDim2.new(0.1, 0, 0, 74)
-keyTitle.Text = "ENTER YOUR KEY"
-keyTitle.TextColor3 = Color3.fromRGB(80, 55, 15)
+keyTitle.Size = UDim2.new(1,0,0,40)
+keyTitle.Position = UDim2.new(0,0,0.2,0)
+keyTitle.Text = "ENTER KEY"
+keyTitle.TextColor3 = Color3.fromRGB(90,70,40)
 keyTitle.BackgroundTransparency = 1
 keyTitle.Font = Enum.Font.GothamBold
 keyTitle.TextScaled = true
 
-local keySubtitle = Instance.new("TextLabel", keyPage)
-keySubtitle.Size = UDim2.new(0.8, 0, 0, 20)
-keySubtitle.Position = UDim2.new(0.1, 0, 0, 106)
-keySubtitle.Text = "Access No Mercy Hub by entering your key below"
-keySubtitle.TextColor3 = Color3.fromRGB(150, 125, 80)
-keySubtitle.BackgroundTransparency = 1
-keySubtitle.Font = Enum.Font.Gotham
-keySubtitle.TextSize = 11
-
--- Key Box wrapper
-local keyBoxWrap = Instance.new("Frame", keyPage)
-keyBoxWrap.Size = UDim2.new(0.7, 0, 0, 42)
-keyBoxWrap.Position = UDim2.new(0.15, 0, 0, 136)
-keyBoxWrap.BackgroundColor3 = Color3.fromRGB(255, 250, 238)
-Instance.new("UICorner", keyBoxWrap).CornerRadius = UDim.new(0, 10)
-local keyBoxStroke = Instance.new("UIStroke", keyBoxWrap)
-keyBoxStroke.Color = Color3.fromRGB(200, 175, 115)
-keyBoxStroke.Thickness = 1.5
-
-local keyBox = Instance.new("TextBox", keyBoxWrap)
-keyBox.Size = UDim2.new(1, -44, 1, 0)
-keyBox.Position = UDim2.new(0, 44, 0, 0)
-keyBox.PlaceholderText = "Enter key here..."
-keyBox.BackgroundTransparency = 1
-keyBox.TextColor3 = Color3.fromRGB(60, 45, 15)
+local keyBox = Instance.new("TextBox", keyPage)
+keyBox.Size = UDim2.new(0.6,0,0,40)
+keyBox.Position = UDim2.new(0.2,0,0.45,0)
+keyBox.PlaceholderText = "Enter Key..."
+keyBox.BackgroundColor3 = Color3.fromRGB(255,248,230)
+keyBox.TextColor3 = Color3.fromRGB(40,40,40)
 keyBox.Font = Enum.Font.Gotham
-keyBox.TextSize = 13
-keyBox.ClearTextOnFocus = false
+keyBox.TextScaled = true
+Instance.new("UICorner",keyBox)
 
-local keyIcon = Instance.new("TextLabel", keyBoxWrap)
-keyIcon.Size = UDim2.new(0, 38, 1, 0)
-keyIcon.Text = "🔐"
-keyIcon.TextScaled = true
-keyIcon.BackgroundColor3 = Color3.fromRGB(225, 205, 145)
-keyIcon.TextColor3 = Color3.new(1,1,1)
-Instance.new("UICorner", keyIcon).CornerRadius = UDim.new(0, 9)
+local verify = Instance.new("TextButton", keyPage)
+verify.Size = UDim2.new(0.6,0,0,40)
+verify.Position = UDim2.new(0.2,0,0.65,0)
+verify.Text = "LOGIN"
+verify.BackgroundColor3 = Color3.fromRGB(200,170,90)
+verify.TextColor3 = Color3.fromRGB(40,40,40)
+verify.Font = Enum.Font.GothamBold
+verify.TextScaled = true
+Instance.new("UICorner",verify)
 
--- Login button
-local loginBtn = Instance.new("TextButton", keyPage)
-loginBtn.Size = UDim2.new(0.7, 0, 0, 42)
-loginBtn.Position = UDim2.new(0.15, 0, 0, 188)
-loginBtn.Text = "🔓  UNLOCK ACCESS"
-loginBtn.BackgroundColor3 = Color3.fromRGB(180, 140, 60)
-loginBtn.TextColor3 = Color3.fromRGB(255, 248, 220)
-loginBtn.Font = Enum.Font.GothamBold
-loginBtn.TextSize = 13
-loginBtn.AutoButtonColor = false
-Instance.new("UICorner", loginBtn).CornerRadius = UDim.new(0, 10)
-local loginStroke = Instance.new("UIStroke", loginBtn)
-loginStroke.Color = Color3.fromRGB(220, 185, 90)
-loginStroke.Thickness = 1.5
-
--- Status label
-local statusLabel = Instance.new("TextLabel", keyPage)
-statusLabel.Size = UDim2.new(0.7, 0, 0, 20)
-statusLabel.Position = UDim2.new(0.15, 0, 0, 238)
-statusLabel.Text = ""
-statusLabel.TextColor3 = Color3.fromRGB(200, 80, 60)
-statusLabel.BackgroundTransparency = 1
-statusLabel.Font = Enum.Font.Gotham
-statusLabel.TextSize = 11
-
--- ═══════════════════════════════════════════
 -- MAIN MENU
--- ═══════════════════════════════════════════
 local mainMenu = Instance.new("Frame", content)
-mainMenu.Size = UDim2.new(1, 0, 1, 0)
+mainMenu.Size = UDim2.new(1,0,1,0)
 mainMenu.Visible = false
 mainMenu.BackgroundTransparency = 1
 
--- Sidebar
-local sidebar = Instance.new("Frame", mainMenu)
-sidebar.Size = UDim2.new(0, 130, 1, 0)
-sidebar.BackgroundColor3 = Color3.fromRGB(232, 218, 182)
-Instance.new("UICorner", sidebar).CornerRadius = UDim.new(0, 10)
+-- TAB BAR
+local tabBar = Instance.new("Frame", mainMenu)
+tabBar.Size = UDim2.new(0,120,1,0)
+tabBar.BackgroundColor3 = Color3.fromRGB(230,220,200)
 
-local sidebarStroke = Instance.new("UIStroke", sidebar)
-sidebarStroke.Color = Color3.fromRGB(200, 175, 115)
-sidebarStroke.Thickness = 1
+local pages = Instance.new("Frame", mainMenu)
+pages.Size = UDim2.new(1,-120,1,0)
+pages.Position = UDim2.new(0,120,0,0)
+pages.BackgroundTransparency = 1
 
--- Hub watermark in sidebar
-local sideWatermark = Instance.new("TextLabel", sidebar)
-sideWatermark.Size = UDim2.new(1, 0, 0, 24)
-sideWatermark.Position = UDim2.new(0, 0, 1, -28)
-sideWatermark.Text = "NO MERCY HUB"
-sideWatermark.TextColor3 = Color3.fromRGB(170, 140, 80)
-sideWatermark.BackgroundTransparency = 1
-sideWatermark.Font = Enum.Font.GothamBold
-sideWatermark.TextSize = 8
-
--- Pages container
-local pageContainer = Instance.new("Frame", mainMenu)
-pageContainer.Size = UDim2.new(1, -142, 1, -8)
-pageContainer.Position = UDim2.new(0, 138, 0, 4)
-pageContainer.BackgroundTransparency = 1
-
--- Active tab indicator
-local activeLine = Instance.new("Frame", sidebar)
-activeLine.Size = UDim2.new(0, 3, 0, 32)
-activeLine.Position = UDim2.new(0, 0, 0, 8)
-activeLine.BackgroundColor3 = Color3.fromRGB(180, 140, 60)
-Instance.new("UICorner", activeLine).CornerRadius = UDim.new(1, 0)
-
--- ═══════════════════════════════════════════
--- TAB + PAGE FACTORY
--- ═══════════════════════════════════════════
-local tabList = {}
-local activeTab = nil
-
+-- PAGE FUNCTION
 local function createPage()
-    local page = Instance.new("Frame", pageContainer)
-    page.Size = UDim2.new(1, 0, 1, 0)
-    page.Visible = false
-    page.BackgroundTransparency = 1
-    return page
+local page = Instance.new("Frame", pages)
+page.Size = UDim2.new(1,0,1,0)
+page.Visible = false
+page.BackgroundTransparency = 1
+return page
 end
 
-local function createTab(icon, labelText, index)
-    local tab = Instance.new("TextButton", sidebar)
-    tab.Size = UDim2.new(1, -8, 0, 36)
-    tab.Position = UDim2.new(0, 4, 0, 6 + (index - 1) * 42)
-    tab.BackgroundColor3 = Color3.fromRGB(225, 210, 170)
-    tab.BackgroundTransparency = 1
-    tab.TextColor3 = Color3.fromRGB(100, 75, 30)
-    tab.Font = Enum.Font.GothamBold
-    tab.TextSize = 11
-    tab.Text = icon .. "  " .. labelText
-    tab.AutoButtonColor = false
-    Instance.new("UICorner", tab).CornerRadius = UDim.new(0, 8)
+-- TAB FUNCTION
+local function createTab(name,pos)
 
-    local page = createPage()
-    table.insert(tabList, {tab = tab, page = page, index = index})
+local tab = Instance.new("TextButton", tabBar)
+tab.Size = UDim2.new(1,0,0,45)
+tab.Position = UDim2.new(0,0,0,(pos-1)*45)
+tab.Text = name
+tab.BackgroundColor3 = Color3.fromRGB(220,210,190)
+tab.TextColor3 = Color3.fromRGB(40,40,40)
+tab.Font = Enum.Font.GothamBold
+tab.TextScaled = true
+Instance.new("UICorner",tab)
 
-    tab.MouseButton1Click:Connect(function()
-        for _, t in pairs(tabList) do
-            t.tab.BackgroundTransparency = 1
-            t.tab.TextColor3 = Color3.fromRGB(100, 75, 30)
-            t.page.Visible = false
-        end
-        tab.BackgroundTransparency = 0
-        tab.TextColor3 = Color3.fromRGB(80, 50, 10)
-        page.Visible = true
-        tween(activeLine, {Position = UDim2.new(0, 0, 0, 6 + (index - 1) * 42 + 2)}, 0.25)
-    end)
+local page = createPage()
 
-    return page, tab
+tab.MouseButton1Click:Connect(function()
+for _,v in pairs(pages:GetChildren()) do
+if v:IsA("Frame") then
+v.Visible = false
+end
+end
+page.Visible = true
+end)
+
+return page
 end
 
--- ═══════════════════════════════════════════
 -- TABS
--- ═══════════════════════════════════════════
-local mainPage, mainTab = createTab("🏠", "Main", 1)
-local creditsPage, creditsTab = createTab("👤", "Credits", 2)
+local mainPage = createTab("Main",1)
+local creditsPage = createTab("Credits",2)
 
--- Activate first tab
-mainTab.BackgroundTransparency = 0
-mainTab.TextColor3 = Color3.fromRGB(80, 50, 10)
 mainPage.Visible = true
 
--- ═══════════════════════════════════════════
--- MAIN PAGE CONTENT
--- ═══════════════════════════════════════════
-local bannerBg = Instance.new("Frame", mainPage)
-bannerBg.Size = UDim2.new(1, 0, 0, 70)
-bannerBg.Position = UDim2.new(0, 0, 0, 10)
-bannerBg.BackgroundColor3 = Color3.fromRGB(238, 222, 172)
-Instance.new("UICorner", bannerBg).CornerRadius = UDim.new(0, 10)
-local bannerStroke = Instance.new("UIStroke", bannerBg)
-bannerStroke.Color = Color3.fromRGB(205, 178, 110)
-bannerStroke.Thickness = 1
+-- MAIN TEXT
+local welcome = Instance.new("TextLabel", mainPage)
+welcome.Size = UDim2.new(1,0,0,60)
+welcome.Position = UDim2.new(0,0,0.3,0)
+welcome.BackgroundTransparency = 1
+welcome.Text = "Welcome To NO MERCY HUB"
+welcome.TextColor3 = Color3.fromRGB(40,40,40)
+welcome.Font = Enum.Font.GothamBold
+welcome.TextScaled = true
 
-local bannerIcon = Instance.new("TextLabel", bannerBg)
-bannerIcon.Size = UDim2.new(0, 44, 0, 44)
-bannerIcon.Position = UDim2.new(0, 12, 0.5, -22)
-bannerIcon.Text = "⚔"
-bannerIcon.TextScaled = true
-bannerIcon.BackgroundColor3 = Color3.fromRGB(200, 60, 60)
-bannerIcon.TextColor3 = Color3.new(1,1,1)
-Instance.new("UICorner", bannerIcon).CornerRadius = UDim.new(0, 10)
-
-local welcomeLabel = Instance.new("TextLabel", bannerBg)
-welcomeLabel.Size = UDim2.new(1, -70, 0, 26)
-welcomeLabel.Position = UDim2.new(0, 66, 0, 10)
-welcomeLabel.Text = "Welcome to NO MERCY HUB"
-welcomeLabel.TextColor3 = Color3.fromRGB(70, 45, 10)
-welcomeLabel.BackgroundTransparency = 1
-welcomeLabel.Font = Enum.Font.GothamBold
-welcomeLabel.TextScaled = true
-welcomeLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-local welcomeSub = Instance.new("TextLabel", bannerBg)
-welcomeSub.Size = UDim2.new(1, -70, 0, 18)
-welcomeSub.Position = UDim2.new(0, 66, 0, 38)
-welcomeSub.Text = "Key verified ✓  |  Made by Kemerus"
-welcomeSub.TextColor3 = Color3.fromRGB(140, 110, 60)
-welcomeSub.BackgroundTransparency = 1
-welcomeSub.Font = Enum.Font.Gotham
-welcomeSub.TextSize = 10
-welcomeSub.TextXAlignment = Enum.TextXAlignment.Left
-
--- Status card
-local statusCard = Instance.new("Frame", mainPage)
-statusCard.Size = UDim2.new(1, 0, 0, 50)
-statusCard.Position = UDim2.new(0, 0, 0, 92)
-statusCard.BackgroundColor3 = Color3.fromRGB(242, 230, 195)
-Instance.new("UICorner", statusCard).CornerRadius = UDim.new(0, 10)
-local statusCardStroke = Instance.new("UIStroke", statusCard)
-statusCardStroke.Color = Color3.fromRGB(200, 175, 110)
-statusCardStroke.Thickness = 1
-
-local statusDot = Instance.new("Frame", statusCard)
-statusDot.Size = UDim2.new(0, 10, 0, 10)
-statusDot.Position = UDim2.new(0, 14, 0.5, -5)
-statusDot.BackgroundColor3 = Color3.fromRGB(60, 200, 100)
-Instance.new("UICorner", statusDot).CornerRadius = UDim.new(1, 0)
-
-local statusText = Instance.new("TextLabel", statusCard)
-statusText.Size = UDim2.new(1, -40, 1, 0)
-statusText.Position = UDim2.new(0, 34, 0, 0)
-statusText.Text = "Hub is active and running"
-statusText.TextColor3 = Color3.fromRGB(70, 50, 15)
-statusText.BackgroundTransparency = 1
-statusText.Font = Enum.Font.Gotham
-statusText.TextSize = 12
-statusText.TextXAlignment = Enum.TextXAlignment.Left
-
--- ═══════════════════════════════════════════
--- CREDITS PAGE CONTENT
--- ═══════════════════════════════════════════
-local devHeader = Instance.new("TextLabel", creditsPage)
-devHeader.Size = UDim2.new(1, 0, 0, 26)
-devHeader.Position = UDim2.new(0, 0, 0, 4)
-devHeader.Text = "DEVELOPERS"
-devHeader.TextColor3 = Color3.fromRGB(130, 90, 20)
-devHeader.BackgroundTransparency = 1
-devHeader.Font = Enum.Font.GothamBold
-devHeader.TextSize = 12
-devHeader.TextXAlignment = Enum.TextXAlignment.Left
-
-local devLine = Instance.new("Frame", creditsPage)
-devLine.Size = UDim2.new(1, 0, 0, 1)
-devLine.Position = UDim2.new(0, 0, 0, 30)
-devLine.BackgroundColor3 = Color3.fromRGB(200, 175, 115)
+-- CREDITS
+local devTitle = Instance.new("TextLabel", creditsPage)
+devTitle.Size = UDim2.new(1,0,0,35)
+devTitle.BackgroundColor3 = Color3.fromRGB(200,170,90)
+devTitle.Text = "DEVELOPERS"
+devTitle.TextColor3 = Color3.new(1,1,1)
+devTitle.Font = Enum.Font.GothamBold
+devTitle.TextScaled = true
 
 local card = Instance.new("Frame", creditsPage)
-card.Size = UDim2.new(1, 0, 0, 100)
-card.Position = UDim2.new(0, 0, 0, 40)
-card.BackgroundColor3 = Color3.fromRGB(240, 228, 195)
-Instance.new("UICorner", card).CornerRadius = UDim.new(0, 12)
-local cardStroke = Instance.new("UIStroke", card)
-cardStroke.Color = Color3.fromRGB(200, 170, 100)
-cardStroke.Thickness = 1.5
+card.Size = UDim2.new(0.9,0,0,80)
+card.Position = UDim2.new(0.05,0,0,50)
+card.BackgroundColor3 = Color3.fromRGB(240,230,210)
+Instance.new("UICorner",card)
 
--- Avatar circle
-local avatar = Instance.new("Frame", card)
-avatar.Size = UDim2.new(0, 60, 0, 60)
-avatar.Position = UDim2.new(0, 16, 0.5, -30)
-avatar.BackgroundColor3 = Color3.fromRGB(200, 60, 60)
-Instance.new("UICorner", avatar).CornerRadius = UDim.new(1, 0)
-local avatarStroke = Instance.new("UIStroke", avatar)
-avatarStroke.Color = Color3.fromRGB(230, 195, 100)
-avatarStroke.Thickness = 2
+local border = Instance.new("UIStroke",card)
+border.Color = Color3.fromRGB(200,170,90)
+border.Thickness = 2
 
-local avatarLabel = Instance.new("TextLabel", avatar)
-avatarLabel.Size = UDim2.new(1, 0, 1, 0)
-avatarLabel.Text = "K"
-avatarLabel.TextColor3 = Color3.new(1, 1, 1)
-avatarLabel.BackgroundTransparency = 1
-avatarLabel.Font = Enum.Font.GothamBold
-avatarLabel.TextScaled = true
+local icon = Instance.new("TextLabel", card)
+icon.Size = UDim2.new(0,50,0,50)
+icon.Position = UDim2.new(0,15,0.5,-25)
+icon.BackgroundColor3 = Color3.fromRGB(200,170,90)
+icon.Text = "K"
+icon.TextColor3 = Color3.new(1,1,1)
+icon.TextScaled = true
+Instance.new("UICorner",icon)
 
--- Name and info
-local devName = Instance.new("TextLabel", card)
-devName.Size = UDim2.new(0.5, 0, 0, 22)
-devName.Position = UDim2.new(0, 90, 0, 18)
-devName.Text = "Kemerus"
-devName.TextColor3 = Color3.fromRGB(60, 40, 10)
-devName.BackgroundTransparency = 1
-devName.Font = Enum.Font.GothamBold
-devName.TextSize = 16
-devName.TextXAlignment = Enum.TextXAlignment.Left
+local name = Instance.new("TextLabel", card)
+name.Size = UDim2.new(0.5,0,0,25)
+name.Position = UDim2.new(0,80,0,15)
+name.Text = "Kemerus"
+name.TextColor3 = Color3.fromRGB(40,40,40)
+name.BackgroundTransparency = 1
+name.Font = Enum.Font.GothamBold
+name.TextScaled = true
+name.TextXAlignment = Enum.TextXAlignment.Left
 
-local devRole = Instance.new("TextLabel", card)
-devRole.Size = UDim2.new(0.5, 0, 0, 16)
-devRole.Position = UDim2.new(0, 90, 0, 42)
-devRole.Text = "⚙  Script Developer"
-devRole.TextColor3 = Color3.fromRGB(130, 100, 50)
-devRole.BackgroundTransparency = 1
-devRole.Font = Enum.Font.Gotham
-devRole.TextSize = 11
-devRole.TextXAlignment = Enum.TextXAlignment.Left
+local role = Instance.new("TextLabel", card)
+role.Size = UDim2.new(0.5,0,0,20)
+role.Position = UDim2.new(0,80,0,40)
+role.Text = "Script Developer"
+role.TextColor3 = Color3.fromRGB(100,100,100)
+role.BackgroundTransparency = 1
+role.Font = Enum.Font.Gotham
+role.TextScaled = true
+role.TextXAlignment = Enum.TextXAlignment.Left
 
-local devBadge = Instance.new("TextLabel", card)
-devBadge.Size = UDim2.new(0, 80, 0, 24)
-devBadge.Position = UDim2.new(0, 90, 0, 62)
-devBadge.Text = "FOUNDER"
-devBadge.BackgroundColor3 = Color3.fromRGB(180, 140, 55)
-devBadge.TextColor3 = Color3.fromRGB(255, 248, 210)
-devBadge.Font = Enum.Font.GothamBold
-devBadge.TextSize = 10
-Instance.new("UICorner", devBadge).CornerRadius = UDim.new(0, 6)
+local tag = Instance.new("TextLabel", card)
+tag.Size = UDim2.new(0,90,0,30)
+tag.Position = UDim2.new(1,-100,0.5,-15)
+tag.BackgroundColor3 = Color3.fromRGB(200,170,90)
+tag.Text = "FOUNDER"
+tag.TextColor3 = Color3.new(1,1,1)
+tag.TextScaled = true
+Instance.new("UICorner",tag)
 
--- Founder tag on right
-local founderTag = Instance.new("TextLabel", card)
-founderTag.Size = UDim2.new(0, 26, 0, 60)
-founderTag.Position = UDim2.new(1, -38, 0.5, -30)
-founderTag.Text = "F\nO\nU\nN\nD\nE\nR"
-founderTag.BackgroundColor3 = Color3.fromRGB(200, 160, 60)
-founderTag.TextColor3 = Color3.fromRGB(255, 248, 210)
-founderTag.Font = Enum.Font.GothamBold
-founderTag.TextSize = 7
-Instance.new("UICorner", founderTag).CornerRadius = UDim.new(0, 7)
+-- KEY VERIFY
+verify.MouseButton1Click:Connect(function()
 
--- ═══════════════════════════════════════════
--- KEY VERIFY LOGIC
--- ═══════════════════════════════════════════
-loginBtn.MouseButton1Click:Connect(function()
-    if keyBox.Text == KEY then
-        statusLabel.Text = "✓  Key accepted!"
-        statusLabel.TextColor3 = Color3.fromRGB(60, 180, 80)
+if keyBox.Text == KEY then
 
-        tween(loginBtn, {BackgroundColor3 = Color3.fromRGB(60, 180, 80)}, 0.2)
+local tween = TweenService:Create(
+keyPage,
+TweenInfo.new(0.5),
+{Position = UDim2.new(0,0,1,0)}
+)
 
-        task.wait(0.4)
-        local out = TweenService:Create(keyPage, TweenInfo.new(0.45, Enum.EasingStyle.Back, Enum.EasingDirection.In), {Position = UDim2.new(0, 0, 1.2, 0)})
-        out:Play()
-        out.Completed:Connect(function()
-            keyPage.Visible = false
-            mainMenu.Visible = true
-            mainMenu.Position = UDim2.new(0, 0, -0.1, 0)
-            tween(mainMenu, {Position = UDim2.new(0, 0, 0, 0)}, 0.4)
-        end)
-    else
-        statusLabel.Text = "✕  Wrong key! Try again."
-        statusLabel.TextColor3 = Color3.fromRGB(210, 70, 60)
-        tween(loginBtn, {BackgroundColor3 = Color3.fromRGB(200, 70, 60)}, 0.15)
-        task.wait(0.3)
-        tween(loginBtn, {BackgroundColor3 = Color3.fromRGB(180, 140, 60)}, 0.3)
-        keyBox.Text = ""
-    end
+tween:Play()
+
+tween.Completed:Connect(function()
+keyPage.Visible = false
+mainMenu.Visible = true
 end)
 
--- ═══════════════════════════════════════════
--- HOVER EFFECTS
--- ════════════════════════════════════════
-hub
-loginBtn.MouseLeave:Connect(function()
-    tween(loginBtn, {BackgroundColor3 = Color3.fromRGB(180, 140, 60)}, 0.15)
-end)
+else
 
-closeBtn.MouseEnter:Connect(function()
-    tween(closeBtn, {BackgroundColor3 = Color3.fromRGB(230, 60, 50)}, 0.15)
-end)
-closeBtn.MouseLeave:Connect(function()
-    tween(closeBtn, {BackgroundColor3 = Color3.fromRGB(210, 80, 70)}, 0.15)
-end)
+keyBox.Text = "Wrong Key!"
 
-miniBtn.MouseEnter:Connect(function()
-    tween(miniBtn, {BackgroundColor3 = Color3.fromRGB(195, 178, 130)}, 0.15)
-end)
-miniBtn.MouseLeave:Connect(function()
-    tween(miniBtn, {BackgroundColor3 = Color3.fromRGB(210, 195, 150)}, 0.15)
-end)
-
--- ═══════════════════════════════════════════
--- BUTTON EVENTS
--- ═══════════════════════════════════════════
-openBtn.MouseButton1Click:Connect(function()
-    frame.Visible = true
-    frameShadow.Visible = true
-    openBtn.Visible = false
-    frame.Size = UDim2.new(0, 500, 0, 0)
-    tween(frame, {Size = UDim2.new(0, 500, 0, 320)}, 0.35, Enum.EasingStyle.Back)
-end)
-
-closeBtn.MouseButton1Click:Connect(function()
-    tween(frame, {Size = UDim2.new(0, 500, 0, 0)}, 0.25, Enum.EasingStyle.Quint)
-    task.wait(0.27)
-    frame.Visible = false
-    frameShadow.Visible = false
-    openBtn.Visible = true
-end)
-
-local minimized = false
-mini.MouseButton1Click = nil  -- clear old
-miniBtn.MouseButton1Click:Connect(function()
-    if minimized then
-        tween(frame, {Size = UDim2.new(0, 500, 0, 320)}, 0.3, Enum.EasingStyle.Back)
-        minimized = false
-    else
-        tween(frame, {Size = UDim2.new(0, 500, 0, 42)}, 0.25)
-        minimized = true
-    end
-end)
-
--- ═══════════════════════════════════════════
--- DRAG (Mouse + Touch)
--- ═══════════════════════════════════════════
-local dragging = false
-local dragInput, dragStart, startPos
-
-local function updateDrag(input)
-    local delta = input.Position - dragStart
-    local newPos = UDim2.new(
-        startPos.X.Scale, startPos.X.Offset + delta.X,
-        startPos.Y.Scale, startPos.Y.Offset + delta.Y
-    )
-    frame.Position = newPos
-    frameShadow.Position = UDim2.new(
-        newPos.X.Scale, newPos.X.Offset - 10,
-        newPos.Y.Scale, newPos.Y.Offset - 10
-    )
 end
 
-topBar.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1
-    or input.UserInputType == Enum.UserInputType.Touch then
-        dragging = true
-        dragStart = input.Position
-        startPos = frame.Position
-        input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                dragging = false
-            end
-        end)
-    end
 end)
 
-topBar.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement
-    or input.UserInputType == Enum.UserInputType.Touch then
-        dragInput = input
-    end
+-- BUTTON EVENTS
+open.MouseButton1Click:Connect(function()
+frame.Visible = true
+open.Visible = false
+end)
+
+close.MouseButton1Click:Connect(function()
+frame.Visible = false
+open.Visible = true
+end)
+
+mini.MouseButton1Click:Connect(function()
+mainMenu.Visible = not mainMenu.Visible
+end)
+
+-- DRAG MOBILE
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+local delta = input.Position - dragStart
+frame.Position = UDim2.new(
+startPos.X.Scale,
+startPos.X.Offset + delta.X,
+startPos.Y.Scale,
+startPos.Y.Offset + delta.Y
+)
+end
+
+top.InputBegan:Connect(function(input)
+if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+dragging = true
+dragStart = input.Position
+startPos = frame.Position
+
+input.Changed:Connect(function()
+if input.UserInputState == Enum.UserInputState.End then
+dragging = false
+end
+end)
+end
+end)
+
+top.InputChanged:Connect(function(input)
+if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement then
+dragInput = input
+end
 end)
 
 UIS.InputChanged:Connect(function(input)
-    if input == dragInput and dragging then
-        updateDrag(input)
-    end
+if input == dragInput and dragging then
+update(input)
+end
 end)
