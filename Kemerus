@@ -1,365 +1,214 @@
-‎--// NO MERCY HUB (FINAL + ESP FEATURE)
-‎
-‎local Players = game:GetService("Players")
-‎local UIS = game:GetService("UserInputService")
-‎local RunService = game:GetService("RunService")
-‎local LocalPlayer = Players.LocalPlayer
-‎
-‎-- GUI
-‎local gui = Instance.new("ScreenGui")
-‎gui.Parent = LocalPlayer:WaitForChild("PlayerGui")
-‎gui.ResetOnSpawn = false
-‎
-‎-- MAIN
-‎local main = Instance.new("Frame",gui)
-‎main.Size = UDim2.new(0,420,0,300)
-‎main.Position = UDim2.new(0.5,-210,0.5,-150)
-‎main.BackgroundColor3 = Color3.fromRGB(15,15,25)
-‎main.BorderSizePixel = 0
-‎Instance.new("UICorner",main)
-‎
-‎local stroke = Instance.new("UIStroke",main)
-‎stroke.Color = Color3.fromRGB(0,170,255)
-‎
-‎-- HEADER
-‎local header = Instance.new("Frame",main)
-‎header.Size = UDim2.new(1,0,0,40)
-‎header.BackgroundTransparency = 1
-‎
-‎local title = Instance.new("TextLabel",header)
-‎title.Size = UDim2.new(1,0,1,0)
-‎title.BackgroundTransparency = 1
-‎title.Text = "NO MERCY HUB"
-‎title.TextColor3 = Color3.fromRGB(0,170,255)
-‎title.Font = Enum.Font.GothamBold
-‎title.TextSize = 22
-‎
-‎-- CLOSE
-‎local close = Instance.new("TextButton",header)
-‎close.Size = UDim2.new(0,30,0,30)
-‎close.Position = UDim2.new(1,-35,0,5)
-‎close.Text = "X"
-‎close.BackgroundTransparency = 1
-‎close.TextColor3 = Color3.fromRGB(255,80,80)
-‎
-‎close.MouseButton1Click:Connect(function()
-‎gui:Destroy()
-‎end)
-‎
-‎-- MINIMIZE
-‎local mini = Instance.new("TextButton",header)
-‎mini.Size = UDim2.new(0,30,0,30)
-‎mini.Position = UDim2.new(1,-70,0,5)
-‎mini.Text = "-"
-‎mini.BackgroundTransparency = 1
-‎mini.TextColor3 = Color3.fromRGB(200,200,200)
-‎
-‎local minimized=false
-‎
-‎-- SIDEBAR
-‎local sidebar = Instance.new("Frame",main)
-‎sidebar.Size = UDim2.new(0,120,1,-40)
-‎sidebar.Position = UDim2.new(0,0,0,40)
-‎sidebar.BackgroundColor3 = Color3.fromRGB(20,20,35)
-‎sidebar.Visible=false
-‎Instance.new("UICorner",sidebar)
-‎
-‎-- CONTENT
-‎local content = Instance.new("Frame",main)
-‎content.Size = UDim2.new(1,-120,1,-40)
-‎content.Position = UDim2.new(0,120,0,40)
-‎content.BackgroundTransparency = 1
-‎content.Visible=false
-‎
-‎-- Hide sidebar buttons
-‎local function setSidebarButtonsVisible(state)
-‎for _,v in pairs(sidebar:GetChildren()) do
-‎if v:IsA("TextButton") then
-‎v.Visible = state
-‎end
-‎end
-‎end
-‎
-‎mini.MouseButton1Click:Connect(function()
-‎
-‎if minimized then
-‎main:TweenSize(UDim2.new(0,420,0,300),"Out","Quad",0.3,true)
-‎setSidebarButtonsVisible(true)
-‎minimized=false
-‎else
-‎main:TweenSize(UDim2.new(0,420,0,40),"Out","Quad",0.3,true)
-‎setSidebarButtonsVisible(false)
-‎minimized=true
-‎end
-‎
-‎end)
-‎
-‎-- DRAG
-‎local dragging
-‎local dragInput
-‎local dragStart
-‎local startPos
-‎
-‎local function update(input)
-‎
-‎local delta=input.Position-dragStart
-‎
-‎main.Position=UDim2.new(
-‎startPos.X.Scale,
-‎startPos.X.Offset+delta.X,
-‎startPos.Y.Scale,
-‎startPos.Y.Offset+delta.Y)
-‎
-‎end
-‎
-‎header.InputBegan:Connect(function(input)
-‎
-‎if input.UserInputType==Enum.UserInputType.MouseButton1
-‎or input.UserInputType==Enum.UserInputType.Touch then
-‎
-‎dragging=true
-‎dragStart=input.Position
-‎startPos=main.Position
-‎
-‎end
-‎
-‎end)
-‎
-‎header.InputChanged:Connect(function(input)
-‎
-‎if input.UserInputType==Enum.UserInputType.MouseMovement
-‎or input.UserInputType==Enum.UserInputType.Touch then
-‎
-‎dragInput=input
-‎
-‎end
-‎
-‎end)
-‎
-‎UIS.InputChanged:Connect(function(input)
-‎
-‎if input==dragInput and dragging then
-‎update(input)
-‎end
-‎
-‎end)
-‎
-‎-- KEY FRAME
-‎local keyFrame = Instance.new("Frame",main)
-‎keyFrame.Size = UDim2.new(1,0,1,-40)
-‎keyFrame.Position = UDim2.new(0,0,0,40)
-‎keyFrame.BackgroundTransparency = 1
-‎
-‎local keyBox = Instance.new("TextBox",keyFrame)
-‎keyBox.Size = UDim2.new(0.6,0,0,40)
-‎keyBox.Position = UDim2.new(0.2,0,0.35,0)
-‎keyBox.PlaceholderText = "Enter Key"
-‎keyBox.BackgroundColor3 = Color3.fromRGB(30,30,45)
-‎keyBox.TextColor3 = Color3.new(1,1,1)
-‎Instance.new("UICorner",keyBox)
-‎
-‎local enter = Instance.new("TextButton",keyFrame)
-‎enter.Size = UDim2.new(0.4,0,0,35)
-‎enter.Position = UDim2.new(0.3,0,0.55,0)
-‎enter.Text = "Enter"
-‎enter.BackgroundColor3 = Color3.fromRGB(0,170,255)
-‎Instance.new("UICorner",enter)
-‎
-‎local VALID_KEY="kemerus"
-‎
-‎-- BUTTON CREATION
-‎local function sideBtn(text,pos)
-‎
-‎local b=Instance.new("TextButton",sidebar)
-‎b.Size=UDim2.new(1,-20,0,40)
-‎b.Position=UDim2.new(0,10,0,pos)
-‎b.Text=text
-‎b.BackgroundColor3=Color3.fromRGB(25,25,40)
-‎b.TextColor3=Color3.fromRGB(0,170,255)
-‎Instance.new("UICorner",b)
-‎
-‎return b
-‎
-‎end
-‎
-‎local auto=sideBtn("AutoFarm",20)
-‎local feature=sideBtn("Feature",70)
-‎local teleport=sideBtn("Teleport",120)
-‎local credits=sideBtn("Credits",170)
-‎
-‎-- FEATURE PAGE
-‎local featureFrame=Instance.new("Frame",content)
-‎featureFrame.Size=UDim2.new(1,0,1,0)
-‎featureFrame.BackgroundTransparency=1
-‎featureFrame.Visible=false
-‎
-‎local espButton=Instance.new("TextButton",featureFrame)
-‎espButton.Size=UDim2.new(0,200,0,50)
-‎espButton.Position=UDim2.new(0.5,-100,0,60)
-‎espButton.Text="ESP : OFF"
-‎espButton.BackgroundColor3=Color3.fromRGB(0,170,255)
-‎Instance.new("UICorner",espButton)
-‎
-‎-- ESP SYSTEM
-‎local ESPEnabled=false
-‎
-‎local function removeESP()
-‎
-‎for _,player in pairs(Players:GetPlayers()) do
-‎
-‎if player.Character then
-‎
-‎local h=player.Character:FindFirstChild("ESPHighlight")
-‎if h then h:Destroy() end
-‎
-‎if player.Character:FindFirstChild("Head") then
-‎
-‎local n=player.Character.Head:FindFirstChild("ESPNameTag")
-‎if n then n:Destroy() end
-‎
-‎end
-‎
-‎end
-‎
-‎end
-‎
-‎end
-‎
-‎local function startESP()
-‎
-‎for _,player in pairs(Players:GetPlayers()) do
-‎
-‎if player~=LocalPlayer then
-‎
-‎local function setup(char)
-‎
-‎if not ESPEnabled then return end
-‎
-‎char:WaitForChild("HumanoidRootPart",5)
-‎
-‎local highlight=Instance.new("Highlight")
-‎highlight.Name="ESPHighlight"
-‎highlight.FillColor=Color3.fromRGB(255,255,0)
-‎highlight.FillTransparency=0.5
-‎highlight.OutlineColor=Color3.fromRGB(255,255,255)
-‎highlight.Parent=char
-‎
-‎local head=char:FindFirstChild("Head")
-‎
-‎if head then
-‎
-‎local gui=Instance.new("BillboardGui")
-‎gui.Name="ESPNameTag"
-‎gui.Size=UDim2.new(0,200,0,50)
-‎gui.StudsOffset=Vector3.new(0,3,0)
-‎gui.AlwaysOnTop=true
-‎gui.Parent=head
-‎
-‎local txt=Instance.new("TextLabel")
-‎txt.Size=UDim2.new(1,0,1,0)
-‎txt.BackgroundTransparency=1
-‎txt.TextColor3=Color3.new(1,1,1)
-‎txt.Font=Enum.Font.GothamBold
-‎txt.TextSize=14
-‎txt.Parent=gui
-‎
-‎RunService.RenderStepped:Connect(function()
-‎
-‎if not ESPEnabled then return end
-‎
-‎if char and char:FindFirstChild("HumanoidRootPart") and LocalPlayer.Character then
-‎
-‎local dist=(char.HumanoidRootPart.Position-LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-‎txt.Text=player.Name.." ["..math.floor(dist).." studs]"
-‎
-‎end
-‎
-‎end)
-‎
-‎end
-‎
-‎end
-‎
-‎if player.Character then
-‎setup(player.Character)
-‎end
-‎
-‎player.CharacterAdded:Connect(setup)
-‎
-‎end
-‎
-‎end
-‎
-‎end
-‎
-‎espButton.MouseButton1Click:Connect(function()
-‎
-‎ESPEnabled=not ESPEnabled
-‎
-‎if ESPEnabled then
-‎espButton.Text="ESP : ON"
-‎startESP()
-‎else
-‎espButton.Text="ESP : OFF"
-‎removeESP()
-‎end
-‎
-‎end)
-‎
-‎-- CREDITS PAGE
-‎local creditFrame=Instance.new("Frame",content)
-‎creditFrame.Size=UDim2.new(1,0,1,0)
-‎creditFrame.BackgroundTransparency=1
-‎creditFrame.Visible=false
-‎
-‎local creditText=Instance.new("TextLabel",creditFrame)
-‎creditText.Size=UDim2.new(1,0,1,0)
-‎creditText.BackgroundTransparency=1
-‎creditText.TextScaled=true
-‎creditText.Font=Enum.Font.GothamBold
-‎creditText.TextColor3=Color3.new(1,1,1)
-‎
-‎creditText.Text=[[
-‎NO MERCY HUB
-‎
-‎Owner :
-‎Kemerus
-‎
-‎Script :
-‎Kemerus
-‎
-‎Thanks For Using
-‎]]
-‎
-‎-- TAB SWITCH
-‎feature.MouseButton1Click:Connect(function()
-‎
-‎featureFrame.Visible=true
-‎creditFrame.Visible=false
-‎
-‎end)
-‎
-‎credits.MouseButton1Click:Connect(function()
-‎
-‎creditFrame.Visible=true
-‎featureFrame.Visible=false
-‎
-‎end)
-‎
-‎-- KEY CHECK
-‎enter.MouseButton1Click:Connect(function()
-‎
-‎if keyBox.Text==VALID_KEY then
-‎
-‎keyFrame.Visible=false
-‎sidebar.Visible=true
-‎content.Visible=true
-‎
-‎else
-‎
-‎keyBox.Text="Wrong Key"
-‎
-‎end
-‎
-‎end)
-‎
+-- Services
+local Players = game:GetService("Players")
+local UIS = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+
+-- GUI Setup
+local gui = Instance.new("ScreenGui")
+gui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+gui.ResetOnSpawn = false
+
+-- Main Frame
+local main = Instance.new("Frame", gui)
+main.Size = UDim2.new(0, 420, 0, 300)
+main.Position = UDim2.new(0.5, -210, 0.5, -150)
+main.BackgroundColor3 = Color3.fromRGB(15, 15, 25)
+main.BorderSizePixel = 0
+Instance.new("UICorner", main)
+
+local stroke = Instance.new("UIStroke", main)
+stroke.Color = Color3.fromRGB(0, 170, 255)
+
+-- Header
+local header = Instance.new("Frame", main)
+header.Size = UDim2.new(1, 0, 0, 40)
+header.BackgroundTransparency = 1
+
+local title = Instance.new("TextLabel", header)
+title.Size = UDim2.new(1, 0, 1, 0)
+title.BackgroundTransparency = 1
+title.Text = "NO MERCY HUB"
+title.TextColor3 = Color3.fromRGB(0, 170, 255)
+title.Font = Enum.Font.GothamBold
+title.TextSize = 22
+
+-- Close Button
+local close = Instance.new("TextButton", header)
+close.Size = UDim2.new(0, 30, 0, 30)
+close.Position = UDim2.new(1, -35, 0, 5)
+close.Text = "X"
+close.BackgroundTransparency = 1
+close.TextColor3 = Color3.fromRGB(255, 80, 80)
+close.MouseButton1Click:Connect(function()
+    gui:Destroy()
+end)
+
+-- Minimize Button
+local mini = Instance.new("TextButton", header)
+mini.Size = UDim2.new(0, 30, 0, 30)
+mini.Position = UDim2.new(1, -70, 0, 5)
+mini.Text = "-"
+mini.BackgroundTransparency = 1
+mini.TextColor3 = Color3.fromRGB(200, 200, 200)
+
+local minimized = false
+
+-- Sidebar (Initially hidden)
+local sidebar = Instance.new("Frame", main)
+sidebar.Size = UDim2.new(0, 120, 1, -40)
+sidebar.Position = UDim2.new(0, 0, 0, 40)
+sidebar.BackgroundColor3 = Color3.fromRGB(20, 20, 35)
+sidebar.Visible = false
+Instance.new("UICorner", sidebar)
+
+-- Content Area (Initially hidden)
+local content = Instance.new("Frame", main)
+content.Size = UDim2.new(1, -120, 1, -40)
+content.Position = UDim2.new(0, 120, 0, 40)
+content.BackgroundTransparency = 1
+content.Visible = false
+
+-- Minimize Logic
+local function setSidebarButtonsVisible(state)
+    for _, v in pairs(sidebar:GetChildren()) do
+        if v:IsA("TextButton") then
+            v.Visible = state
+        end
+    end
+end
+
+mini.MouseButton1Click:Connect(function()
+    if minimized then
+        main:TweenSize(UDim2.new(0, 420, 0, 300), "Out", "Quad", 0.3, true)
+        setSidebarButtonsVisible(true)
+        minimized = false
+    else
+        main:TweenSize(UDim2.new(0, 420, 0, 40), "Out", "Quad", 0.3, true)
+        setSidebarButtonsVisible(false)
+        minimized = true
+    end
+end)
+
+-- Dragging Logic
+local dragging, dragInput, dragStart, startPos
+
+local function update(input)
+    local delta = input.Position - dragStart
+    main.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+header.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = main.Position
+    end
+end)
+
+header.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+UIS.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        update(input)
+    end
+end)
+
+-- Key Entry Frame
+local keyFrame = Instance.new("Frame", main)
+keyFrame.Size = UDim2.new(1, 0, 1, 0)
+keyFrame.Position = UDim2.new(0, 0, 0, 40)
+keyFrame.BackgroundTransparency = 1
+
+local keyBox = Instance.new("TextBox", keyFrame)
+keyBox.Size = UDim2.new(0.6, 0, 0, 40)
+keyBox.Position = UDim2.new(0.2, 0, 0.35, 0)
+keyBox.PlaceholderText = "Enter Key"
+keyBox.BackgroundColor3 = Color3.fromRGB(30, 30, 45)
+keyBox.TextColor3 = Color3.new(1, 1, 1)
+Instance.new("UICorner", keyBox)
+
+local enter = Instance.new("TextButton", keyFrame)
+enter.Size = UDim2.new(0.4, 0, 0, 35)
+enter.Position = UDim2.new(0.3, 0, 0.55, 0)
+enter.Text = "Enter"
+enter.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+Instance.new("UICorner", enter)
+
+local VALID_KEY = "kemerus"
+
+-- Sidebar Buttons Creation
+local function sideBtn(text, pos)
+    local b = Instance.new("TextButton", sidebar)
+    b.Size = UDim2.new(1, -20, 0, 40)
+    b.Position = UDim2.new(0, 10, 0, pos)
+    b.Text = text
+    b.BackgroundColor3 = Color3.fromRGB(25, 25, 40)
+    b.TextColor3 = Color3.fromRGB(0, 170, 255)
+    Instance.new("UICorner", b)
+    return b
+end
+
+local auto = sideBtn("AutoFarm", 20)
+local feature = sideBtn("Feature", 70)
+local teleport = sideBtn("Teleport", 120)
+local credits = sideBtn("Credits", 170)
+
+-- ESP Button & System
+local featureFrame = Instance.new("Frame", content)
+featureFrame.Size = UDim2.new(1, 0, 1, 0)
+featureFrame.BackgroundTransparency = 1
+featureFrame.Visible = false
+
+local espButton = Instance.new("TextButton", featureFrame)
+espButton.Size = UDim2.new(0, 200, 0, 50)
+espButton.Position = UDim2.new(0.5, -100, 0, 60)
+espButton.Text = "ESP : OFF"
+espButton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+Instance.new("UICorner", espButton)
+
+local ESPEnabled = false
+
+local function removeESP()
+    for _, player in pairs(Players:GetPlayers()) do
+        if player.Character then
+            local highlight = player.Character:FindFirstChild("ESPHighlight")
+            if highlight then highlight:Destroy() end
+
+            local nameTag = player.Character:FindFirstChild("Head"):FindFirstChild("ESPNameTag")
+            if nameTag then nameTag:Destroy() end
+        end
+    end
+end
+
+local function startESP()
+    for _, player in pairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer then
+            local function setup(char)
+                if not ESPEnabled then return end
+                char:WaitForChild("HumanoidRootPart", 5)
+
+                local highlight = Instance.new("Highlight")
+                highlight.Name = "ESPHighlight"
+                highlight.FillColor = Color3.fromRGB(255, 255, 0)
+                highlight.FillTransparency = 0.5
+                highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+                highlight.Parent = char
+
+                local head = char:FindFirstChild("Head")
+                if head then
+                    local gui = Instance.new("BillboardGui")
+                    gui.Name = "ESPNameTag"
+                    gui.Size = UDim2.new(0, 200, 0, 50)
+                    gui.StudsOffset = Vector3.new(0, 3, 0)
+                    gui.AlwaysOnTop = true
+                    gui.Parent = head
+
+                    local txt = Instance.new("TextLabel")
+                    txt.Size = UDim2.new(1, 0, 1, 0)
+                    txt.BackgroundTransparency = 1
+                    txt.TextColor3 = Color3.new
