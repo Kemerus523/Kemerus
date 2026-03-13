@@ -1,297 +1,314 @@
--- NO MERCY HUB by Kemerus
+-- // Kemerus Key System
+-- // Menggunakan Rayfield UI Library
+-- // Dibuat dengan tema Kemerus Premium
 
-local TweenService = game:GetService("TweenService")
-local UIS = game:GetService("UserInputService")
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local KEY = "KEMERUS31"
+-- // Konfigurasi Key System
+local KeySystem = {
+    Keys = {
+        "KEMERUS-2026",
+        "KMS-FREE",
+        "KEMERUS-ACCESS",
+        "KMS-KEY",
+    },
+    SaveKey = true,          -- Simpan key agar tidak perlu input ulang
+    GrabKeyFromSite = false, -- Ambil key dari website (opsional)
+    FileName = "KemerusKey", -- Nama file penyimpanan key
+}
 
--- GUI
-local gui = Instance.new("ScreenGui", game.CoreGui)
-gui.ResetOnSpawn = false
+-- // Inisialisasi Rayfield dengan Key System
+local Window = Rayfield:CreateWindow({
+    Name = "Kemerus Script Hub",
+    Icon = 0,                -- Ikon Roblox (bisa diganti dengan ID gambar)
+    LoadingTitle = "Kemerus Script Hub",
+    LoadingSubtitle = "by Kemerus Team",
+    Theme = "Default",       -- Tema: Default, AmberGlow, Amethyst, BloomingLilac, DarkBlue, dll.
 
--- OPEN BUTTON
-local open = Instance.new("TextButton", gui)
-open.Size = UDim2.new(0,60,0,60)
-open.Position = UDim2.new(0,20,0.5,0)
-open.Text = "OPEN"
-open.BackgroundColor3 = Color3.fromRGB(0,200,120)
-open.TextColor3 = Color3.new(1,1,1)
-Instance.new("UICorner",open)
+    DisableRayfieldPrompts = false,
+    DisableBuildWarnings = false,
 
--- MAIN FRAME
-local frame = Instance.new("Frame", gui)
-frame.Size = UDim2.new(0,460,0,280)
-frame.Position = UDim2.new(0.5,-230,0.5,-140)
-frame.BackgroundColor3 = Color3.fromRGB(18,18,18)
-frame.Visible = false
-Instance.new("UICorner",frame)
+    KeySystem = true,
+    KeySettings = {
+        Title = "Kemerus Key System",
+        Subtitle = "Masukkan Key Untuk Melanjutkan",
+        Note = "Dapatkan key gratis di Discord kami!\ndiscord.gg/kemerus",
+        FileName = KeySystem.FileName,
+        SaveKey = KeySystem.SaveKey,
+        GrabKeyFromSite = KeySystem.GrabKeyFromSite,
+        Key = KeySystem.Keys
+    }
+})
 
--- TOP BAR
-local top = Instance.new("Frame", frame)
-top.Size = UDim2.new(1,0,0,35)
-top.BackgroundColor3 = Color3.fromRGB(30,0,0)
+-- // Tab Utama
+local MainTab = Window:CreateTab("🏠 Main", 4483362458)
+local MainSection = MainTab:CreateSection("Menu Utama")
 
-local title = Instance.new("TextLabel", top)
-title.Size = UDim2.new(1,-80,1,0)
-title.Position = UDim2.new(0,10,0,0)
-title.Text = "NO MERCY HUB"
-title.TextColor3 = Color3.fromRGB(255,220,0)
-title.BackgroundTransparency = 1
-title.Font = Enum.Font.GothamBold
-title.TextScaled = true
-title.TextXAlignment = Enum.TextXAlignment.Left
+Rayfield:Notify({
+    Title = "Kemerus Loaded!",
+    Content = "Script berhasil dimuat. Selamat datang!",
+    Duration = 5,
+    Image = 4483362458,
+    Actions = {
+        Ignore = {
+            Name = "OK",
+            Callback = function()
+                print("Notifikasi ditutup.")
+            end
+        },
+    },
+})
 
--- MINIMIZE
-local mini = Instance.new("TextButton", top)
-mini.Size = UDim2.new(0,30,1,0)
-mini.Position = UDim2.new(1,-60,0,0)
-mini.Text = "-"
-mini.BackgroundColor3 = Color3.fromRGB(40,40,40)
+-- // Toggle Contoh
+MainTab:CreateToggle({
+    Name = "Auto Farm",
+    CurrentValue = false,
+    Flag = "AutoFarm",
+    Callback = function(Value)
+        if Value then
+            Rayfield:Notify({
+                Title = "Auto Farm",
+                Content = "Auto Farm diaktifkan!",
+                Duration = 3,
+            })
+            -- Masukkan logika auto farm di sini
+        else
+            Rayfield:Notify({
+                Title = "Auto Farm",
+                Content = "Auto Farm dimatikan!",
+                Duration = 3,
+            })
+        end
+    end,
+})
 
--- CLOSE
-local close = Instance.new("TextButton", top)
-close.Size = UDim2.new(0,30,1,0)
-close.Position = UDim2.new(1,-30,0,0)
-close.Text = "X"
-close.BackgroundColor3 = Color3.fromRGB(180,40,40)
+MainTab:CreateToggle({
+    Name = "God Mode",
+    CurrentValue = false,
+    Flag = "GodMode",
+    Callback = function(Value)
+        local player = game.Players.LocalPlayer
+        if Value then
+            -- Logika god mode di sini
+            print("God Mode: ON")
+        else
+            print("God Mode: OFF")
+        end
+    end,
+})
 
--- CONTENT
-local content = Instance.new("Frame", frame)
-content.Size = UDim2.new(1,0,1,-35)
-content.Position = UDim2.new(0,0,0,35)
-content.BackgroundTransparency = 1
+MainTab:CreateToggle({
+    Name = "Speed Hack",
+    CurrentValue = false,
+    Flag = "SpeedHack",
+    Callback = function(Value)
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+        if character then
+            local humanoid = character:FindFirstChild("Humanoid")
+            if humanoid then
+                if Value then
+                    humanoid.WalkSpeed = 50
+                else
+                    humanoid.WalkSpeed = 16
+                end
+            end
+        end
+    end,
+})
 
--- KEY PAGE
-local keyPage = Instance.new("Frame", content)
-keyPage.Size = UDim2.new(1,0,1,0)
-keyPage.BackgroundTransparency = 1
+-- // Slider Contoh
+MainTab:CreateSlider({
+    Name = "Walk Speed",
+    Range = {16, 100},
+    Increment = 1,
+    Suffix = " Speed",
+    CurrentValue = 16,
+    Flag = "WalkSpeed",
+    Callback = function(Value)
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+        if character then
+            local humanoid = character:FindFirstChild("Humanoid")
+            if humanoid then
+                humanoid.WalkSpeed = Value
+            end
+        end
+    end,
+})
 
-local keyTitle = Instance.new("TextLabel", keyPage)
-keyTitle.Size = UDim2.new(1,0,0,40)
-keyTitle.Position = UDim2.new(0,0,0.2,0)
-keyTitle.Text = "ENTER KEY"
-keyTitle.TextColor3 = Color3.fromRGB(255,220,0)
-keyTitle.BackgroundTransparency = 1
-keyTitle.Font = Enum.Font.GothamBold
-keyTitle.TextScaled = true
+MainTab:CreateSlider({
+    Name = "Jump Power",
+    Range = {50, 300},
+    Increment = 5,
+    Suffix = " JP",
+    CurrentValue = 50,
+    Flag = "JumpPower",
+    Callback = function(Value)
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+        if character then
+            local humanoid = character:FindFirstChild("Humanoid")
+            if humanoid then
+                humanoid.JumpPower = Value
+            end
+        end
+    end,
+})
 
-local keyBox = Instance.new("TextBox", keyPage)
-keyBox.Size = UDim2.new(0.6,0,0,40)
-keyBox.Position = UDim2.new(0.2,0,0.45,0)
-keyBox.PlaceholderText = "Enter Key..."
-keyBox.BackgroundColor3 = Color3.fromRGB(25,25,25)
-keyBox.TextColor3 = Color3.new(1,1,1)
-Instance.new("UICorner",keyBox)
+-- // Tab Player
+local PlayerTab = Window:CreateTab("👤 Player", 4483362458)
+local PlayerSection = PlayerTab:CreateSection("Pengaturan Player")
 
-local verify = Instance.new("TextButton", keyPage)
-verify.Size = UDim2.new(0.6,0,0,40)
-verify.Position = UDim2.new(0.2,0,0.65,0)
-verify.Text = "LOGIN"
-verify.BackgroundColor3 = Color3.fromRGB(0,200,120)
-verify.TextColor3 = Color3.new(1,1,1)
-Instance.new("UICorner",verify)
+PlayerTab:CreateButton({
+    Name = "Reset Character",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character then
+            player.Character:BreakJoints()
+        end
+        Rayfield:Notify({
+            Title = "Reset",
+            Content = "Character direset!",
+            Duration = 3,
+        })
+    end,
+})
 
--- MAIN MENU
-local mainMenu = Instance.new("Frame", content)
-mainMenu.Size = UDim2.new(1,0,1,0)
-mainMenu.Visible = false
-mainMenu.BackgroundTransparency = 1
+PlayerTab:CreateButton({
+    Name = "Bring All Players",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+        if character then
+            local rootPart = character:FindFirstChild("HumanoidRootPart")
+            if rootPart then
+                for _, plr in pairs(game.Players:GetPlayers()) do
+                    if plr ~= player and plr.Character then
+                        local otherRoot = plr.Character:FindFirstChild("HumanoidRootPart")
+                        if otherRoot then
+                            otherRoot.CFrame = rootPart.CFrame + Vector3.new(0, 0, 3)
+                        end
+                    end
+                end
+                Rayfield:Notify({
+                    Title = "Bring Players",
+                    Content = "Semua player berhasil dibawa!",
+                    Duration = 3,
+                })
+            end
+        end
+    end,
+})
 
--- TAB BAR
-local tabBar = Instance.new("Frame", mainMenu)
-tabBar.Size = UDim2.new(0,120,1,0)
-tabBar.BackgroundColor3 = Color3.fromRGB(20,20,20)
+PlayerTab:CreateInput({
+    Name = "Teleport ke Player",
+    PlaceholderText = "Masukkan nama player...",
+    RemoveTextAfterFocusLost = false,
+    Callback = function(Text)
+        local player = game.Players.LocalPlayer
+        local target = game.Players:FindFirstChild(Text)
+        if target and target.Character then
+            local targetRoot = target.Character:FindFirstChild("HumanoidRootPart")
+            local myChar = player.Character
+            if myChar and targetRoot then
+                local myRoot = myChar:FindFirstChild("HumanoidRootPart")
+                if myRoot then
+                    myRoot.CFrame = targetRoot.CFrame + Vector3.new(0, 3, 0)
+                    Rayfield:Notify({
+                        Title = "Teleport",
+                        Content = "Berhasil teleport ke " .. Text,
+                        Duration = 3,
+                    })
+                end
+            end
+        else
+            Rayfield:Notify({
+                Title = "Error",
+                Content = "Player tidak ditemukan!",
+                Duration = 3,
+            })
+        end
+    end,
+})
 
-local pages = Instance.new("Frame", mainMenu)
-pages.Size = UDim2.new(1,-120,1,0)
-pages.Position = UDim2.new(0,120,0,0)
-pages.BackgroundTransparency = 1
+-- // Tab Visual
+local VisualTab = Window:CreateTab("🎨 Visual", 4483362458)
+local VisualSection = VisualTab:CreateSection("Pengaturan Visual")
 
--- PAGE FUNCTION
-local function createPage()
-	local page = Instance.new("Frame", pages)
-	page.Size = UDim2.new(1,0,1,0)
-	page.Visible = false
-	page.BackgroundTransparency = 1
-	return page
-end
+VisualTab:CreateToggle({
+    Name = "ESP Players",
+    CurrentValue = false,
+    Flag = "ESPPlayers",
+    Callback = function(Value)
+        -- Logika ESP bisa ditambahkan di sini
+        if Value then
+            Rayfield:Notify({
+                Title = "ESP",
+                Content = "ESP Players diaktifkan!",
+                Duration = 3,
+            })
+        else
+            Rayfield:Notify({
+                Title = "ESP",
+                Content = "ESP Players dimatikan!",
+                Duration = 3,
+            })
+        end
+    end,
+})
 
--- TAB FUNCTION
-local function createTab(name,pos)
+VisualTab:CreateToggle({
+    Name = "Full Bright",
+    CurrentValue = false,
+    Flag = "FullBright",
+    Callback = function(Value)
+        if Value then
+            game.Lighting.Brightness = 2
+            game.Lighting.ClockTime = 14
+            game.Lighting.FogEnd = 100000
+            game.Lighting.GlobalShadows = false
+            game.Lighting.Ambient = Color3.fromRGB(255, 255, 255)
+        else
+            game.Lighting.Brightness = 1
+            game.Lighting.ClockTime = 14
+            game.Lighting.FogEnd = 100000
+            game.Lighting.GlobalShadows = true
+            game.Lighting.Ambient = Color3.fromRGB(70, 70, 70)
+        end
+    end,
+})
 
-	local tab = Instance.new("TextButton", tabBar)
-	tab.Size = UDim2.new(1,0,0,45)
-	tab.Position = UDim2.new(0,0,0,(pos-1)*45)
-	tab.Text = name
-	tab.BackgroundColor3 = Color3.fromRGB(30,30,30)
-	tab.TextColor3 = Color3.new(1,1,1)
+-- // Tab Settings
+local SettingsTab = Window:CreateTab("⚙️ Settings", 4483362458)
+local SettingsSection = SettingsTab:CreateSection("Pengaturan Script")
 
-	local page = createPage()
+SettingsTab:CreateParagraph({
+    Title = "Kemerus Script Hub",
+    Content = "Version: 1.0.0\nDeveloper: Kemerus Team\nDiscord: discord.gg/kemerus\n\nTerima kasih sudah menggunakan script kami!"
+})
 
-	tab.MouseButton1Click:Connect(function()
-		for _,v in pairs(pages:GetChildren()) do
-			if v:IsA("Frame") then
-				v.Visible = false
-			end
-		end
-		page.Visible = true
-	end)
+SettingsTab:CreateButton({
+    Name = "Discord Server",
+    Callback = function()
+        Rayfield:Notify({
+            Title = "Discord",
+            Content = "Join discord kami: discord.gg/kemerus",
+            Duration = 5,
+        })
+    end,
+})
 
-	return page
-end
+SettingsTab:CreateButton({
+    Name = "Copy Key Info",
+    Callback = function()
+        Rayfield:Notify({
+            Title = "Key Info",
+            Content = "Key tersimpan di: " .. KeySystem.FileName,
+            Duration = 4,
+        })
+    end,
+})
 
--- TABS
-local mainPage = createTab("Main",1)
-local creditsPage = createTab("Credits",2)
-
-mainPage.Visible = true
-
--- MAIN TEXT
-local welcome = Instance.new("TextLabel", mainPage)
-welcome.Size = UDim2.new(1,0,0,60)
-welcome.Position = UDim2.new(0,0,0.3,0)
-welcome.BackgroundTransparency = 1
-welcome.Text = "Welcome To NO MERCY HUB"
-welcome.TextColor3 = Color3.new(1,1,1)
-welcome.Font = Enum.Font.GothamBold
-welcome.TextScaled = true
-
--- CREDITS PAGE STYLE
-local devTitle = Instance.new("TextLabel", creditsPage)
-devTitle.Size = UDim2.new(1,0,0,35)
-devTitle.BackgroundColor3 = Color3.fromRGB(120,0,0)
-devTitle.Text = "DEVELOPERS"
-devTitle.TextColor3 = Color3.new(1,1,1)
-devTitle.Font = Enum.Font.GothamBold
-devTitle.TextScaled = true
-
-local card = Instance.new("Frame", creditsPage)
-card.Size = UDim2.new(0.9,0,0,80)
-card.Position = UDim2.new(0.05,0,0,50)
-card.BackgroundColor3 = Color3.fromRGB(20,20,20)
-Instance.new("UICorner",card)
-
-local border = Instance.new("UIStroke",card)
-border.Color = Color3.fromRGB(255,200,0)
-border.Thickness = 2
-
-local icon = Instance.new("TextLabel", card)
-icon.Size = UDim2.new(0,50,0,50)
-icon.Position = UDim2.new(0,15,0.5,-25)
-icon.BackgroundColor3 = Color3.fromRGB(255,60,60)
-icon.Text = "K"
-icon.TextColor3 = Color3.new(1,1,1)
-icon.TextScaled = true
-Instance.new("UICorner",icon)
-
-local name = Instance.new("TextLabel", card)
-name.Size = UDim2.new(0.5,0,0,25)
-name.Position = UDim2.new(0,80,0,15)
-name.Text = "Kemerus"
-name.TextColor3 = Color3.new(1,1,1)
-name.BackgroundTransparency = 1
-name.Font = Enum.Font.GothamBold
-name.TextScaled = true
-name.TextXAlignment = Enum.TextXAlignment.Left
-
-local role = Instance.new("TextLabel", card)
-role.Size = UDim2.new(0.5,0,0,20)
-role.Position = UDim2.new(0,80,0,40)
-role.Text = "Script Developer"
-role.TextColor3 = Color3.fromRGB(200,200,200)
-role.BackgroundTransparency = 1
-role.Font = Enum.Font.Gotham
-role.TextScaled = true
-role.TextXAlignment = Enum.TextXAlignment.Left
-
-local tag = Instance.new("TextLabel", card)
-tag.Size = UDim2.new(0,90,0,30)
-tag.Position = UDim2.new(1,-100,0.5,-15)
-tag.BackgroundColor3 = Color3.fromRGB(200,150,0)
-tag.Text = "FOUNDER"
-tag.TextColor3 = Color3.new(1,1,1)
-tag.TextScaled = true
-Instance.new("UICorner",tag)
-
--- KEY VERIFY
-verify.MouseButton1Click:Connect(function()
-
-	if keyBox.Text == KEY then
-
-		local tween = TweenService:Create(
-			keyPage,
-			TweenInfo.new(0.5),
-			{Position = UDim2.new(0,0,1,0)}
-		)
-
-		tween:Play()
-
-		tween.Completed:Connect(function()
-			keyPage.Visible = false
-			mainMenu.Visible = true
-		end)
-
-	else
-
-		keyBox.Text = "Wrong Key!"
-
-	end
-
-end)
-
--- BUTTON EVENTS
-open.MouseButton1Click:Connect(function()
-	frame.Visible = true
-	open.Visible = false
-end)
-
-close.MouseButton1Click:Connect(function()
-	frame.Visible = false
-	open.Visible = true
-end)
-
-mini.MouseButton1Click:Connect(function()
-	mainMenu.Visible = not mainMenu.Visible
-end)
-
--- DRAG MOBILE
-local dragging
-local dragInput
-local dragStart
-local startPos
-
-local function update(input)
-	local delta = input.Position - dragStart
-	frame.Position = UDim2.new(
-		startPos.X.Scale,
-		startPos.X.Offset + delta.X,
-		startPos.Y.Scale,
-		startPos.Y.Offset + delta.Y
-	)
-end
-
-top.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
-		dragging = true
-		dragStart = input.Position
-		startPos = frame.Position
-
-		input.Changed:Connect(function()
-			if input.UserInputState == Enum.UserInputState.End then
-				dragging = false
-			end
-		end)
-	end
-end)
-
-top.InputChanged:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement then
-		dragInput = input
-	end
-end)
-
-UIS.InputChanged:Connect(function(input)
-	if input == dragInput and dragging then
-		update(input)
-	end
-end)
+-- // Load UI
+Rayfield:LoadConfiguration()
