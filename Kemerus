@@ -1,29 +1,35 @@
--- // Kemerus Key System
+-- // Kemerus Key System v2.0
 -- // Menggunakan Rayfield UI Library
--- // Dibuat dengan tema Kemerus Premium
+-- // Fix: ESP berfungsi + WalkSpeed tidak freeze
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+-- // Services
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local Camera = workspace.CurrentCamera
+local LocalPlayer = Players.LocalPlayer
 
 -- // Konfigurasi Key System
 local KeySystem = {
     Keys = {
-        "KEMERUS-2026",
-        "KMS-FREE",
-        "KEMERUS-ACCESS",
-        "KMS-KEY",
+        "KEMERUS-2024-PREMIUM",
+        "KMS-FREE-TRIAL-001",
+        "KEMERUS-VIP-ACCESS",
+        "KMS-BETA-TESTER-KEY",
     },
-    SaveKey = true,          -- Simpan key agar tidak perlu input ulang
-    GrabKeyFromSite = false, -- Ambil key dari website (opsional)
-    FileName = "KemerusKey", -- Nama file penyimpanan key
+    SaveKey = true,
+    GrabKeyFromSite = false,
+    FileName = "KemerusKey",
 }
 
--- // Inisialisasi Rayfield dengan Key System
+-- // Inisialisasi Rayfield
 local Window = Rayfield:CreateWindow({
     Name = "Kemerus Script Hub",
-    Icon = 0,                -- Ikon Roblox (bisa diganti dengan ID gambar)
+    Icon = 0,
     LoadingTitle = "Kemerus Script Hub",
     LoadingSubtitle = "by Kemerus Team",
-    Theme = "Default",       -- Tema: Default, AmberGlow, Amethyst, BloomingLilac, DarkBlue, dll.
+    Theme = "Default",
 
     DisableRayfieldPrompts = false,
     DisableBuildWarnings = false,
@@ -32,53 +38,248 @@ local Window = Rayfield:CreateWindow({
     KeySettings = {
         Title = "Kemerus Key System",
         Subtitle = "Masukkan Key Untuk Melanjutkan",
-        Note = "Dapatkan key gratis di Discord kami!\ndiscord.gg/kemerus",
+        Note = "Dapatkan key gratis di Discord kami!\nhttps://discord.gg/h38Qayaq9p",
         FileName = KeySystem.FileName,
         SaveKey = KeySystem.SaveKey,
         GrabKeyFromSite = KeySystem.GrabKeyFromSite,
-        Key = KeySystem.Keys
+        Key = Kemerus
     }
 })
 
--- // Tab Utama
+-- ============================================================
+-- // STATE VARIABLES
+-- ============================================================
+local State = {
+    WalkSpeed       = 16,
+    JumpPower       = 50,
+    SpeedEnabled    = false,
+    ESPEnabled      = false,
+    GodModeEnabled  = false,
+    AutoFarmEnabled = false,
+    FullBright      = false,
+}
+
+-- ============================================================
+-- // WALKSPEED FIX
+-- // Pakai Heartbeat agar tidak di-reset oleh anti-cheat game
+-- ============================================================
+RunService.Heartbeat:Connect(function()
+    local char = LocalPlayer.Character
+    if not char then return end
+    local hum = char:FindFirstChildOfClass("Humanoid")
+    if not hum then return end
+
+    if State.SpeedEnabled and hum.WalkSpeed ~= State.WalkSpeed then
+        hum.WalkSpeed = State.WalkSpeed
+    end
+
+    if hum.JumpPower ~= State.JumpPower then
+        hum.JumpPower = State.JumpPower
+    end
+end)
+
+-- Reapply setelah respawn
+LocalPlayer.CharacterAdded:Connect(function(char)
+    task.wait(0.5)
+    local hum = char:FindFirstChildOfClass("Humanoid")
+    if hum then
+        if State.SpeedEnabled then hum.WalkSpeed = State.WalkSpeed end
+        hum.JumpPower = State.JumpPower
+    end
+end)
+
+-- ============================================================
+-- // ESP SYSTEM
+-- // Drawing API: Box + Nama + Health Bar + Jarak
+-- ============================================================
+local ESPObjects = {}
+
+local function removeESP(player)
+    if ESPObjects[player] then
+        for _, d in pairs(ESPObjects[player]) do
+            pcall(function() d:Remove() end)
+        end
+        ESPObjects[player] = nil
+    end
+end
+
+local function createESP(player)
+    if player == LocalPlayer then return end
+    removeESP(player)
+
+    -- Box
+    local box = Drawing.new("Square")
+    box.Visible   = false
+    box.Thickness = 1.5
+    box.Color     = Color3.fromRGB(255, 60, 60)
+    box.Filled    = false
+
+    -- Nama player
+    local nameText = Drawing.new("Text")
+    nameText.Visible      = false
+    nameText.Size         = 13
+    nameText.Color        = Color3.fromRGB(255, 255, 255)
+    nameText.Center       = true
+    nameText.Outline      = true
+    nameText.OutlineColor = Color3.fromRGB(0, 0, 0)
+    nameText.Font         = Drawing.Fonts.UI
+
+    -- HP bar background
+    local hpBg = Drawing.new("Square")
+    hpBg.Visible = false
+    hpBg.Color   = Color3.fromRGB(20, 20, 20)
+    hpBg.Filled  = true
+
+    -- HP bar isi
+    local hpFill = Drawing.new("Square")
+    hpFill.Visible = false
+    hpFill.Filled  = true
+
+    -- Teks jarak
+    local distText = Drawing.new("Text")
+    distText.Visible      = false
+    distText.Size         = 11
+    distText.Color        = Color3.fromRGB(200, 200, 200)
+    distText.Center       = true
+    distText.Outline      = true
+    distText.OutlineColor = Color3.fromRGB(0, 0, 0)
+    distText.Font         = Drawing.Fonts.UI
+
+    ESPObjects[player] = {
+        Box      = box,
+        Name     = nameText,
+        HpBg     = hpBg,
+        HpFill   = hpFill,
+        Distance = distText,
+    }
+end
+
+-- Update ESP loop
+RunService.RenderStepped:Connect(function()
+    for _, player in pairs(Players:GetPlayers()) do
+        if player == LocalPlayer then continue end
+
+        if not ESPObjects[player] then
+            createESP(player)
+        end
+
+        local drawings = ESPObjects[player]
+        if not drawings then continue end
+
+        -- Sembunyikan jika ESP off
+        if not State.ESPEnabled then
+            for _, d in pairs(drawings) do d.Visible = false end
+            continue
+        end
+
+        local char     = player.Character
+        local rootPart = char and char:FindFirstChild("HumanoidRootPart")
+        local humanoid = char and char:FindFirstChildOfClass("Humanoid")
+
+        if not char or not rootPart or not humanoid or humanoid.Health <= 0 then
+            for _, d in pairs(drawings) do d.Visible = false end
+            continue
+        end
+
+        -- Kalkulasi bounding box karakter dari bagian atas ke bawah
+        local topPos    = rootPart.Position + Vector3.new(0, 3.2, 0)
+        local bottomPos = rootPart.Position - Vector3.new(0, 3.0, 0)
+
+        local topScreen,    topOnScreen,    depth = Camera:WorldToViewportPoint(topPos)
+        local bottomScreen, bottomOnScreen         = Camera:WorldToViewportPoint(bottomPos)
+
+        if not topOnScreen or depth <= 0 then
+            for _, d in pairs(drawings) do d.Visible = false end
+            continue
+        end
+
+        local height  = math.abs(bottomScreen.Y - topScreen.Y)
+        local width   = height * 0.5
+        local centerX = topScreen.X
+
+        -- Jarak
+        local myChar = LocalPlayer.Character
+        local myRoot = myChar and myChar:FindFirstChild("HumanoidRootPart")
+        local dist = 0
+        if myRoot then
+            dist = math.floor((rootPart.Position - myRoot.Position).Magnitude)
+        end
+
+        -- Render BOX
+        drawings.Box.Visible  = true
+        drawings.Box.Size     = Vector2.new(width, height)
+        drawings.Box.Position = Vector2.new(centerX - width / 2, topScreen.Y)
+
+        -- Render NAMA
+        drawings.Name.Visible  = true
+        drawings.Name.Text     = player.Name
+        drawings.Name.Position = Vector2.new(centerX, topScreen.Y - 16)
+
+        -- Render HP BAR (sisi kiri box)
+        local hpRatio = math.clamp(humanoid.Health / humanoid.MaxHealth, 0, 1)
+        local barW    = 4
+        local barX    = centerX - width / 2 - barW - 2
+        local barH    = height
+
+        drawings.HpBg.Visible  = true
+        drawings.HpBg.Size     = Vector2.new(barW, barH)
+        drawings.HpBg.Position = Vector2.new(barX, topScreen.Y)
+
+        drawings.HpFill.Visible  = true
+        drawings.HpFill.Size     = Vector2.new(barW, barH * hpRatio)
+        drawings.HpFill.Position = Vector2.new(barX, topScreen.Y + barH * (1 - hpRatio))
+        -- Merah saat HP rendah, hijau saat HP penuh
+        drawings.HpFill.Color = Color3.fromRGB(
+            math.floor(255 * (1 - hpRatio)),
+            math.floor(255 * hpRatio),
+            50
+        )
+
+        -- Render JARAK
+        drawings.Distance.Visible  = true
+        drawings.Distance.Text     = "[" .. dist .. "m]"
+        drawings.Distance.Position = Vector2.new(centerX, bottomScreen.Y + 3)
+    end
+end)
+
+-- Cleanup ESP saat player keluar
+Players.PlayerRemoving:Connect(function(player)
+    removeESP(player)
+end)
+
+-- Init ESP untuk semua player yang sudah ada
+for _, player in pairs(Players:GetPlayers()) do
+    createESP(player)
+end
+
+Players.PlayerAdded:Connect(function(player)
+    createESP(player)
+end)
+
+-- ============================================================
+-- // UI - TAB MAIN
+-- ============================================================
 local MainTab = Window:CreateTab("🏠 Main", 4483362458)
-local MainSection = MainTab:CreateSection("Menu Utama")
+MainTab:CreateSection("Menu Utama")
 
 Rayfield:Notify({
-    Title = "Kemerus Loaded!",
-    Content = "Script berhasil dimuat. Selamat datang!",
+    Title = "31NM v2.0 Loaded!",
+    Content = "ESP & WalkSpeed sudah diperbaiki!",
     Duration = 5,
     Image = 4483362458,
-    Actions = {
-        Ignore = {
-            Name = "OK",
-            Callback = function()
-                print("Notifikasi ditutup.")
-            end
-        },
-    },
 })
 
--- // Toggle Contoh
 MainTab:CreateToggle({
     Name = "Auto Farm",
     CurrentValue = false,
     Flag = "AutoFarm",
     Callback = function(Value)
-        if Value then
-            Rayfield:Notify({
-                Title = "Auto Farm",
-                Content = "Auto Farm diaktifkan!",
-                Duration = 3,
-            })
-            -- Masukkan logika auto farm di sini
-        else
-            Rayfield:Notify({
-                Title = "Auto Farm",
-                Content = "Auto Farm dimatikan!",
-                Duration = 3,
-            })
-        end
+        State.AutoFarmEnabled = Value
+        Rayfield:Notify({
+            Title = "Auto Farm",
+            Content = Value and "Diaktifkan!" or "Dimatikan!",
+            Duration = 3,
+        })
     end,
 })
 
@@ -87,51 +288,56 @@ MainTab:CreateToggle({
     CurrentValue = false,
     Flag = "GodMode",
     Callback = function(Value)
-        local player = game.Players.LocalPlayer
-        if Value then
-            -- Logika god mode di sini
-            print("God Mode: ON")
-        else
-            print("God Mode: OFF")
-        end
-    end,
-})
-
-MainTab:CreateToggle({
-    Name = "Speed Hack",
-    CurrentValue = false,
-    Flag = "SpeedHack",
-    Callback = function(Value)
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-        if character then
-            local humanoid = character:FindFirstChild("Humanoid")
-            if humanoid then
+        State.GodModeEnabled = Value
+        local char = LocalPlayer.Character
+        if char then
+            local hum = char:FindFirstChildOfClass("Humanoid")
+            if hum then
                 if Value then
-                    humanoid.WalkSpeed = 50
+                    hum.MaxHealth = math.huge
+                    hum.Health    = math.huge
                 else
-                    humanoid.WalkSpeed = 16
+                    hum.MaxHealth = 100
+                    hum.Health    = 100
                 end
             end
         end
     end,
 })
 
--- // Slider Contoh
+-- PENTING: Aktifkan toggle ini dulu sebelum slider walkspeed berlaku
+MainTab:CreateToggle({
+    Name = "Aktifkan Custom Speed",
+    CurrentValue = false,
+    Flag = "SpeedToggle",
+    Callback = function(Value)
+        State.SpeedEnabled = Value
+        if not Value then
+            -- Reset normal saat dimatikan
+            State.WalkSpeed = 16
+            local char = LocalPlayer.Character
+            if char then
+                local hum = char:FindFirstChildOfClass("Humanoid")
+                if hum then hum.WalkSpeed = 16 end
+            end
+        end
+    end,
+})
+
 MainTab:CreateSlider({
     Name = "Walk Speed",
-    Range = {16, 100},
+    Range = {16, 200},
     Increment = 1,
-    Suffix = " Speed",
+    Suffix = " WS",
     CurrentValue = 16,
     Flag = "WalkSpeed",
     Callback = function(Value)
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-        if character then
-            local humanoid = character:FindFirstChild("Humanoid")
-            if humanoid then
-                humanoid.WalkSpeed = Value
+        State.WalkSpeed = Value
+        if State.SpeedEnabled then
+            local char = LocalPlayer.Character
+            if char then
+                local hum = char:FindFirstChildOfClass("Humanoid")
+                if hum then hum.WalkSpeed = Value end
             end
         end
     end,
@@ -139,65 +345,51 @@ MainTab:CreateSlider({
 
 MainTab:CreateSlider({
     Name = "Jump Power",
-    Range = {50, 300},
+    Range = {50, 500},
     Increment = 5,
     Suffix = " JP",
     CurrentValue = 50,
     Flag = "JumpPower",
     Callback = function(Value)
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-        if character then
-            local humanoid = character:FindFirstChild("Humanoid")
-            if humanoid then
-                humanoid.JumpPower = Value
-            end
+        State.JumpPower = Value
+        local char = LocalPlayer.Character
+        if char then
+            local hum = char:FindFirstChildOfClass("Humanoid")
+            if hum then hum.JumpPower = Value end
         end
     end,
 })
 
--- // Tab Player
+-- ============================================================
+-- // UI - TAB PLAYER
+-- ============================================================
 local PlayerTab = Window:CreateTab("👤 Player", 4483362458)
-local PlayerSection = PlayerTab:CreateSection("Pengaturan Player")
+PlayerTab:CreateSection("Pengaturan Player")
 
 PlayerTab:CreateButton({
     Name = "Reset Character",
     Callback = function()
-        local player = game.Players.LocalPlayer
-        if player.Character then
-            player.Character:BreakJoints()
-        end
-        Rayfield:Notify({
-            Title = "Reset",
-            Content = "Character direset!",
-            Duration = 3,
-        })
+        local char = LocalPlayer.Character
+        if char then char:BreakJoints() end
+        Rayfield:Notify({ Title = "Reset", Content = "Character direset!", Duration = 3 })
     end,
 })
 
 PlayerTab:CreateButton({
     Name = "Bring All Players",
     Callback = function()
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-        if character then
-            local rootPart = character:FindFirstChild("HumanoidRootPart")
-            if rootPart then
-                for _, plr in pairs(game.Players:GetPlayers()) do
-                    if plr ~= player and plr.Character then
-                        local otherRoot = plr.Character:FindFirstChild("HumanoidRootPart")
-                        if otherRoot then
-                            otherRoot.CFrame = rootPart.CFrame + Vector3.new(0, 0, 3)
-                        end
-                    end
+        local char = LocalPlayer.Character
+        local root = char and char:FindFirstChild("HumanoidRootPart")
+        if not root then return end
+        for _, plr in pairs(Players:GetPlayers()) do
+            if plr ~= LocalPlayer and plr.Character then
+                local r = plr.Character:FindFirstChild("HumanoidRootPart")
+                if r then
+                    r.CFrame = root.CFrame + Vector3.new(math.random(-3, 3), 0, math.random(-3, 3))
                 end
-                Rayfield:Notify({
-                    Title = "Bring Players",
-                    Content = "Semua player berhasil dibawa!",
-                    Duration = 3,
-                })
             end
         end
+        Rayfield:Notify({ Title = "Bring", Content = "Semua player berhasil dibawa!", Duration = 3 })
     end,
 })
 
@@ -206,55 +398,38 @@ PlayerTab:CreateInput({
     PlaceholderText = "Masukkan nama player...",
     RemoveTextAfterFocusLost = false,
     Callback = function(Text)
-        local player = game.Players.LocalPlayer
-        local target = game.Players:FindFirstChild(Text)
+        local target = Players:FindFirstChild(Text)
         if target and target.Character then
-            local targetRoot = target.Character:FindFirstChild("HumanoidRootPart")
-            local myChar = player.Character
-            if myChar and targetRoot then
-                local myRoot = myChar:FindFirstChild("HumanoidRootPart")
-                if myRoot then
-                    myRoot.CFrame = targetRoot.CFrame + Vector3.new(0, 3, 0)
-                    Rayfield:Notify({
-                        Title = "Teleport",
-                        Content = "Berhasil teleport ke " .. Text,
-                        Duration = 3,
-                    })
-                end
+            local tr     = target.Character:FindFirstChild("HumanoidRootPart")
+            local myChar = LocalPlayer.Character
+            local myRoot = myChar and myChar:FindFirstChild("HumanoidRootPart")
+            if tr and myRoot then
+                myRoot.CFrame = tr.CFrame + Vector3.new(0, 3, 0)
+                Rayfield:Notify({ Title = "Teleport", Content = "Berhasil ke " .. Text, Duration = 3 })
             end
         else
-            Rayfield:Notify({
-                Title = "Error",
-                Content = "Player tidak ditemukan!",
-                Duration = 3,
-            })
+            Rayfield:Notify({ Title = "Error", Content = "Player tidak ditemukan!", Duration = 3 })
         end
     end,
 })
 
--- // Tab Visual
+-- ============================================================
+-- // UI - TAB VISUAL
+-- ============================================================
 local VisualTab = Window:CreateTab("🎨 Visual", 4483362458)
-local VisualSection = VisualTab:CreateSection("Pengaturan Visual")
+VisualTab:CreateSection("Pengaturan Visual")
 
 VisualTab:CreateToggle({
-    Name = "ESP Players",
+    Name = "ESP Players (Box + HP + Nama + Jarak)",
     CurrentValue = false,
     Flag = "ESPPlayers",
     Callback = function(Value)
-        -- Logika ESP bisa ditambahkan di sini
-        if Value then
-            Rayfield:Notify({
-                Title = "ESP",
-                Content = "ESP Players diaktifkan!",
-                Duration = 3,
-            })
-        else
-            Rayfield:Notify({
-                Title = "ESP",
-                Content = "ESP Players dimatikan!",
-                Duration = 3,
-            })
-        end
+        State.ESPEnabled = Value
+        Rayfield:Notify({
+            Title = "ESP",
+            Content = Value and "ESP diaktifkan!" or "ESP dimatikan!",
+            Duration = 3,
+        })
     end,
 })
 
@@ -263,52 +438,40 @@ VisualTab:CreateToggle({
     CurrentValue = false,
     Flag = "FullBright",
     Callback = function(Value)
+        State.FullBright = Value
         if Value then
-            game.Lighting.Brightness = 2
-            game.Lighting.ClockTime = 14
-            game.Lighting.FogEnd = 100000
+            game.Lighting.Brightness    = 2
+            game.Lighting.ClockTime     = 14
+            game.Lighting.FogEnd        = 100000
             game.Lighting.GlobalShadows = false
-            game.Lighting.Ambient = Color3.fromRGB(255, 255, 255)
+            game.Lighting.Ambient       = Color3.fromRGB(255, 255, 255)
         else
-            game.Lighting.Brightness = 1
-            game.Lighting.ClockTime = 14
-            game.Lighting.FogEnd = 100000
+            game.Lighting.Brightness    = 1
+            game.Lighting.ClockTime     = 14
+            game.Lighting.FogEnd        = 100000
             game.Lighting.GlobalShadows = true
-            game.Lighting.Ambient = Color3.fromRGB(70, 70, 70)
+            game.Lighting.Ambient       = Color3.fromRGB(70, 70, 70)
         end
     end,
 })
 
--- // Tab Settings
+-- ============================================================
+-- // UI - TAB SETTINGS
+-- ============================================================
 local SettingsTab = Window:CreateTab("⚙️ Settings", 4483362458)
-local SettingsSection = SettingsTab:CreateSection("Pengaturan Script")
+SettingsTab:CreateSection("Informasi")
 
 SettingsTab:CreateParagraph({
-    Title = "Kemerus Script Hub",
-    Content = "Version: 1.0.0\nDeveloper: Kemerus Team\nDiscord: discord.gg/kemerus\n\nTerima kasih sudah menggunakan script kami!"
+    Title = "31NM Script Hub v2.0",
+    Content = "Developer: Kemerus Team\nDiscord: discord.gg/kemerus\n\nChangelog v2.0:\n✅ ESP berfungsi (Box, HP Bar, Nama, Jarak)\n✅ WalkSpeed tidak lagi freeze (Heartbeat loop)\n✅ Toggle speed terpisah dari slider\n✅ ESP cleanup saat player keluar"
 })
 
 SettingsTab:CreateButton({
     Name = "Discord Server",
     Callback = function()
-        Rayfield:Notify({
-            Title = "Discord",
-            Content = "Join discord kami: discord.gg/kemerus",
-            Duration = 5,
-        })
+        Rayfield:Notify({ Title = "Discord", Content = "https://discord.gg/h38Qayaq9p", Duration = 5 })
     end,
 })
 
-SettingsTab:CreateButton({
-    Name = "Copy Key Info",
-    Callback = function()
-        Rayfield:Notify({
-            Title = "Key Info",
-            Content = "Key tersimpan di: " .. KeySystem.FileName,
-            Duration = 4,
-        })
-    end,
-})
-
--- // Load UI
+-- // Load Config
 Rayfield:LoadConfiguration()
