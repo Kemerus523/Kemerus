@@ -13,10 +13,10 @@ local LocalPlayer = Players.LocalPlayer
 -- // Konfigurasi Key System
 local KeySystem = {
     Keys = {
-        "KEMERUS-2024-PREMIUM",
-        "KMS-FREE-TRIAL-001",
-        "KEMERUS-VIP-ACCESS",
-        "KMS-BETA-TESTER-KEY",
+        "KEMERUS-2026",
+        "KMS-FREE",
+        "KEMERUS-ACCESS",
+        "KMS-KEY",
     },
     SaveKey = true,
     GrabKeyFromSite = false,
@@ -42,7 +42,7 @@ local Window = Rayfield:CreateWindow({
         FileName = KeySystem.FileName,
         SaveKey = KeySystem.SaveKey,
         GrabKeyFromSite = KeySystem.GrabKeyFromSite,
-        Key = Kemerus
+        Key = KeySystem.Keys
     }
 })
 
