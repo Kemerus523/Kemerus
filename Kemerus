@@ -1,477 +1,634 @@
--- // Kemerus Key System v2.0
--- // Menggunakan Rayfield UI Library
--- // Fix: ESP berfungsi + WalkSpeed tidak freeze
+-- NO MERCY HUB v2 by Kemerus
+-- Redesigned: Cream/Ivory Theme with Gold Accents + Icons
 
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local TweenService = game:GetService("TweenService")
+local UIS = game:GetService("UserInputService")
 
--- // Services
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local Camera = workspace.CurrentCamera
-local LocalPlayer = Players.LocalPlayer
+local KEY = "KEMERUS31"
 
--- // Konfigurasi Key System
-local KeySystem = {
-    Keys = {
-        "KEMERUS-2026",
-        "KMS-FREE",
-        "KEMERUS-ACCESS",
-        "KMS-KEY",
-    },
-    SaveKey = true,
-    GrabKeyFromSite = false,
-    FileName = "KemerusKey",
-}
-
--- // Inisialisasi Rayfield
-local Window = Rayfield:CreateWindow({
-    Name = "Kemerus Script Hub",
-    Icon = 0,
-    LoadingTitle = "Kemerus Script Hub",
-    LoadingSubtitle = "by Kemerus Team",
-    Theme = "Default",
-
-    DisableRayfieldPrompts = false,
-    DisableBuildWarnings = false,
-
-    KeySystem = true,
-    KeySettings = {
-        Title = "Kemerus Key System",
-        Subtitle = "Masukkan Key Untuk Melanjutkan",
-        Note = "Dapatkan key gratis di Discord kami!\nhttps://discord.gg/h38Qayaq9p",
-        FileName = KeySystem.FileName,
-        SaveKey = KeySystem.SaveKey,
-        GrabKeyFromSite = KeySystem.GrabKeyFromSite,
-        Key = KeySystem.Keys
-    }
-})
-
--- ============================================================
--- // STATE VARIABLES
--- ============================================================
-local State = {
-    WalkSpeed       = 16,
-    JumpPower       = 50,
-    SpeedEnabled    = false,
-    ESPEnabled      = false,
-    GodModeEnabled  = false,
-    AutoFarmEnabled = false,
-    FullBright      = false,
-}
-
--- ============================================================
--- // WALKSPEED FIX
--- // Pakai Heartbeat agar tidak di-reset oleh anti-cheat game
--- ============================================================
-RunService.Heartbeat:Connect(function()
-    local char = LocalPlayer.Character
-    if not char then return end
-    local hum = char:FindFirstChildOfClass("Humanoid")
-    if not hum then return end
-
-    if State.SpeedEnabled and hum.WalkSpeed ~= State.WalkSpeed then
-        hum.WalkSpeed = State.WalkSpeed
-    end
-
-    if hum.JumpPower ~= State.JumpPower then
-        hum.JumpPower = State.JumpPower
-    end
-end)
-
--- Reapply setelah respawn
-LocalPlayer.CharacterAdded:Connect(function(char)
-    task.wait(0.5)
-    local hum = char:FindFirstChildOfClass("Humanoid")
-    if hum then
-        if State.SpeedEnabled then hum.WalkSpeed = State.WalkSpeed end
-        hum.JumpPower = State.JumpPower
-    end
-end)
-
--- ============================================================
--- // ESP SYSTEM
--- // Drawing API: Box + Nama + Health Bar + Jarak
--- ============================================================
-local ESPObjects = {}
-
-local function removeESP(player)
-    if ESPObjects[player] then
-        for _, d in pairs(ESPObjects[player]) do
-            pcall(function() d:Remove() end)
-        end
-        ESPObjects[player] = nil
-    end
+-- ═══════════════════════════════════════════
+-- TWEEN HELPER
+-- ═══════════════════════════════════════════
+local function tween(obj, props, t, style, dir)
+    local info = TweenInfo.new(t or 0.3, style or Enum.EasingStyle.Quint, dir or Enum.EasingDirection.Out)
+    TweenService:Create(obj, info, props):Play()
 end
 
-local function createESP(player)
-    if player == LocalPlayer then return end
-    removeESP(player)
+-- ═══════════════════════════════════════════
+-- GUI ROOT
+-- ═══════════════════════════════════════════
+local gui = Instance.new("ScreenGui")
+gui.Name = "NoMercyHub"
+gui.ResetOnSpawn = false
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+gui.Parent = game.CoreGui
 
-    -- Box
-    local box = Drawing.new("Square")
-    box.Visible   = false
-    box.Thickness = 1.5
-    box.Color     = Color3.fromRGB(255, 60, 60)
-    box.Filled    = false
+-- ═══════════════════════════════════════════
+-- OPEN BUTTON (floating pill)
+-- ═══════════════════════════════════════════
+local openBtn = Instance.new("TextButton", gui)
+openBtn.Size = UDim2.new(0, 110, 0, 38)
+openBtn.Position = UDim2.new(0, 16, 0.5, -19)
+openBtn.Text = "⚔  NO MERCY"
+openBtn.BackgroundColor3 = Color3.fromRGB(240, 228, 196)
+openBtn.TextColor3 = Color3.fromRGB(80, 55, 20)
+openBtn.Font = Enum.Font.GothamBold
+openBtn.TextSize = 12
+openBtn.AutoButtonColor = false
+Instance.new("UICorner", openBtn).CornerRadius = UDim.new(1, 0)
 
-    -- Nama player
-    local nameText = Drawing.new("Text")
-    nameText.Visible      = false
-    nameText.Size         = 13
-    nameText.Color        = Color3.fromRGB(255, 255, 255)
-    nameText.Center       = true
-    nameText.Outline      = true
-    nameText.OutlineColor = Color3.fromRGB(0, 0, 0)
-    nameText.Font         = Drawing.Fonts.UI
+local openStroke = Instance.new("UIStroke", openBtn)
+openStroke.Color = Color3.fromRGB(200, 170, 100)
+openStroke.Thickness = 1.5
 
-    -- HP bar background
-    local hpBg = Drawing.new("Square")
-    hpBg.Visible = false
-    hpBg.Color   = Color3.fromRGB(20, 20, 20)
-    hpBg.Filled  = true
+-- shadow under open button
+local openShadow = Instance.new("Frame", openBtn)
+openShadow.Size = UDim2.new(1, 6, 1, 6)
+openShadow.Position = UDim2.new(0, -3, 0, 4)
+openShadow.BackgroundColor3 = Color3.fromRGB(160, 130, 70)
+openShadow.BackgroundTransparency = 0.7
+openShadow.ZIndex = openBtn.ZIndex - 1
+Instance.new("UICorner", openShadow).CornerRadius = UDim.new(1, 0)
 
-    -- HP bar isi
-    local hpFill = Drawing.new("Square")
-    hpFill.Visible = false
-    hpFill.Filled  = true
+-- ═══════════════════════════════════════════
+-- MAIN FRAME
+-- ═══════════════════════════════════════════
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 500, 0, 320)
+frame.Position = UDim2.new(0.5, -250, 0.5, -160)
+frame.BackgroundColor3 = Color3.fromRGB(245, 238, 220)
+frame.Visible = false
+frame.ClipsDescendants = true
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 14)
 
-    -- Teks jarak
-    local distText = Drawing.new("Text")
-    distText.Visible      = false
-    distText.Size         = 11
-    distText.Color        = Color3.fromRGB(200, 200, 200)
-    distText.Center       = true
-    distText.Outline      = true
-    distText.OutlineColor = Color3.fromRGB(0, 0, 0)
-    distText.Font         = Drawing.Fonts.UI
+local frameShadow = Instance.new("Frame", gui)
+frameShadow.Size = UDim2.new(0, 520, 0, 340)
+frameShadow.Position = UDim2.new(0.5, -260, 0.5, -170)
+frameShadow.BackgroundColor3 = Color3.fromRGB(100, 80, 40)
+frameShadow.BackgroundTransparency = 0.75
+frameShadow.Visible = false
+frameShadow.ZIndex = frame.ZIndex - 1
+Instance.new("UICorner", frameShadow).CornerRadius = UDim.new(0, 18)
 
-    ESPObjects[player] = {
-        Box      = box,
-        Name     = nameText,
-        HpBg     = hpBg,
-        HpFill   = hpFill,
-        Distance = distText,
-    }
+local frameStroke = Instance.new("UIStroke", frame)
+frameStroke.Color = Color3.fromRGB(210, 185, 130)
+frameStroke.Thickness = 1.5
+
+-- ═══════════════════════════════════════════
+-- TOP BAR
+-- ═══════════════════════════════════════════
+local topBar = Instance.new("Frame", frame)
+topBar.Size = UDim2.new(1, 0, 0, 42)
+topBar.BackgroundColor3 = Color3.fromRGB(228, 210, 162)
+topBar.ZIndex = 2
+
+local topCorner = Instance.new("UICorner", topBar)
+topCorner.CornerRadius = UDim.new(0, 14)
+
+-- fix bottom corners of topbar
+local topFix = Instance.new("Frame", topBar)
+topFix.Size = UDim2.new(1, 0, 0.5, 0)
+topFix.Position = UDim2.new(0, 0, 0.5, 0)
+topFix.BackgroundColor3 = Color3.fromRGB(228, 210, 162)
+topFix.BorderSizePixel = 0
+topFix.ZIndex = topBar.ZIndex
+
+local topStroke = Instance.new("UIStroke", topBar)
+topStroke.Color = Color3.fromRGB(190, 165, 100)
+topStroke.Thickness = 1
+
+-- Icon (sword emoji as TextLabel)
+local titleIcon = Instance.new("TextLabel", topBar)
+titleIcon.Size = UDim2.new(0, 28, 0, 28)
+titleIcon.Position = UDim2.new(0, 10, 0.5, -14)
+titleIcon.Text = "⚔"
+titleIcon.TextScaled = true
+titleIcon.BackgroundColor3 = Color3.fromRGB(200, 60, 60)
+titleIcon.TextColor3 = Color3.new(1, 1, 1)
+titleIcon.ZIndex = 3
+Instance.new("UICorner", titleIcon).CornerRadius = UDim.new(0, 6)
+
+local titleLabel = Instance.new("TextLabel", topBar)
+titleLabel.Size = UDim2.new(1, -140, 1, 0)
+titleLabel.Position = UDim2.new(0, 46, 0, 0)
+titleLabel.Text = "NO MERCY HUB"
+titleLabel.TextColor3 = Color3.fromRGB(80, 50, 10)
+titleLabel.BackgroundTransparency = 1
+titleLabel.Font = Enum.Font.GothamBold
+titleLabel.TextScaled = true
+titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+titleLabel.ZIndex = 3
+
+local versionLabel = Instance.new("TextLabel", topBar)
+versionLabel.Size = UDim2.new(0, 40, 0, 16)
+versionLabel.Position = UDim2.new(0, 46, 1, -18)
+versionLabel.Text = "v2.0"
+versionLabel.TextColor3 = Color3.fromRGB(150, 120, 70)
+versionLabel.BackgroundTransparency = 1
+versionLabel.Font = Enum.Font.Gotham
+versionLabel.TextSize = 10
+versionLabel.ZIndex = 3
+
+-- Minimize button
+local miniBtn = Instance.new("TextButton", topBar)
+miniBtn.Size = UDim2.new(0, 28, 0, 28)
+miniBtn.Position = UDim2.new(1, -66, 0.5, -14)
+miniBtn.Text = "—"
+miniBtn.BackgroundColor3 = Color3.fromRGB(210, 195, 150)
+miniBtn.TextColor3 = Color3.fromRGB(80, 60, 20)
+miniBtn.Font = Enum.Font.GothamBold
+miniBtn.TextSize = 14
+miniBtn.AutoButtonColor = false
+miniBtn.ZIndex = 4
+Instance.new("UICorner", miniBtn).CornerRadius = UDim.new(0, 7)
+
+-- Close button
+local closeBtn = Instance.new("TextButton", topBar)
+closeBtn.Size = UDim2.new(0, 28, 0, 28)
+closeBtn.Position = UDim2.new(1, -32, 0.5, -14)
+closeBtn.Text = "✕"
+closeBtn.BackgroundColor3 = Color3.fromRGB(210, 80, 70)
+closeBtn.TextColor3 = Color3.new(1, 1, 1)
+closeBtn.Font = Enum.Font.GothamBold
+closeBtn.TextSize = 12
+closeBtn.AutoButtonColor = false
+closeBtn.ZIndex = 4
+Instance.new("UICorner", closeBtn).CornerRadius = UDim.new(0, 7)
+
+-- ═══════════════════════════════════════════
+-- CONTENT AREA
+-- ═══════════════════════════════════════════
+local content = Instance.new("Frame", frame)
+content.Size = UDim2.new(1, 0, 1, -42)
+content.Position = UDim2.new(0, 0, 0, 42)
+content.BackgroundTransparency = 1
+
+-- ═══════════════════════════════════════════
+-- KEY PAGE
+-- ═══════════════════════════════════════════
+local keyPage = Instance.new("Frame", content)
+keyPage.Size = UDim2.new(1, 0, 1, 0)
+keyPage.BackgroundTransparency = 1
+
+-- Decorative shield icon at top
+local shieldIcon = Instance.new("TextLabel", keyPage)
+shieldIcon.Size = UDim2.new(0, 48, 0, 48)
+shieldIcon.Position = UDim2.new(0.5, -24, 0, 16)
+shieldIcon.Text = "🔑"
+shieldIcon.TextScaled = true
+shieldIcon.BackgroundColor3 = Color3.fromRGB(235, 215, 155)
+shieldIcon.TextColor3 = Color3.new(1, 1, 1)
+Instance.new("UICorner", shieldIcon).CornerRadius = UDim.new(0, 12)
+local shieldStroke = Instance.new("UIStroke", shieldIcon)
+shieldStroke.Color = Color3.fromRGB(200, 170, 100)
+shieldStroke.Thickness = 1.5
+
+local keyTitle = Instance.new("TextLabel", keyPage)
+keyTitle.Size = UDim2.new(0.8, 0, 0, 30)
+keyTitle.Position = UDim2.new(0.1, 0, 0, 74)
+keyTitle.Text = "ENTER YOUR KEY"
+keyTitle.TextColor3 = Color3.fromRGB(80, 55, 15)
+keyTitle.BackgroundTransparency = 1
+keyTitle.Font = Enum.Font.GothamBold
+keyTitle.TextScaled = true
+
+local keySubtitle = Instance.new("TextLabel", keyPage)
+keySubtitle.Size = UDim2.new(0.8, 0, 0, 20)
+keySubtitle.Position = UDim2.new(0.1, 0, 0, 106)
+keySubtitle.Text = "Access No Mercy Hub by entering your key below"
+keySubtitle.TextColor3 = Color3.fromRGB(150, 125, 80)
+keySubtitle.BackgroundTransparency = 1
+keySubtitle.Font = Enum.Font.Gotham
+keySubtitle.TextSize = 11
+
+-- Key Box wrapper
+local keyBoxWrap = Instance.new("Frame", keyPage)
+keyBoxWrap.Size = UDim2.new(0.7, 0, 0, 42)
+keyBoxWrap.Position = UDim2.new(0.15, 0, 0, 136)
+keyBoxWrap.BackgroundColor3 = Color3.fromRGB(255, 250, 238)
+Instance.new("UICorner", keyBoxWrap).CornerRadius = UDim.new(0, 10)
+local keyBoxStroke = Instance.new("UIStroke", keyBoxWrap)
+keyBoxStroke.Color = Color3.fromRGB(200, 175, 115)
+keyBoxStroke.Thickness = 1.5
+
+local keyBox = Instance.new("TextBox", keyBoxWrap)
+keyBox.Size = UDim2.new(1, -44, 1, 0)
+keyBox.Position = UDim2.new(0, 44, 0, 0)
+keyBox.PlaceholderText = "Enter key here..."
+keyBox.BackgroundTransparency = 1
+keyBox.TextColor3 = Color3.fromRGB(60, 45, 15)
+keyBox.Font = Enum.Font.Gotham
+keyBox.TextSize = 13
+keyBox.ClearTextOnFocus = false
+
+local keyIcon = Instance.new("TextLabel", keyBoxWrap)
+keyIcon.Size = UDim2.new(0, 38, 1, 0)
+keyIcon.Text = "🔐"
+keyIcon.TextScaled = true
+keyIcon.BackgroundColor3 = Color3.fromRGB(225, 205, 145)
+keyIcon.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner", keyIcon).CornerRadius = UDim.new(0, 9)
+
+-- Login button
+local loginBtn = Instance.new("TextButton", keyPage)
+loginBtn.Size = UDim2.new(0.7, 0, 0, 42)
+loginBtn.Position = UDim2.new(0.15, 0, 0, 188)
+loginBtn.Text = "🔓  UNLOCK ACCESS"
+loginBtn.BackgroundColor3 = Color3.fromRGB(180, 140, 60)
+loginBtn.TextColor3 = Color3.fromRGB(255, 248, 220)
+loginBtn.Font = Enum.Font.GothamBold
+loginBtn.TextSize = 13
+loginBtn.AutoButtonColor = false
+Instance.new("UICorner", loginBtn).CornerRadius = UDim.new(0, 10)
+local loginStroke = Instance.new("UIStroke", loginBtn)
+loginStroke.Color = Color3.fromRGB(220, 185, 90)
+loginStroke.Thickness = 1.5
+
+-- Status label
+local statusLabel = Instance.new("TextLabel", keyPage)
+statusLabel.Size = UDim2.new(0.7, 0, 0, 20)
+statusLabel.Position = UDim2.new(0.15, 0, 0, 238)
+statusLabel.Text = ""
+statusLabel.TextColor3 = Color3.fromRGB(200, 80, 60)
+statusLabel.BackgroundTransparency = 1
+statusLabel.Font = Enum.Font.Gotham
+statusLabel.TextSize = 11
+
+-- ═══════════════════════════════════════════
+-- MAIN MENU
+-- ═══════════════════════════════════════════
+local mainMenu = Instance.new("Frame", content)
+mainMenu.Size = UDim2.new(1, 0, 1, 0)
+mainMenu.Visible = false
+mainMenu.BackgroundTransparency = 1
+
+-- Sidebar
+local sidebar = Instance.new("Frame", mainMenu)
+sidebar.Size = UDim2.new(0, 130, 1, 0)
+sidebar.BackgroundColor3 = Color3.fromRGB(232, 218, 182)
+Instance.new("UICorner", sidebar).CornerRadius = UDim.new(0, 10)
+
+local sidebarStroke = Instance.new("UIStroke", sidebar)
+sidebarStroke.Color = Color3.fromRGB(200, 175, 115)
+sidebarStroke.Thickness = 1
+
+-- Hub watermark in sidebar
+local sideWatermark = Instance.new("TextLabel", sidebar)
+sideWatermark.Size = UDim2.new(1, 0, 0, 24)
+sideWatermark.Position = UDim2.new(0, 0, 1, -28)
+sideWatermark.Text = "NO MERCY HUB"
+sideWatermark.TextColor3 = Color3.fromRGB(170, 140, 80)
+sideWatermark.BackgroundTransparency = 1
+sideWatermark.Font = Enum.Font.GothamBold
+sideWatermark.TextSize = 8
+
+-- Pages container
+local pageContainer = Instance.new("Frame", mainMenu)
+pageContainer.Size = UDim2.new(1, -142, 1, -8)
+pageContainer.Position = UDim2.new(0, 138, 0, 4)
+pageContainer.BackgroundTransparency = 1
+
+-- Active tab indicator
+local activeLine = Instance.new("Frame", sidebar)
+activeLine.Size = UDim2.new(0, 3, 0, 32)
+activeLine.Position = UDim2.new(0, 0, 0, 8)
+activeLine.BackgroundColor3 = Color3.fromRGB(180, 140, 60)
+Instance.new("UICorner", activeLine).CornerRadius = UDim.new(1, 0)
+
+-- ═══════════════════════════════════════════
+-- TAB + PAGE FACTORY
+-- ═══════════════════════════════════════════
+local tabList = {}
+local activeTab = nil
+
+local function createPage()
+    local page = Instance.new("Frame", pageContainer)
+    page.Size = UDim2.new(1, 0, 1, 0)
+    page.Visible = false
+    page.BackgroundTransparency = 1
+    return page
 end
 
--- Update ESP loop
-RunService.RenderStepped:Connect(function()
-    for _, player in pairs(Players:GetPlayers()) do
-        if player == LocalPlayer then continue end
+local function createTab(icon, labelText, index)
+    local tab = Instance.new("TextButton", sidebar)
+    tab.Size = UDim2.new(1, -8, 0, 36)
+    tab.Position = UDim2.new(0, 4, 0, 6 + (index - 1) * 42)
+    tab.BackgroundColor3 = Color3.fromRGB(225, 210, 170)
+    tab.BackgroundTransparency = 1
+    tab.TextColor3 = Color3.fromRGB(100, 75, 30)
+    tab.Font = Enum.Font.GothamBold
+    tab.TextSize = 11
+    tab.Text = icon .. "  " .. labelText
+    tab.AutoButtonColor = false
+    Instance.new("UICorner", tab).CornerRadius = UDim.new(0, 8)
 
-        if not ESPObjects[player] then
-            createESP(player)
+    local page = createPage()
+    table.insert(tabList, {tab = tab, page = page, index = index})
+
+    tab.MouseButton1Click:Connect(function()
+        for _, t in pairs(tabList) do
+            t.tab.BackgroundTransparency = 1
+            t.tab.TextColor3 = Color3.fromRGB(100, 75, 30)
+            t.page.Visible = false
         end
+        tab.BackgroundTransparency = 0
+        tab.TextColor3 = Color3.fromRGB(80, 50, 10)
+        page.Visible = true
+        tween(activeLine, {Position = UDim2.new(0, 0, 0, 6 + (index - 1) * 42 + 2)}, 0.25)
+    end)
 
-        local drawings = ESPObjects[player]
-        if not drawings then continue end
+    return page, tab
+end
 
-        -- Sembunyikan jika ESP off
-        if not State.ESPEnabled then
-            for _, d in pairs(drawings) do d.Visible = false end
-            continue
-        end
+-- ═══════════════════════════════════════════
+-- TABS
+-- ═══════════════════════════════════════════
+local mainPage, mainTab = createTab("🏠", "Main", 1)
+local creditsPage, creditsTab = createTab("👤", "Credits", 2)
 
-        local char     = player.Character
-        local rootPart = char and char:FindFirstChild("HumanoidRootPart")
-        local humanoid = char and char:FindFirstChildOfClass("Humanoid")
+-- Activate first tab
+mainTab.BackgroundTransparency = 0
+mainTab.TextColor3 = Color3.fromRGB(80, 50, 10)
+mainPage.Visible = true
 
-        if not char or not rootPart or not humanoid or humanoid.Health <= 0 then
-            for _, d in pairs(drawings) do d.Visible = false end
-            continue
-        end
+-- ═══════════════════════════════════════════
+-- MAIN PAGE CONTENT
+-- ═══════════════════════════════════════════
+local bannerBg = Instance.new("Frame", mainPage)
+bannerBg.Size = UDim2.new(1, 0, 0, 70)
+bannerBg.Position = UDim2.new(0, 0, 0, 10)
+bannerBg.BackgroundColor3 = Color3.fromRGB(238, 222, 172)
+Instance.new("UICorner", bannerBg).CornerRadius = UDim.new(0, 10)
+local bannerStroke = Instance.new("UIStroke", bannerBg)
+bannerStroke.Color = Color3.fromRGB(205, 178, 110)
+bannerStroke.Thickness = 1
 
-        -- Kalkulasi bounding box karakter dari bagian atas ke bawah
-        local topPos    = rootPart.Position + Vector3.new(0, 3.2, 0)
-        local bottomPos = rootPart.Position - Vector3.new(0, 3.0, 0)
+local bannerIcon = Instance.new("TextLabel", bannerBg)
+bannerIcon.Size = UDim2.new(0, 44, 0, 44)
+bannerIcon.Position = UDim2.new(0, 12, 0.5, -22)
+bannerIcon.Text = "⚔"
+bannerIcon.TextScaled = true
+bannerIcon.BackgroundColor3 = Color3.fromRGB(200, 60, 60)
+bannerIcon.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner", bannerIcon).CornerRadius = UDim.new(0, 10)
 
-        local topScreen,    topOnScreen,    depth = Camera:WorldToViewportPoint(topPos)
-        local bottomScreen, bottomOnScreen         = Camera:WorldToViewportPoint(bottomPos)
+local welcomeLabel = Instance.new("TextLabel", bannerBg)
+welcomeLabel.Size = UDim2.new(1, -70, 0, 26)
+welcomeLabel.Position = UDim2.new(0, 66, 0, 10)
+welcomeLabel.Text = "Welcome to NO MERCY HUB"
+welcomeLabel.TextColor3 = Color3.fromRGB(70, 45, 10)
+welcomeLabel.BackgroundTransparency = 1
+welcomeLabel.Font = Enum.Font.GothamBold
+welcomeLabel.TextScaled = true
+welcomeLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-        if not topOnScreen or depth <= 0 then
-            for _, d in pairs(drawings) do d.Visible = false end
-            continue
-        end
+local welcomeSub = Instance.new("TextLabel", bannerBg)
+welcomeSub.Size = UDim2.new(1, -70, 0, 18)
+welcomeSub.Position = UDim2.new(0, 66, 0, 38)
+welcomeSub.Text = "Key verified ✓  |  Made by Kemerus"
+welcomeSub.TextColor3 = Color3.fromRGB(140, 110, 60)
+welcomeSub.BackgroundTransparency = 1
+welcomeSub.Font = Enum.Font.Gotham
+welcomeSub.TextSize = 10
+welcomeSub.TextXAlignment = Enum.TextXAlignment.Left
 
-        local height  = math.abs(bottomScreen.Y - topScreen.Y)
-        local width   = height * 0.5
-        local centerX = topScreen.X
+-- Status card
+local statusCard = Instance.new("Frame", mainPage)
+statusCard.Size = UDim2.new(1, 0, 0, 50)
+statusCard.Position = UDim2.new(0, 0, 0, 92)
+statusCard.BackgroundColor3 = Color3.fromRGB(242, 230, 195)
+Instance.new("UICorner", statusCard).CornerRadius = UDim.new(0, 10)
+local statusCardStroke = Instance.new("UIStroke", statusCard)
+statusCardStroke.Color = Color3.fromRGB(200, 175, 110)
+statusCardStroke.Thickness = 1
 
-        -- Jarak
-        local myChar = LocalPlayer.Character
-        local myRoot = myChar and myChar:FindFirstChild("HumanoidRootPart")
-        local dist = 0
-        if myRoot then
-            dist = math.floor((rootPart.Position - myRoot.Position).Magnitude)
-        end
+local statusDot = Instance.new("Frame", statusCard)
+statusDot.Size = UDim2.new(0, 10, 0, 10)
+statusDot.Position = UDim2.new(0, 14, 0.5, -5)
+statusDot.BackgroundColor3 = Color3.fromRGB(60, 200, 100)
+Instance.new("UICorner", statusDot).CornerRadius = UDim.new(1, 0)
 
-        -- Render BOX
-        drawings.Box.Visible  = true
-        drawings.Box.Size     = Vector2.new(width, height)
-        drawings.Box.Position = Vector2.new(centerX - width / 2, topScreen.Y)
+local statusText = Instance.new("TextLabel", statusCard)
+statusText.Size = UDim2.new(1, -40, 1, 0)
+statusText.Position = UDim2.new(0, 34, 0, 0)
+statusText.Text = "Hub is active and running"
+statusText.TextColor3 = Color3.fromRGB(70, 50, 15)
+statusText.BackgroundTransparency = 1
+statusText.Font = Enum.Font.Gotham
+statusText.TextSize = 12
+statusText.TextXAlignment = Enum.TextXAlignment.Left
 
-        -- Render NAMA
-        drawings.Name.Visible  = true
-        drawings.Name.Text     = player.Name
-        drawings.Name.Position = Vector2.new(centerX, topScreen.Y - 16)
+-- ═══════════════════════════════════════════
+-- CREDITS PAGE CONTENT
+-- ═══════════════════════════════════════════
+local devHeader = Instance.new("TextLabel", creditsPage)
+devHeader.Size = UDim2.new(1, 0, 0, 26)
+devHeader.Position = UDim2.new(0, 0, 0, 4)
+devHeader.Text = "DEVELOPERS"
+devHeader.TextColor3 = Color3.fromRGB(130, 90, 20)
+devHeader.BackgroundTransparency = 1
+devHeader.Font = Enum.Font.GothamBold
+devHeader.TextSize = 12
+devHeader.TextXAlignment = Enum.TextXAlignment.Left
 
-        -- Render HP BAR (sisi kiri box)
-        local hpRatio = math.clamp(humanoid.Health / humanoid.MaxHealth, 0, 1)
-        local barW    = 4
-        local barX    = centerX - width / 2 - barW - 2
-        local barH    = height
+local devLine = Instance.new("Frame", creditsPage)
+devLine.Size = UDim2.new(1, 0, 0, 1)
+devLine.Position = UDim2.new(0, 0, 0, 30)
+devLine.BackgroundColor3 = Color3.fromRGB(200, 175, 115)
 
-        drawings.HpBg.Visible  = true
-        drawings.HpBg.Size     = Vector2.new(barW, barH)
-        drawings.HpBg.Position = Vector2.new(barX, topScreen.Y)
+local card = Instance.new("Frame", creditsPage)
+card.Size = UDim2.new(1, 0, 0, 100)
+card.Position = UDim2.new(0, 0, 0, 40)
+card.BackgroundColor3 = Color3.fromRGB(240, 228, 195)
+Instance.new("UICorner", card).CornerRadius = UDim.new(0, 12)
+local cardStroke = Instance.new("UIStroke", card)
+cardStroke.Color = Color3.fromRGB(200, 170, 100)
+cardStroke.Thickness = 1.5
 
-        drawings.HpFill.Visible  = true
-        drawings.HpFill.Size     = Vector2.new(barW, barH * hpRatio)
-        drawings.HpFill.Position = Vector2.new(barX, topScreen.Y + barH * (1 - hpRatio))
-        -- Merah saat HP rendah, hijau saat HP penuh
-        drawings.HpFill.Color = Color3.fromRGB(
-            math.floor(255 * (1 - hpRatio)),
-            math.floor(255 * hpRatio),
-            50
-        )
+-- Avatar circle
+local avatar = Instance.new("Frame", card)
+avatar.Size = UDim2.new(0, 60, 0, 60)
+avatar.Position = UDim2.new(0, 16, 0.5, -30)
+avatar.BackgroundColor3 = Color3.fromRGB(200, 60, 60)
+Instance.new("UICorner", avatar).CornerRadius = UDim.new(1, 0)
+local avatarStroke = Instance.new("UIStroke", avatar)
+avatarStroke.Color = Color3.fromRGB(230, 195, 100)
+avatarStroke.Thickness = 2
 
-        -- Render JARAK
-        drawings.Distance.Visible  = true
-        drawings.Distance.Text     = "[" .. dist .. "m]"
-        drawings.Distance.Position = Vector2.new(centerX, bottomScreen.Y + 3)
+local avatarLabel = Instance.new("TextLabel", avatar)
+avatarLabel.Size = UDim2.new(1, 0, 1, 0)
+avatarLabel.Text = "K"
+avatarLabel.TextColor3 = Color3.new(1, 1, 1)
+avatarLabel.BackgroundTransparency = 1
+avatarLabel.Font = Enum.Font.GothamBold
+avatarLabel.TextScaled = true
+
+-- Name and info
+local devName = Instance.new("TextLabel", card)
+devName.Size = UDim2.new(0.5, 0, 0, 22)
+devName.Position = UDim2.new(0, 90, 0, 18)
+devName.Text = "Kemerus"
+devName.TextColor3 = Color3.fromRGB(60, 40, 10)
+devName.BackgroundTransparency = 1
+devName.Font = Enum.Font.GothamBold
+devName.TextSize = 16
+devName.TextXAlignment = Enum.TextXAlignment.Left
+
+local devRole = Instance.new("TextLabel", card)
+devRole.Size = UDim2.new(0.5, 0, 0, 16)
+devRole.Position = UDim2.new(0, 90, 0, 42)
+devRole.Text = "⚙  Script Developer"
+devRole.TextColor3 = Color3.fromRGB(130, 100, 50)
+devRole.BackgroundTransparency = 1
+devRole.Font = Enum.Font.Gotham
+devRole.TextSize = 11
+devRole.TextXAlignment = Enum.TextXAlignment.Left
+
+local devBadge = Instance.new("TextLabel", card)
+devBadge.Size = UDim2.new(0, 80, 0, 24)
+devBadge.Position = UDim2.new(0, 90, 0, 62)
+devBadge.Text = "FOUNDER"
+devBadge.BackgroundColor3 = Color3.fromRGB(180, 140, 55)
+devBadge.TextColor3 = Color3.fromRGB(255, 248, 210)
+devBadge.Font = Enum.Font.GothamBold
+devBadge.TextSize = 10
+Instance.new("UICorner", devBadge).CornerRadius = UDim.new(0, 6)
+
+-- Founder tag on right
+local founderTag = Instance.new("TextLabel", card)
+founderTag.Size = UDim2.new(0, 26, 0, 60)
+founderTag.Position = UDim2.new(1, -38, 0.5, -30)
+founderTag.Text = "F\nO\nU\nN\nD\nE\nR"
+founderTag.BackgroundColor3 = Color3.fromRGB(200, 160, 60)
+founderTag.TextColor3 = Color3.fromRGB(255, 248, 210)
+founderTag.Font = Enum.Font.GothamBold
+founderTag.TextSize = 7
+Instance.new("UICorner", founderTag).CornerRadius = UDim.new(0, 7)
+
+-- ═══════════════════════════════════════════
+-- KEY VERIFY LOGIC
+-- ═══════════════════════════════════════════
+loginBtn.MouseButton1Click:Connect(function()
+    if keyBox.Text == KEY then
+        statusLabel.Text = "✓  Key accepted!"
+        statusLabel.TextColor3 = Color3.fromRGB(60, 180, 80)
+
+        tween(loginBtn, {BackgroundColor3 = Color3.fromRGB(60, 180, 80)}, 0.2)
+
+        task.wait(0.4)
+        local out = TweenService:Create(keyPage, TweenInfo.new(0.45, Enum.EasingStyle.Back, Enum.EasingDirection.In), {Position = UDim2.new(0, 0, 1.2, 0)})
+        out:Play()
+        out.Completed:Connect(function()
+            keyPage.Visible = false
+            mainMenu.Visible = true
+            mainMenu.Position = UDim2.new(0, 0, -0.1, 0)
+            tween(mainMenu, {Position = UDim2.new(0, 0, 0, 0)}, 0.4)
+        end)
+    else
+        statusLabel.Text = "✕  Wrong key! Try again."
+        statusLabel.TextColor3 = Color3.fromRGB(210, 70, 60)
+        tween(loginBtn, {BackgroundColor3 = Color3.fromRGB(200, 70, 60)}, 0.15)
+        task.wait(0.3)
+        tween(loginBtn, {BackgroundColor3 = Color3.fromRGB(180, 140, 60)}, 0.3)
+        keyBox.Text = ""
     end
 end)
 
--- Cleanup ESP saat player keluar
-Players.PlayerRemoving:Connect(function(player)
-    removeESP(player)
+-- ═══════════════════════════════════════════
+-- HOVER EFFECTS
+-- ════════════════════════════════════════
+hub
+loginBtn.MouseLeave:Connect(function()
+    tween(loginBtn, {BackgroundColor3 = Color3.fromRGB(180, 140, 60)}, 0.15)
 end)
 
--- Init ESP untuk semua player yang sudah ada
-for _, player in pairs(Players:GetPlayers()) do
-    createESP(player)
+closeBtn.MouseEnter:Connect(function()
+    tween(closeBtn, {BackgroundColor3 = Color3.fromRGB(230, 60, 50)}, 0.15)
+end)
+closeBtn.MouseLeave:Connect(function()
+    tween(closeBtn, {BackgroundColor3 = Color3.fromRGB(210, 80, 70)}, 0.15)
+end)
+
+miniBtn.MouseEnter:Connect(function()
+    tween(miniBtn, {BackgroundColor3 = Color3.fromRGB(195, 178, 130)}, 0.15)
+end)
+miniBtn.MouseLeave:Connect(function()
+    tween(miniBtn, {BackgroundColor3 = Color3.fromRGB(210, 195, 150)}, 0.15)
+end)
+
+-- ═══════════════════════════════════════════
+-- BUTTON EVENTS
+-- ═══════════════════════════════════════════
+openBtn.MouseButton1Click:Connect(function()
+    frame.Visible = true
+    frameShadow.Visible = true
+    openBtn.Visible = false
+    frame.Size = UDim2.new(0, 500, 0, 0)
+    tween(frame, {Size = UDim2.new(0, 500, 0, 320)}, 0.35, Enum.EasingStyle.Back)
+end)
+
+closeBtn.MouseButton1Click:Connect(function()
+    tween(frame, {Size = UDim2.new(0, 500, 0, 0)}, 0.25, Enum.EasingStyle.Quint)
+    task.wait(0.27)
+    frame.Visible = false
+    frameShadow.Visible = false
+    openBtn.Visible = true
+end)
+
+local minimized = false
+mini.MouseButton1Click = nil  -- clear old
+miniBtn.MouseButton1Click:Connect(function()
+    if minimized then
+        tween(frame, {Size = UDim2.new(0, 500, 0, 320)}, 0.3, Enum.EasingStyle.Back)
+        minimized = false
+    else
+        tween(frame, {Size = UDim2.new(0, 500, 0, 42)}, 0.25)
+        minimized = true
+    end
+end)
+
+-- ═══════════════════════════════════════════
+-- DRAG (Mouse + Touch)
+-- ═══════════════════════════════════════════
+local dragging = false
+local dragInput, dragStart, startPos
+
+local function updateDrag(input)
+    local delta = input.Position - dragStart
+    local newPos = UDim2.new(
+        startPos.X.Scale, startPos.X.Offset + delta.X,
+        startPos.Y.Scale, startPos.Y.Offset + delta.Y
+    )
+    frame.Position = newPos
+    frameShadow.Position = UDim2.new(
+        newPos.X.Scale, newPos.X.Offset - 10,
+        newPos.Y.Scale, newPos.Y.Offset - 10
+    )
 end
 
-Players.PlayerAdded:Connect(function(player)
-    createESP(player)
+topBar.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1
+    or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = frame.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
 end)
 
--- ============================================================
--- // UI - TAB MAIN
--- ============================================================
-local MainTab = Window:CreateTab("🏠 Main", 4483362458)
-MainTab:CreateSection("Menu Utama")
+topBar.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement
+    or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
 
-Rayfield:Notify({
-    Title = "31NM v2.0 Loaded!",
-    Content = "ESP & WalkSpeed sudah diperbaiki!",
-    Duration = 5,
-    Image = 4483362458,
-})
-
-MainTab:CreateToggle({
-    Name = "Auto Farm",
-    CurrentValue = false,
-    Flag = "AutoFarm",
-    Callback = function(Value)
-        State.AutoFarmEnabled = Value
-        Rayfield:Notify({
-            Title = "Auto Farm",
-            Content = Value and "Diaktifkan!" or "Dimatikan!",
-            Duration = 3,
-        })
-    end,
-})
-
-MainTab:CreateToggle({
-    Name = "God Mode",
-    CurrentValue = false,
-    Flag = "GodMode",
-    Callback = function(Value)
-        State.GodModeEnabled = Value
-        local char = LocalPlayer.Character
-        if char then
-            local hum = char:FindFirstChildOfClass("Humanoid")
-            if hum then
-                if Value then
-                    hum.MaxHealth = math.huge
-                    hum.Health    = math.huge
-                else
-                    hum.MaxHealth = 100
-                    hum.Health    = 100
-                end
-            end
-        end
-    end,
-})
-
--- PENTING: Aktifkan toggle ini dulu sebelum slider walkspeed berlaku
-MainTab:CreateToggle({
-    Name = "Aktifkan Custom Speed",
-    CurrentValue = false,
-    Flag = "SpeedToggle",
-    Callback = function(Value)
-        State.SpeedEnabled = Value
-        if not Value then
-            -- Reset normal saat dimatikan
-            State.WalkSpeed = 16
-            local char = LocalPlayer.Character
-            if char then
-                local hum = char:FindFirstChildOfClass("Humanoid")
-                if hum then hum.WalkSpeed = 16 end
-            end
-        end
-    end,
-})
-
-MainTab:CreateSlider({
-    Name = "Walk Speed",
-    Range = {16, 200},
-    Increment = 1,
-    Suffix = " WS",
-    CurrentValue = 16,
-    Flag = "WalkSpeed",
-    Callback = function(Value)
-        State.WalkSpeed = Value
-        if State.SpeedEnabled then
-            local char = LocalPlayer.Character
-            if char then
-                local hum = char:FindFirstChildOfClass("Humanoid")
-                if hum then hum.WalkSpeed = Value end
-            end
-        end
-    end,
-})
-
-MainTab:CreateSlider({
-    Name = "Jump Power",
-    Range = {50, 500},
-    Increment = 5,
-    Suffix = " JP",
-    CurrentValue = 50,
-    Flag = "JumpPower",
-    Callback = function(Value)
-        State.JumpPower = Value
-        local char = LocalPlayer.Character
-        if char then
-            local hum = char:FindFirstChildOfClass("Humanoid")
-            if hum then hum.JumpPower = Value end
-        end
-    end,
-})
-
--- ============================================================
--- // UI - TAB PLAYER
--- ============================================================
-local PlayerTab = Window:CreateTab("👤 Player", 4483362458)
-PlayerTab:CreateSection("Pengaturan Player")
-
-PlayerTab:CreateButton({
-    Name = "Reset Character",
-    Callback = function()
-        local char = LocalPlayer.Character
-        if char then char:BreakJoints() end
-        Rayfield:Notify({ Title = "Reset", Content = "Character direset!", Duration = 3 })
-    end,
-})
-
-PlayerTab:CreateButton({
-    Name = "Bring All Players",
-    Callback = function()
-        local char = LocalPlayer.Character
-        local root = char and char:FindFirstChild("HumanoidRootPart")
-        if not root then return end
-        for _, plr in pairs(Players:GetPlayers()) do
-            if plr ~= LocalPlayer and plr.Character then
-                local r = plr.Character:FindFirstChild("HumanoidRootPart")
-                if r then
-                    r.CFrame = root.CFrame + Vector3.new(math.random(-3, 3), 0, math.random(-3, 3))
-                end
-            end
-        end
-        Rayfield:Notify({ Title = "Bring", Content = "Semua player berhasil dibawa!", Duration = 3 })
-    end,
-})
-
-PlayerTab:CreateInput({
-    Name = "Teleport ke Player",
-    PlaceholderText = "Masukkan nama player...",
-    RemoveTextAfterFocusLost = false,
-    Callback = function(Text)
-        local target = Players:FindFirstChild(Text)
-        if target and target.Character then
-            local tr     = target.Character:FindFirstChild("HumanoidRootPart")
-            local myChar = LocalPlayer.Character
-            local myRoot = myChar and myChar:FindFirstChild("HumanoidRootPart")
-            if tr and myRoot then
-                myRoot.CFrame = tr.CFrame + Vector3.new(0, 3, 0)
-                Rayfield:Notify({ Title = "Teleport", Content = "Berhasil ke " .. Text, Duration = 3 })
-            end
-        else
-            Rayfield:Notify({ Title = "Error", Content = "Player tidak ditemukan!", Duration = 3 })
-        end
-    end,
-})
-
--- ============================================================
--- // UI - TAB VISUAL
--- ============================================================
-local VisualTab = Window:CreateTab("🎨 Visual", 4483362458)
-VisualTab:CreateSection("Pengaturan Visual")
-
-VisualTab:CreateToggle({
-    Name = "ESP Players (Box + HP + Nama + Jarak)",
-    CurrentValue = false,
-    Flag = "ESPPlayers",
-    Callback = function(Value)
-        State.ESPEnabled = Value
-        Rayfield:Notify({
-            Title = "ESP",
-            Content = Value and "ESP diaktifkan!" or "ESP dimatikan!",
-            Duration = 3,
-        })
-    end,
-})
-
-VisualTab:CreateToggle({
-    Name = "Full Bright",
-    CurrentValue = false,
-    Flag = "FullBright",
-    Callback = function(Value)
-        State.FullBright = Value
-        if Value then
-            game.Lighting.Brightness    = 2
-            game.Lighting.ClockTime     = 14
-            game.Lighting.FogEnd        = 100000
-            game.Lighting.GlobalShadows = false
-            game.Lighting.Ambient       = Color3.fromRGB(255, 255, 255)
-        else
-            game.Lighting.Brightness    = 1
-            game.Lighting.ClockTime     = 14
-            game.Lighting.FogEnd        = 100000
-            game.Lighting.GlobalShadows = true
-            game.Lighting.Ambient       = Color3.fromRGB(70, 70, 70)
-        end
-    end,
-})
-
--- ============================================================
--- // UI - TAB SETTINGS
--- ============================================================
-local SettingsTab = Window:CreateTab("⚙️ Settings", 4483362458)
-SettingsTab:CreateSection("Informasi")
-
-SettingsTab:CreateParagraph({
-    Title = "31NM Script Hub v2.0",
-    Content = "Developer: Kemerus Team\nDiscord: discord.gg/kemerus\n\nChangelog v2.0:\n✅ ESP berfungsi (Box, HP Bar, Nama, Jarak)\n✅ WalkSpeed tidak lagi freeze (Heartbeat loop)\n✅ Toggle speed terpisah dari slider\n✅ ESP cleanup saat player keluar"
-})
-
-SettingsTab:CreateButton({
-    Name = "Discord Server",
-    Callback = function()
-        Rayfield:Notify({ Title = "Discord", Content = "https://discord.gg/h38Qayaq9p", Duration = 5 })
-    end,
-})
-
--- // Load Config
-Rayfield:LoadConfiguration()
+UIS.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        updateDrag(input)
+    end
+end)
