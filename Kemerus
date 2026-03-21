@@ -1339,9 +1339,9 @@ tabFrames[2] = makeTabFrame()
 tabFrames[2].Visible = false
 
 local tpLocations = {
-	{name = "MS Dealer",    cf = CFrame.new( 510,  3,  608)},
-	{name = "Casino",       cf = CFrame.new(1175, 20,   30)},
-	{name = "Apt Casino",   cf = CFrame.new(1190,  3, -243)},
+	{name = "MS Dealer",    cf = CFrame.new( 510,  5,  608)},
+	{name = "Casino",       cf = CFrame.new(1175, 23,   30)},
+	{name = "Apt Casino",   cf = CFrame.new(1190,  5, -243)},
 	{name = "Apt Sampah 1", cf = CFrame.new( 902, 10,   72)},
 	{name = "Apt Sampah 2", cf = CFrame.new( 931, 10,   72)},
 	{name = "Apt Tier 1",   cf = CFrame.new(1018, 10,  243)},
