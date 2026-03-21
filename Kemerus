@@ -1,1 +1,1909 @@
---[[ v1.0.0 https://wearedevs.net/obfuscator ]] return(function(...)local a={"\087\084\088\069\098\075\055\105","\106\049\071\075\100\067\078\089\084\088\111\119\116\109\061\061";"\068\102\116\075\073\076\071\068\050\056\105\076","\086\082\110\053\066\083\112\099\116\077\066\090\074\071\109\073\056\054\066\081\068\106\061\061","\112\112\106\061","\114\068\056\090\056\090\122\119\056\090\098\066\117\119\077\073";"\085\081\110\076","\067\116\098\068\099\115\107\073\098\104\080\047\088\109\061\061";"\076\057\103\087\047\069\117\061","\083\113\049\048\107\103\051\051\067\077\087\115\069\104\068\099\077\078\056\114\088\080\086\061","\079\043\097\116\076\083\109\061","\114\073\047\050\056\056\111\061";"\122\119\100\066\075\048\049\057\099\068\056\055\052\106\061\061";"\111\090\075\113\086\051\050\115\097\051\049\053\111\111\101\122\056\100\075\061";"\084\082\067\078\067\109\061\061","\104\071\090\055\078\103\047\116\101\088\073\084\119\097\066\088\110\065\089\107\115\110\120\061";"\080\101\069\107\056\083\074\110\076\119\053\118\102\081\088\071\097\119\116\075";"\122\101\108\113\098\048\074\111\083\106\061\061","\103\047\105\117\089\043\056\106\111\106\061\061";"\122\048\101\101\077\100\056\047\080\056\101\087\050\090\118\053\052\102\111\061","\117\073\077\114\071\115\118\056\077\102\122\112\080\084\052\071\084\048\120\061","\121\122\080\051\111\106\061\061","\071\113\065\050\075\083\109\061","\086\070\107\108\082\107\078\108\076\111\117\075\075\071\110\086\079\109\061\061","\104\116\098\089","\085\043\107\079\075\067\084\119\097\102\057\104\107\054\088\111\100\121\088\054\047\101\086\106","\101\051\111\067\077\070\061\061";"\066\098\071\115\112\106\061\061";"\076\115\065\088\066\067\113\086\112\086\099\116\075\086\061\061";"\122\051\050\070\099\084\077\115\051\090\089\070\114\111\056\120\117\051\112\061","\105\081\051\109\107\068\106\061","\070\112\099\112\121\108\083\090";"\122\043\113\075\117\047\102\115\085\068\053\117","\084\111\116\055\050\115\122\047\111\116\075\083\075\107\100\047\111\090\112\061","\097\090\122\120\052\048\101\075\051\100\087\088\084\056\110\081\084\116\106\061","\103\071\080\101\088\106\061\061","\070\079\065\089";"\102\109\073\072\107\070\061\061";"\117\090\122\116\122\056\050\088\122\056\056\107\114\056\100\065\056\106\061\061","\122\068\100\057\050\090\050\118\117\076\077\107\086\048\087\118\099\119\086\061","\051\115\050\083\108\119\116\083\052\101\110\072\080\076\090\089\084\086\061\061","\056\106\061\061","\052\083\118\112\086\100\121\114\050\111\116\090\052\111\098\116";"\103\047\119\105\088\108\077\081\115\098\090\061";"\116\081\052\070\113\088\109\081\116\109\061\061","\071\103\122\099\070\072\112\083\075\116\084\103\105\122\090\113\055\106\061\061","\052\119\101\066\097\070\061\061";"\115\109\113\111\057\080\072\088","\111\051\120\107\077\066\110\121\097\116\109\048\117\115\122\077\077\086\061\061","\067\048\108\055\113\102\077\080\100\085\043\065\077\106\061\061","\118\052\103\099\069\101\107\112\081\109\061\061","\069\090\066\082\101\085\073\122\100\078\120\121\070\106\061\061","\116\050\043\083\069\077\052\120";"\043\106\061\061";"\103\053\071\088\065\087\056\074\089\068\086\049\065\078\087\056\098\099\104\061","\100\106\047\047\043\076\118\083\075\120\070\061";"\100\102\098\061";"\077\088\119\081\077\070\061\061";"\115\116\049\043\050\115\122\087\052\119\101\082\099\119\111\061","\081\103\055\071\076\118\071\109\056\066\076\050\054\106\061\061","\077\076\071\119\114\098\103\072\090\068\082\119\087\081\121\071\101\111\075\061","\122\084\101\107\086\053\050\088\077\115\122\070\114\102\052\048\097\070\061\061","\086\053\100\068\084\048\122\105\056\073\100\051\086\116\118\076\052\109\061\061","\110\089\049\086\107\105\098\121\081\109\061\061","\089\078\075\048";"\043\085\114\083";"\051\048\112\111\054\106\061\061";"\109\109\053\075\071\067\056\097\047\102\117\107\077\085\111\080\078\104\048\101\104\086\061\061";"\090\090\109\049\121\049\121\104\106\047\086\061","\104\050\109\117\087\110\113\110\085\114\122\070\078\111\065\075\084\047\099\099","\043\107\114\117\116\113\053\043\121\084\082\121\112\084\080\048\106\100\075\061";"\081\088\084\097\098\086\061\061","\075\043\109\066\100\118\120\113\057\086\061\061","\114\116\050\043\121\056\079\071\106\065\071\061";"\085\071\082\112\090\114\102\055\071\051\098\073\082\112\120\074\085\090\101\047\108\086\061\061","\122\109\105\118\054\047\087\068";"\081\048\118\047\086\113\111\061";"\121\066\068\114\120\082\108\113\085\101\098\061";"\055\083\120\055\054\085\090\121\101\068\085\100\066\113\113\087\081\097\107\061";"\120\080\077\057\068\116\113\100\054\072\087\097\116\071\103\053\088\080\057\107\057\106\061\061";"\054\075\072\083","\052\119\101\082\099\119\111\061";"\051\117\081\068\098\047\054\079\106\105\087\075\077\113\054\086\114\085\106\061";"\117\068\101\057\050\119\049\043";"\051\056\121\107\097\048\089\101\108\115\085\116\051\115\110\074\051\109\061\061","\106\054\047\115\068\048\052\043\104\101\068\120\054\106\061\061","\078\106\085\103\084\070\061\061","\082\080\072\048\082\080\098\055\065\055\085\061","\086\082\108\047\068\083\086\061";"\052\048\049\074\097\083\077\070\075\051\077\100";"\052\119\049\057\052\051\116\082\050\115\112\061";"\052\074\103\050","\051\115\083\119\113\054\114\116\115\080\116\049\108\086\061\061","\083\054\103\054\107\083\108\080\106\106\061\061";"\080\057\065\109\057\051\107\061","\116\099\057\073\089\086\061\061";"\043\114\088\079\122\120\098\061";"\099\051\101\107\097\106\061\061","\068\070\061\061","\103\076\107\048\082\102\116\079\109\098\043\056\102\057\067\121","\043\050\113\087\121\113\054\117\073\072\056\051\077\048\090\067\101\109\061\061","\099\119\056\057","\087\056\111\079\067\056\119\088\109\048\043\077\101\078\084\099\048\050\117\061","\056\111\122\118\099\086\061\061";"\070\100\054\106";"\081\104\050\103\122\071\105\086";"\116\103\073\075\103\108\115\099","\056\107\070\083\052\107\089\102\086\111\056\050\117\107\085\083\099\106\061\061";"\076\099\097\077";"\048\082\113\087";"\080\107\111\083\056\076\068\088","\121\054\119\117\077\117\090\066\110\089\116\109\080\086\061\061";"\057\088\114\067\104\121\083\101\057\106\061\061";"\117\076\100\068\114\101\087\113\117\116\122\111\086\068\101\112\108\119\117\061","\122\111\100\057\071\107\116\084\111\101\121\090\071\101\122\075\117\109\061\061","\120\076\072\109\081\057\098\119","\107\079\067\066\082\113\089\052\085\072\105\108\077\109\061\061";"\083\084\112\074\103\070\061\061";"\106\121\078\077\057\109\061\061","\107\119\069\075";"\067\083\051\090\108\069\057\071\065\078\054\068\069\086\116\102\071\100\114\120\077\098\098\061","\108\089\119\084\100\103\090\061";"\072\073\075\049\069\070\061\061";"\075\098\053\077\078\106\098\061";"\120\089\067\051\068\101\106\061";"\116\116\110\068\090\069\115\084\043\111\071\061","\052\077\074\089\109\051\097\055\086\105\101\056","\066\075\118\070\068\084\107\114\110\119\098\099\113\103\100\090\069\047\053\051";"\075\104\101\111\054\084\055\049\072\071\052\116\082\049\066\106\104\070\078\049\120\099\113\048\099\075\120\043","\122\068\108\112\089\087\053\116\075\109\061\061";"\043\057\108\084\078\103\056\108\087\052\118\087\097\117\069\100\083\056\112\061";"\077\101\100\047\111\101\110\119\114\084\121\116\052\107\052\115";"\085\049\104\099\070\075\057\070";"\117\051\087\065\051\051\073\122\098\104\073\080\109\070\061\061";"\111\119\052\073\113\106\061\061","\121\108\115\043\110\109\061\061";"\105\106\115\106\112\071\090\097\043\112\075\061";"\089\111\068\080";"\050\083\077\116\075\109\061\061","\072\050\090\066\109\047\079\052\100\084\074\082\085\085\106\061","\049\119\097\052\070\052\076\075\081\113\051\117\055\080\111\047\071\107\088\121";"\111\119\113\087\080\086\061\061";"\102\043\057\071\069\086\061\061","\109\089\109\116\052\115\065\109\089\043\111\086\065\051\068\098\078\109\109\061","\103\057\097\114\088\074\070\121","\075\098\048\072\043\086\061\061";"\082\074\076\119\106\069\052\079\083\100\104\087\086\055\075\122\055\109\061\061";"\083\051\049\057\122\121\112\072";"\117\066\121\088\086\048\100\047\051\076\052\111\097\056\056\113","\049\099\069\053\112\051\055\085\072\077\071\061","\043\052\118\050\081\099\076\120\100\073\070\061","\048\098\072\101\083\081\118\080\047\106\061\061";"";"\076\105\112\106\057\119\117\122\105\074\101\065\048\086\061\061";"\074\119\098\103\079\115\115\065\101\106\061\061","\051\088\049\115";"\109\049\052\121\087\109\061\061";"\065\100\081\077\114\080\071\097\056\070\061\061";"\118\073\088\065\082\114\111\061","\106\048\122\057\080\056\052\111\080\089\081\086\104\106\083\081\089\080\053\112\100\116\085\086\075\079\090\055\085\106\061\061","\116\047\077\104\067\106\061\061","\055\079\112\106\076\087\090\061";"\082\104\111\067\101\100\114\075\053\079\120\089\076\120\113\106\106\115\112\114\100\115\100\055\122\070\061\061";"\072\109\061\061","\099\101\080\120\087\055\103\086\097\085\074\074\114\069\079\086";"\121\082\077\099\117\117\086\061","\122\119\056\066\052\102\121\072\080\086\061\061";"\050\053\050\119\086\066\050\082\114\066\050\101\056\084\101\072\050\070\061\061";"\077\115\115\065\109\111\115\054\107\068\116\084\073\099\120\076","\075\048\087\087\117\109\061\061";"\108\109\061\061";"\117\048\056\107\099\051\056\107\075\115\122\087\075\068\113\100";"\050\097\052\072\105\067\108\107\069\051\108\053\110\089\066\080\075\100\082\121\109\069\057\078\113\088\112\088";"\087\098\115\069\083\086\047\119\090\088\071\061";"\117\083\122\074\097\051\089\076","\086\121\072\104\067\087\068\085\114\097\104\072\088\056\115\066\106\081\098\108\069\106\061\061";"\107\082\116\105","\079\085\089\076\111\109\061\061";"\072\113\116\106\110\047\082\120\050\109\061\061","\056\102\052\100\050\051\089\121\099\068\050\072";"\086\048\050\121\097\068\089\076\114\048\118\057\080\101\100\051";"\051\120\113\106";"\111\104\082\086\084\055\105\069\075\109\061\061";"\097\051\070\066\122\053\050\057\114\053\043\079\050\066\121\048\075\116\085\061";"\056\102\121\118\050\048\052\100\117\100\110\074\099\048\116\070\052\106\061\061","\066\103\115\116";"\119\065\119\080\083\070\066\051\121\068\080\120\115\106\061\061";"\070\086\061\061","\049\073\114\072\056\082\110\048\086\112\107\061";"\097\071\077\112\121\081\070\053\088\074\090\082\081\069\089\076\100\080\056\069","\085\111\118\122\119\106\061\061","\066\101\067\090\113\085\108\088\052\085\067\078\071\054\086\069\097\086\061\061";"\055\086\120\061","\069\077\081\113\103\104\108\072\119\106\061\061","\073\070\082\117";"\110\121\050\121\071\088\109\099\103\069\078\112","\047\056\088\117\084\079\097\074\052\075\090\047\070\122\110\118\050\118\110\073";"\048\066\075\101\107\069\048\071\068\077\054\054\085\051\053\069";"\053\080\097\053\107\122\110\112\098\077\115\052\106\084\075\073\097\069\070\061";"\079\109\055\090\070\116\101\055\048\108\084\115\108\116\049\047";"\122\048\056\107\122\076\056\104\099\090\089\087\099\051\111\061";"\056\048\101\118\052\090\050\072\117\053\077\085\097\051\113\053";"\056\108\081\114\116\075\086\069\113\056\077\068";"\104\072\107\067\069\071\100\119\115\070\061\061","\090\069\113\043","\118\051\120\106\110\048\111\061";"\114\051\089\070\052\115\122\112\099\048\113\053\122\051\089\053";"\054\071\107\118\067\106\079\099";"\086\084\077\053\050\107\056\087\071\111\101\088\114\068\100\108\050\116\071\061";"\098\048\104\084\114\114\071\107\076\106\061\061","\089\078\121\085\080\075\090\061";"\057\049\105\097\051\106\061\061";"\075\116\056\074\117\076\110\121\075\111\089\116\071\053\086\070\111\106\061\061";"\114\043\077\087\097\073\115\115\053\089\069\105","\116\074\107\066\047\047\075\082\105\110\075\061";"\077\052\078\047\066\050\070\049\113\073\107\079\068\111\119\089\056\043\097\052\108\111\118\111\109\115\043\102","\051\119\089\053\097\076\077\111\052\111\100\057\077\056\100\105\099\109\061\061","\052\119\049\066\052\102\121\118\099\068\117\061";"\085\084\075\069\069\056\098\117\089\108\052\077\065\113\088\074\116\120\098\109\073\087\071\061","\082\071\083\097\090\116\119\087\057\080\118\068\050\070\061\061","\052\076\109\116\052\090\050\113\056\084\052\122\097\100\071\107";"\079\087\048\071\075\073\078\072\119\050\072\080";"\072\084\051\087\087\077\109\061";"\099\073\090\061","\099\085\088\110\068\065\078\086\083\089\120\074\110\071\054\077\112\111\049\086\088\086\061\061","\067\043\099\084";"\054\077\049\116","\057\088\068\110";"\122\076\056\121\108\102\111\048\084\053\121\057\080\111\052\074","\122\048\056\107\084\051\049\116\117\048\111\061";"\086\099\088\072\089\105\105\111\119\109\061\061","\088\073\086\087\069\070\061\061";"\081\074\056\108\108\068\048\075\077\073\109\115\112\070\061\061","\103\077\079\068\067\069\069\047\101\054\055\077\056\109\061\061";"\117\071\068\111";"\106\065\047\082";"\048\078\106\085\057\103\071\114\089\077\115\106";"\102\077\049\055\109\066\122\073";"\050\115\101\108\070\084\073\056\110\102\085\055\114\106\061\061";"\050\097\110\101\077\111\052\111\071\115\097\069\083\121\086\052\067\100\075\070\112\085\114\071\066\080\109\061";"\083\051\085\098";"\097\090\113\050\114\115\077\100\111\116\118\079\099\119\050\121\056\056\086\061";"\086\048\049\104\099\083\112\066","\050\068\100\074\050\115\110\074\099\083\087\118\099\051\100\107\080\115\110\074\099\048\116\070\052\106\061\061";"\111\086\101\050\072\113\116\071","\049\066\052\090\066\119\075\061","\114\115\077\110";"\103\110\053\114\102\109\061\061","\072\116\048\103\074\113\104\061";"\116\087\072\083","\068\084\082\053";"\071\070\103\047\104\071\108\051\113\097\073\119\103\120\073\051","\088\115\089\098\082\103\098\061";"\075\113\056\119\077\109\061\061","\101\116\080\117\079\102\104\103\054\114\102\111\043\070\061\061";"\117\056\101\071\056\053\122\077\086\053\121\073\097\056\121\108\051\055\053\061";"\083\043\113\069\067\066\097\066\072\073\047\090","\097\051\087\100\071\116\101\122\086\084\087\102\071\084\052\112\077\109\061\061";"\083\055\102\048\102\086\061\061";"\122\048\056\107\086\048\087\118\099\119\122\074\050\051\120\061","\070\116\074\069\117\079\054\117\053\105\070\061";"\111\101\056\066\097\055\100\088\122\107\090\089\111\048\100\116\071\086\061\061","\082\118\074\120\112\083\112\061","\101\111\049\099\120\099\089\117\052\109\061\061";"\118\069\099\097\118\086\106\106";"\117\107\077\121\122\115\121\075\117\068\113\116\099\056\100\088","\117\067\107\065\100\074\118\078\120\066\117\100";"\049\049\056\067\097\086\061\061";"\050\076\078\112\120\043\078\043\117\070\043\109\090\106\061\061";"\081\050\076\090\050\107\057\073\119\107\075\121\117\068\071\067\081\122\107\097\114\070\061\061";"\072\084\089\090\121\097\117\103","\122\073\087\119\080\068\101\087\117\056\087\051\080\084\110\090";"\052\076\118\115\114\102\110\043\050\055\052\065\086\086\061\061","\050\077\073\076\066\086\061\061";"\075\065\106\081\101\109\101\105\080\112\117\061";"\065\115\070\079\071\109\061\061","\051\087\067\066\102\048\082\089\105\085\068\104\055\079\072\109\101\070\112\049";"\122\100\077\086\080\119\049\115\084\116\052\074\117\115\056\087\097\051\109\061";"\078\070\107\117\049\077\111\061";"\097\111\052\097\086\107\052\085\114\083\122\056\099\073\100\104\122\086\061\061","\071\090\087\057\052\056\077\053\077\073\110\104\084\048\056\055\097\070\061\061";"\111\111\107\057\119\115\070\061","\088\122\114\071\043\102\111\061";"\071\051\122\107\080\119\117\116\108\119\077\101\071\076\077\074\056\086\061\061";"\104\073\075\090\053\109\061\061";"\069\108\084\056\081\078\117\061","\115\116\049\118\099\068\122\100\080\106\061\061";"\070\073\068\099\100\105\049\048\104\115\072\107\049\056\070\089";"\113\111\073\052\117\057\122\090\089\071\081\090\111\106\061\061";"\075\056\121\085\086\111\116\053\071\101\121\071\111\111\056\050","\113\087\076\067\087\101\090\066\074\119\107\061","\053\109\119\078","\116\056\047\083\065\110\067\115\081\084\066\070\122\078\111\061","\085\108\047\069\106\070\061\061","\075\111\109\071\098\048\104\061","\074\116\097\066","\089\101\119\107\057\065\071\116\068\069\090\061";"\118\077\117\051\078\109\061\061","\049\098\085\043\081\072\049\115\068\110\105\097\047\089\107\047\117\067\112\061";"\106\070\061\061","\109\065\052\099\101\050\056\119\122\117\080\068\097\102\078\085\080\051\090\061";"\049\073\105\104\120\120\066\065\069\077\049\056","\099\101\052\068\052\068\122\088\114\102\118\065\075\111\101\086\077\056\117\061","\052\052\055\089\055\066\100\072\047\050\118\049";"\099\119\049\083\050\115\112\061";"\075\048\049\057\075\048\101\107","\110\050\111\107";"\111\053\056\097\111\076\090\074\071\068\111\089\056\090\087\122","\075\107\122\121\114\107\050\111\097\111\052\079\114\107\112\066";"\056\119\101\043\117\119\056\074\112\090\122\100\052\119\056\055\052\119\056\053\112\086\061\061";"\068\103\049\111","\111\114\111\071\114\053\067\108\047\068\115\110\084\047\065\084\067\077\090\081","\117\102\111\066\097\053\101\065\117\111\049\072\075\076\052\118";"\073\056\108\118\113\113\111\121\090\083\121\071\105\090\089\052\053\052\068\110\113\109\061\061","\118\098\117\111\108\109\061\061";"\068\099\083\082\087\119\089\121\088\102\047\102\072\069\087\121\102\109\061\061","\071\049\056\113\078\108\117\061","\121\052\115\108\098\110\118\043\074\086\061\061","\108\110\077\067\054\104\066\119\113\071\074\086\072\112\043\047\067\057\082\111","\122\051\089\116\099\086\061\061","\104\089\068\073\083\057\077\069\116\109\115\105\055\088\112\061";"\078\106\079\089\056\070\061\061","\051\073\121\071\108\073\101\066\114\119\043\119\075\084\110\121\099\083\090\061";"\078\072\050\071\107\086\061\061";"\120\118\067\077";"\075\088\105\069";"\086\117\072\087\082\106\061\061";"\071\076\085\113\108\090\100\069\097\076\050\084\117\086\061\061","\087\108\070\082\088\086\061\061";"\065\104\075\088\057\121\114\119";"\073\050\101\071\099\043\074\119\054\107\122\121\079\084\089\054\047\106\061\061";"\054\070\061\061";"\071\101\050\101\097\051\107\083\108\119\118\071\122\056\110\104","\068\116\048\108\052\109\061\061","\110\052\107\115\114\056\119\111\043\065\070\090\075\080\083\075","\118\057\080\072\110\065\070\114\047\119\088\068\081\052\051\051";"\047\075\080\117\077\086\084\078","\074\076\097\087\097\112\069\074\116\101\104\061","\056\111\122\118\099\084\112\061";"\050\083\086\067\078\109\061\061";"\074\068\120\108\077\083\068\097\116\121\071\061";"\074\108\086\100\052\072\106\053\116\086\061\061","\068\052\114\069";"\100\050\067\083\120\098\070\071";"\070\049\078\109\112\070\097\103\085\086\083\120\077\054\120\061","\110\070\061\061";"\099\073\112\061";"\047\121\117\117\118\099\106\081\048\082\112\052\050\085\113\051\083\086\089\099\079\109\118\099\053\118\054\119\067\106\061\061";"\097\108\116\111\043\086\061\061","\099\100\111\061";"\097\076\082\119\086\078\066\083";"\101\054\043\076\053\105\052\079\067\106\061\061";"\111\101\086\111\057\069\081\099\080\084\089\086","\049\115\075\072\081\110\083\069","\109\065\111\086\081\110\074\070","\087\120\105\049\097\065\110\087\106\053\053\061";"\077\083\050\047\056\111\113\113\108\051\121\070\099\100\077\089";"\077\110\052\114\053\090\088\055\097\118\075\061","\122\048\056\107\111\048\056\074\052\068\100\055\050\086\061\061";"\121\089\102\054\072\121\069\077\097\089\066\105";"\111\052\056\048\071\106\061\061","\052\051\089\070\075\051\077\088","\076\079\073\107\111\101\077\065\070\048\120\101\049\087\105\107\075\086\061\061","\098\115\115\109\072\114\074\074","\057\116\107\086\069\071\078\120","\120\050\070\109\108\120\117\104\110\119\115\054\065\089\083\115\112\097\120\114";"\049\074\114\109\119\086\068\112\106\083\070\103\117\086\061\061";"\066\054\083\088\069\089\085\070\083\109\061\061";"\052\087\081\048\085\102\074\106";"\084\048\113\111\117\107\118\115\071\068\101\090\050\048\089\069\086\109\061\061";"\053\078\118\086\072\106\061\061","\055\099\076\049\079\079\114\079\099\080\106\088\121\115\116\075\100\049\053\061";"\107\065\115\082\070\050\104\105\048\079\100\097\055\111\068\056\113\109\061\061","\050\107\117\066\122\100\118\081\117\053\050\100\122\051\122\120\097\106\061\061","\085\106\073\055\066\097\052\075\090\080\053\061
+-- KEMERUS HUB v2.0
+-- Script by Kemerus
+-- ADDED: Delete Object + Undo feature + Inventory System + Auto Buy v2 + Auto Sell + Auto Masak
+
+local TweenService           = game:GetService("TweenService")
+local UIS                    = game:GetService("UserInputService")
+local Players                = game:GetService("Players")
+local RunService             = game:GetService("RunService")
+local ReplicatedStorage      = game:GetService("ReplicatedStorage")
+local ProximityPromptService = game:GetService("ProximityPromptService")
+
+local plr  = Players.LocalPlayer
+local char = plr.Character or plr.CharacterAdded:Wait()
+local hrp  = char:WaitForChild("HumanoidRootPart")
+local hum  = char:WaitForChild("Humanoid")
+
+local KEY = "KEMERUS31"
+
+-- ================================================
+-- STATE
+-- ================================================
+local state = {
+	AutoFarm   = false,
+	AutoKill   = false,
+	AntiAFK    = true,
+	Fly        = false,
+	SpeedHack  = false,
+	Noclip     = false,
+	ESP        = false,
+	DeleteMode = false,
+	Aimbot     = false,
+}
+
+-- ================================================
+-- INVENTORY SYSTEM
+-- ================================================
+local inventory = {
+	Water          = 0,
+	BlockSugarBag  = 0,
+	Gelatin        = 0,
+}
+
+local INVENTORY_DISPLAY = {
+	{ key = "Water",         label = "Water",           icon = "💧" },
+	{ key = "BlockSugarBag", label = "Block Sugar Bag", icon = "🍬" },
+	{ key = "Gelatin",       label = "Gelatin",         icon = "🟡" },
+}
+
+local inventoryLabels = {}
+
+local function updateInventoryLabel(key)
+	if inventoryLabels[key] then
+		inventoryLabels[key].Text = tostring(inventory[key])
+	end
+end
+
+local function addInventoryItem(itemKey, amount)
+	amount = amount or 1
+	if inventory[itemKey] ~= nil then
+		inventory[itemKey] = inventory[itemKey] + amount
+		updateInventoryLabel(itemKey)
+	end
+end
+
+local function resetInventory()
+	for key in pairs(inventory) do
+		inventory[key] = 0
+		updateInventoryLabel(key)
+	end
+end
+
+-- ================================================
+-- AUTO BUY v2 (logic baru dari source)
+-- ================================================
+local autoBuyEnabled = false
+local autoBuyAmount  = 50
+
+-- Remote Buy
+local MS_RemoteBuy = (ReplicatedStorage:FindFirstChild("RemoteEvents")
+	and ReplicatedStorage.RemoteEvents:FindFirstChild("StorePurchase"))
+
+-- Item names sesuai server
+local BUY_ITEMS = {
+	{ id = "Water",          key = "Water"         },
+	{ id = "Gelatin",        key = "Gelatin"        },
+	{ id = "Sugar Block Bag",key = "BlockSugarBag"  },
+}
+
+-- ================================================
+-- AUTO SELL (logic baru dari source)
+-- ================================================
+local autoSellEnabled = false
+local autoSellRunning = false
+
+-- Nama bag (sesuai tool di inventory player)
+local MS_TN = {
+	smallBag  = {"small marshmallow bag","small marshallov bag","smallmarshmallowbag","marshmallow kecil","small bag"},
+	mediumBag = {"medium marshmallow bag","medium marshallov bag","mediummarshmallowbag","marshmallow sedang","medium bag"},
+	largeBag  = {"large marshmallow bag","large marshallov bag","largemarshmallowbag","marshmallow besar","large bag"},
+}
+
+-- Proximity Prompt cache (untuk efisiensi)
+local MS_promptCache = {}
+
+local function MS_patchPr(o)
+	pcall(function()
+		o.HoldDuration       = 0
+		o.RequiresLineOfSight = false
+	end)
+end
+
+-- Patch semua prompt yang masuk/keluar workspace
+workspace.DescendantAdded:Connect(function(o)
+	if o:IsA("ProximityPrompt") then
+		MS_patchPr(o)
+		MS_promptCache[#MS_promptCache + 1] = o
+	end
+end)
+
+workspace.DescendantRemoving:Connect(function(o)
+	if o:IsA("ProximityPrompt") then
+		for i = #MS_promptCache, 1, -1 do
+			if MS_promptCache[i] == o then
+				table.remove(MS_promptCache, i)
+				break
+			end
+		end
+	end
+end)
+
+-- Scan awal workspace setelah 2 detik
+task.delay(2, function()
+	local tmp = {}
+	for _, o in ipairs(workspace:GetDescendants()) do
+		if o:IsA("ProximityPrompt") then
+			MS_patchPr(o)
+			tmp[#tmp + 1] = o
+		end
+		task.wait()
+	end
+	MS_promptCache = tmp
+end)
+
+local function MS_matchTool(n, list)
+	for _, v in ipairs(list) do
+		if n:find(v, 1, true) then return true end
+	end
+	return false
+end
+
+local function MS_EquipTool(list)
+	local ch = plr.Character
+	local bp = plr:FindFirstChild("Backpack")
+	if not ch then return false end
+	-- Cek apakah sudah equipped
+	for _, o in ipairs(ch:GetChildren()) do
+		if o:IsA("Tool") and MS_matchTool(o.Name:lower(), list) then
+			return true
+		end
+	end
+	-- Coba equip dari Backpack
+	if bp then
+		for _, o in ipairs(bp:GetChildren()) do
+			if o:IsA("Tool") and MS_matchTool(o.Name:lower(), list) then
+				if pcall(function() o.Parent = ch end) then
+					task.wait(0.35)
+					return true
+				end
+			end
+		end
+	end
+	return false
+end
+
+local function MS_FirePrompt(pr)
+	if not pr or not pr.Parent then return end
+	MS_patchPr(pr)
+	-- Coba berbagai cara fire prompt
+	if fireproximityprompt then
+		if pcall(function() fireproximityprompt(pr) end) then task.wait(0.18); return end
+	end
+	if pcall(function() ProximityPromptService:TriggerPrompt(pr) end) then
+		task.wait(0.18); return
+	end
+	pcall(function()
+		pr:InputHoldBegin()
+		task.wait(0.12)
+		pr:InputHoldEnd()
+	end)
+	task.wait(0.18)
+end
+
+local function MS_GetLamontPrompt()
+	-- Coba path langsung dulu
+	local ok, r = pcall(function()
+		return workspace.Folders.NPCs["Lamont Bell"].UpperTorso.ProximityPrompt
+	end)
+	if ok and r then return r end
+	-- Fallback: cari di cache berdasarkan nama path
+	for _, v in ipairs(MS_promptCache) do
+		if v and v.Parent then
+			local path = v:GetFullName():lower()
+			if path:find("lamont") or path:find("bell") then
+				return v
+			end
+		end
+	end
+	return nil
+end
+
+-- Fungsi Buy utama (dipanggil loop / manual)
+local function doBuyAll(n)
+	n = math.clamp(math.floor(tonumber(n) or 50), 1, 200)
+	if not MS_RemoteBuy then return 0 end
+	local bought = 0
+	for _, item in ipairs(BUY_ITEMS) do
+		for i = 1, n do
+			local success = pcall(function()
+				MS_RemoteBuy:FireServer(item.id)
+			end)
+			if success then
+				addInventoryItem(item.key, 1)
+				bought = bought + 1
+			end
+			task.wait(0.28)
+		end
+	end
+	return bought
+end
+
+-- Fungsi Sell utama
+local function doSellAll()
+	local pr = MS_GetLamontPrompt()
+	if not pr then return 0 end
+	local sold = 0
+	for _, list in ipairs({ MS_TN.largeBag, MS_TN.mediumBag, MS_TN.smallBag }) do
+		for _ = 1, 999 do
+			if MS_EquipTool(list) then
+				MS_FirePrompt(pr)
+				task.wait(0.55)
+				sold = sold + 1
+			else
+				break
+			end
+		end
+	end
+	return sold
+end
+
+-- ================================================
+-- AUTO MASAK SYSTEM
+-- ================================================
+local autoCookEnabled  = false
+local autoCookRunning  = false
+local cookStatusLbl    = nil   -- label referensi, diisi saat GUI dibuat
+
+-- Timing sesuai source (detik)
+local COOK_TIMING = {
+	water   = 22,
+	sugar   = 1,
+	gelatin = 47,
+	empty   = 2,
+	rest    = 1,
+}
+
+-- Nama tool yang dicari (lower-case flexible)
+local COOK_TOOL_NAMES = {
+	water   = {"water", "air", "water bucket", "bucket of water", "air bucket",
+	           "water container", "air minum"},
+	sugar   = {"sugar block bag", "sugar block", "gula", "sugar bag",
+	           "sugar sack", "sugar cube", "gula block"},
+	gelatin = {"gelatin", "gelatin bag", "gelatin block", "gelatin sack",
+	           "gelatin cube", "agar"},
+	empty   = {"emptybag", "empty bag", "empty back", "emptyback",
+	           "kosong", "empty sack", "kantong kosong"},
+}
+
+-- Cache ProximityPrompt untuk performa
+local cookPromptCache  = {}
+local cookLastScan     = 0
+
+-- Scan workspace untuk prompt (cache 2 detik)
+local function cookFindNearestPrompt(maxRange)
+	local ch = plr.Character
+	if not ch then return nil end
+	local root = ch:FindFirstChild("HumanoidRootPart")
+	if not root then return nil end
+
+	local now = tick()
+	if now - cookLastScan > 2 or #cookPromptCache == 0 then
+		cookPromptCache = {}
+		for _, obj in pairs(workspace:GetDescendants()) do
+			if obj:IsA("ProximityPrompt") then
+				table.insert(cookPromptCache, obj)
+			end
+		end
+		cookLastScan = now
+	end
+
+	local playerPos  = root.Position
+	local nearest    = nil
+	local nearestDist = maxRange or 50
+
+	for _, prompt in ipairs(cookPromptCache) do
+		if prompt.Enabled then
+			local parent    = prompt.Parent
+			local promptPos = nil
+			if parent and parent:IsA("BasePart") then
+				promptPos = parent.Position
+			elseif parent and parent:IsA("Attachment") then
+				promptPos = parent.WorldPosition
+			end
+			if promptPos then
+				local dist = (promptPos - playerPos).Magnitude
+				local maxDist = maxRange or prompt.MaxActivationDistance
+				if dist <= maxDist and dist < nearestDist then
+					nearestDist = dist
+					nearest     = prompt
+				end
+			end
+		end
+	end
+	return nearest
+end
+
+-- Trigger ProximityPrompt dengan hold
+local function cookTriggerPrompt(prompt)
+	if not prompt then return false end
+	local success = pcall(function()
+		prompt:InputHoldBegin()
+		task.wait(prompt.HoldDuration + 0.1)
+		prompt:InputHoldEnd()
+	end)
+	if not success then
+		-- fallback
+		pcall(function() fireproximityprompt(prompt) end)
+	end
+	return success
+end
+
+-- Cari tool di Backpack / Character
+local function cookScanTool(nameList)
+	local bp   = plr:FindFirstChild("Backpack")
+	local ch   = plr.Character
+	local locs = {}
+	if bp then table.insert(locs, bp) end
+	if ch then table.insert(locs, ch) end
+
+	for _, container in ipairs(locs) do
+		for _, obj in ipairs(container:GetChildren()) do
+			if obj:IsA("Tool") then
+				for _, targetName in ipairs(nameList) do
+					if string.find(string.lower(obj.Name), string.lower(targetName), 1, true) then
+						return obj, (container == ch)
+					end
+				end
+			end
+		end
+	end
+	return nil, false
+end
+
+-- Equip tool dari Backpack ke Character
+local function cookEquipTool(nameList)
+	local tool, equipped = cookScanTool(nameList)
+	if not tool then return false end
+	if equipped then return true end
+	pcall(function() tool.Parent = plr.Character end)
+	task.wait(0.3)
+	return true
+end
+
+-- Satu siklus masak lengkap
+local function cookOneCycle()
+	-- 1. Equip & tuang Water
+	if cookEquipTool(COOK_TOOL_NAMES.water) then
+		local pr = cookFindNearestPrompt(15)
+		if pr then cookTriggerPrompt(pr) end
+		task.wait(COOK_TIMING.water)
+	end
+
+	-- 2. Equip & tuang Sugar
+	if cookEquipTool(COOK_TOOL_NAMES.sugar) then
+		local pr = cookFindNearestPrompt(15)
+		if pr then cookTriggerPrompt(pr) end
+		task.wait(COOK_TIMING.sugar)
+	end
+
+	-- 3. Equip & tuang Gelatin
+	if cookEquipTool(COOK_TOOL_NAMES.gelatin) then
+		local pr = cookFindNearestPrompt(15)
+		if pr then cookTriggerPrompt(pr) end
+		task.wait(COOK_TIMING.gelatin)
+	end
+
+	-- 4. Equip Empty Bag & ambil hasil
+	if cookEquipTool(COOK_TOOL_NAMES.empty) then
+		local pr = cookFindNearestPrompt(15)
+		if pr then cookTriggerPrompt(pr) end
+		task.wait(COOK_TIMING.empty)
+	end
+
+	-- 5. Jeda antar siklus
+	task.wait(COOK_TIMING.rest)
+end
+
+-- Loop utama Auto Masak
+local function cookMainLoop()
+	while autoCookEnabled do
+		autoCookRunning = true
+		if cookStatusLbl then
+			cookStatusLbl.Text       = "⏳ Masak berjalan..."
+			cookStatusLbl.TextColor3  = Color3.fromRGB(255, 200, 40)
+		end
+
+		pcall(cookOneCycle)
+
+		if cookStatusLbl and autoCookEnabled then
+			cookStatusLbl.Text       = "✅ Siklus selesai! Lanjut..."
+			cookStatusLbl.TextColor3  = Color3.fromRGB(34, 187, 85)
+		end
+	end
+	autoCookRunning = false
+	if cookStatusLbl then
+		cookStatusLbl.Text       = "Status: OFF"
+		cookStatusLbl.TextColor3  = Color3.fromRGB(85, 85, 110)
+	end
+end
+
+-- ================================================
+-- DELETE OBJECT SYSTEM
+-- ================================================
+local deleteStack  = {}
+local MAX_UNDO     = 50
+local deleteConn   = nil
+local undoCountLbl = nil
+
+local function savePartData(part)
+	return {
+		part   = part,
+		parent = part.Parent,
+		cframe = part:IsA("BasePart") and part.CFrame or nil,
+		properties = {
+			Anchored     = part:IsA("BasePart") and part.Anchored     or nil,
+			CanCollide   = part:IsA("BasePart") and part.CanCollide   or nil,
+			Transparency = part:IsA("BasePart") and part.Transparency or nil,
+		},
+	}
+end
+
+local function updateUndoLabel()
+	if undoCountLbl then
+		local n = #deleteStack
+		undoCountLbl.Text = "Tersimpan: " .. n .. "/" .. MAX_UNDO
+		undoCountLbl.TextColor3 = n > 0
+			and Color3.fromRGB(40, 120, 255)
+			or  Color3.fromRGB(85, 85, 110)
+	end
+end
+
+local function deleteObject(part)
+	if not part or not part.Parent then return end
+	if part:IsDescendantOf(char)   then return end
+	if part:IsA("Terrain")         then return end
+	local data = savePartData(part)
+	table.insert(deleteStack, data)
+	if #deleteStack > MAX_UNDO then table.remove(deleteStack, 1) end
+	part.Parent = nil
+	updateUndoLabel()
+end
+
+local function undoDelete()
+	if #deleteStack == 0 then return end
+	local data = table.remove(deleteStack)
+	pcall(function()
+		data.part.Parent = data.parent
+		if data.cframe and data.part:IsA("BasePart") then
+			data.part.CFrame = data.cframe
+		end
+	end)
+	updateUndoLabel()
+end
+
+local function setDeleteMode(enabled)
+	state.DeleteMode = enabled
+	if enabled then
+		local mouse = plr:GetMouse()
+		deleteConn = mouse.Button1Down:Connect(function()
+			local target = mouse.Target
+			if target then deleteObject(target) end
+		end)
+	else
+		if deleteConn then deleteConn:Disconnect(); deleteConn = nil end
+	end
+end
+
+UIS.InputBegan:Connect(function(input, gpe)
+	if gpe then return end
+	if input.KeyCode == Enum.KeyCode.Z and state.DeleteMode then
+		undoDelete()
+	end
+end)
+
+-- ================================================
+-- GUI
+-- ================================================
+local gui = Instance.new("ScreenGui", game.CoreGui)
+gui.Name            = "KemerusHub"
+gui.ResetOnSpawn    = false
+gui.ZIndexBehavior  = Enum.ZIndexBehavior.Sibling
+
+local function corner(parent, radius)
+	local c = Instance.new("UICorner", parent)
+	c.CornerRadius = UDim.new(0, radius or 8)
+	return c
+end
+
+local function label(parent, text, size, color, font)
+	local l = Instance.new("TextLabel", parent)
+	l.BackgroundTransparency = 1
+	l.Text             = text
+	l.TextSize         = size  or 13
+	l.TextColor3       = color or Color3.new(1, 1, 1)
+	l.Font             = font  or Enum.Font.GothamBold
+	l.TextXAlignment   = Enum.TextXAlignment.Left
+	return l
+end
+
+local C = {
+	BG         = Color3.fromRGB(13, 13, 20),
+	BG2        = Color3.fromRGB(19, 19, 31),
+	BG3        = Color3.fromRGB(16, 16, 26),
+	BORDER     = Color3.fromRGB(30, 30, 46),
+	ACCENT     = Color3.fromRGB(40, 120, 255),
+	TEXT       = Color3.new(1, 1, 1),
+	MUTED      = Color3.fromRGB(85, 85, 110),
+	SUCCESS    = Color3.fromRGB(34, 187, 85),
+	DANGER     = Color3.fromRGB(192, 60, 60),
+	TOGGLE_OFF = Color3.fromRGB(30, 30, 46),
+	TOGGLE_ON  = Color3.fromRGB(40, 120, 255),
+	ORANGE     = Color3.fromRGB(255, 140, 30),
+	SELL_CLR   = Color3.fromRGB(180, 100, 255),
+	COOK_CLR   = Color3.fromRGB(255, 160, 30),
+}
+
+-- ================================================
+-- MAIN FRAME
+-- ================================================
+local frame = Instance.new("Frame", gui)
+frame.Size             = UDim2.new(0, 440, 0, 290)
+frame.Position         = UDim2.new(0.5, -220, 0.5, -145)
+frame.BackgroundColor3 = C.BG
+frame.BorderSizePixel  = 0
+frame.ClipsDescendants = true
+corner(frame, 12)
+local frameStroke         = Instance.new("UIStroke", frame)
+frameStroke.Color         = C.BORDER
+frameStroke.Thickness     = 1
+
+-- ================================================
+-- TITLE BAR
+-- ================================================
+local titlebar = Instance.new("Frame", frame)
+titlebar.Size             = UDim2.new(1, 0, 0, 42)
+titlebar.BackgroundColor3 = C.BG3
+titlebar.BorderSizePixel  = 0
+local titleStroke              = Instance.new("UIStroke", titlebar)
+titleStroke.Color              = C.BORDER
+titleStroke.Thickness          = 1
+titleStroke.ApplyStrokeMode    = Enum.ApplyStrokeMode.Border
+
+local titleLabel = label(titlebar, "KEMERUS HUB", 14, C.ACCENT, Enum.Font.GothamBold)
+titleLabel.Size     = UDim2.new(1, -100, 1, 0)
+titleLabel.Position = UDim2.new(0, 16, 0, 0)
+titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+-- ================================================
+-- DRAG SYSTEM
+-- ================================================
+local dragging   = false
+local dragStart  = Vector3.new()
+local frameStart = UDim2.new()
+
+titlebar.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1
+		or input.UserInputType == Enum.UserInputType.Touch then
+		dragging   = true
+		dragStart  = input.Position
+		frameStart = frame.Position
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+UIS.InputChanged:Connect(function(input)
+	if dragging and (
+		input.UserInputType == Enum.UserInputType.MouseMovement or
+		input.UserInputType == Enum.UserInputType.Touch) then
+		local delta = input.Position - dragStart
+		frame.Position = UDim2.new(
+			frameStart.X.Scale, frameStart.X.Offset + delta.X,
+			frameStart.Y.Scale, frameStart.Y.Offset + delta.Y
+		)
+	end
+end)
+
+UIS.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1
+		or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = false
+	end
+end)
+
+-- ================================================
+-- WINDOW BUTTONS
+-- ================================================
+local function winBtn(color, xOff, txt)
+	local btn = Instance.new("TextButton", titlebar)
+	btn.Size             = UDim2.new(0, 28, 0, 28)
+	btn.Position         = UDim2.new(1, xOff, 0.5, -14)
+	btn.BackgroundColor3 = color
+	btn.Text             = txt
+	btn.TextColor3       = C.TEXT
+	btn.TextSize         = 12
+	btn.Font             = Enum.Font.GothamBold
+	btn.BorderSizePixel  = 0
+	corner(btn, 6)
+	return btn
+end
+
+local closeBtn = winBtn(C.DANGER, -36, "X")
+local miniBtn  = winBtn(C.MUTED,  -70, "-")
+
+local minimized = false
+miniBtn.MouseButton1Click:Connect(function()
+	minimized = not minimized
+	TweenService:Create(frame, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {
+		Size = minimized and UDim2.new(0, 440, 0, 42) or UDim2.new(0, 440, 0, 290)
+	}):Play()
+end)
+
+closeBtn.MouseButton1Click:Connect(function()
+	setDeleteMode(false)
+	TweenService:Create(frame, TweenInfo.new(0.3), { Size = UDim2.new(0, 0, 0, 0) }):Play()
+	task.wait(0.3)
+	gui:Destroy()
+end)
+
+-- ================================================
+-- STATUS BAR
+-- ================================================
+local statusbar = Instance.new("Frame", frame)
+statusbar.Size             = UDim2.new(1, 0, 0, 26)
+statusbar.Position         = UDim2.new(0, 0, 1, -26)
+statusbar.BackgroundColor3 = C.BG3
+statusbar.BorderSizePixel  = 0
+
+local statusDot = Instance.new("Frame", statusbar)
+statusDot.Size             = UDim2.new(0, 6, 0, 6)
+statusDot.Position         = UDim2.new(0, 14, 0.5, -3)
+statusDot.BackgroundColor3 = C.MUTED
+statusDot.BorderSizePixel  = 0
+corner(statusDot, 10)
+
+local statusTxt = label(statusbar, "WAITING KEY...", 11, C.MUTED, Enum.Font.Gotham)
+statusTxt.Size     = UDim2.new(0.7, 0, 1, 0)
+statusTxt.Position = UDim2.new(0, 26, 0, 0)
+
+local versionTxt = label(statusbar, "v2.0", 11, C.MUTED, Enum.Font.GothamBold)
+versionTxt.Size             = UDim2.new(0, 40, 1, 0)
+versionTxt.Position         = UDim2.new(1, -50, 0, 0)
+versionTxt.TextXAlignment   = Enum.TextXAlignment.Right
+
+-- ================================================
+-- LOGIN SCREEN
+-- ================================================
+local loginFrame = Instance.new("Frame", frame)
+loginFrame.Size             = UDim2.new(1, 0, 1, -68)
+loginFrame.Position         = UDim2.new(0, 0, 0, 42)
+loginFrame.BackgroundTransparency = 1
+
+local loginTitle = label(loginFrame, "KEY SYSTEM", 20, C.TEXT, Enum.Font.GothamBold)
+loginTitle.Size     = UDim2.new(0.8, 0, 0, 28)
+loginTitle.Position = UDim2.new(0.1, 0, 0.1, 0)
+loginTitle.TextXAlignment = Enum.TextXAlignment.Center
+
+local loginSub = label(loginFrame, "Masukkan key untuk melanjutkan", 12, C.MUTED, Enum.Font.Gotham)
+loginSub.Size     = UDim2.new(0.8, 0, 0, 18)
+loginSub.Position = UDim2.new(0.1, 0, 0.3, 0)
+loginSub.TextXAlignment = Enum.TextXAlignment.Center
+
+local keybox = Instance.new("TextBox", loginFrame)
+keybox.Size             = UDim2.new(0.8, 0, 0, 36)
+keybox.Position         = UDim2.new(0.1, 0, 0.48, 0)
+keybox.BackgroundColor3 = C.BG2
+keybox.TextColor3       = C.TEXT
+keybox.PlaceholderText  = "Masukkan Key..."
+keybox.PlaceholderColor3= C.MUTED
+keybox.Text             = ""
+keybox.TextSize         = 13
+keybox.Font             = Enum.Font.Code
+keybox.BorderSizePixel  = 0
+keybox.ClearTextOnFocus = false
+corner(keybox)
+local keyStroke       = Instance.new("UIStroke", keybox)
+keyStroke.Color       = C.BORDER
+
+local loginBtn = Instance.new("TextButton", loginFrame)
+loginBtn.Size             = UDim2.new(0.8, 0, 0, 36)
+loginBtn.Position         = UDim2.new(0.1, 0, 0.68, 0)
+loginBtn.BackgroundColor3 = C.ACCENT
+loginBtn.Text             = "CONTINUE"
+loginBtn.TextColor3       = C.TEXT
+loginBtn.TextSize         = 14
+loginBtn.Font             = Enum.Font.GothamBold
+loginBtn.BorderSizePixel  = 0
+corner(loginBtn)
+
+local errLabel = label(loginFrame, "", 12, Color3.fromRGB(255, 85, 85), Enum.Font.Gotham)
+errLabel.Size     = UDim2.new(0.8, 0, 0, 16)
+errLabel.Position = UDim2.new(0.1, 0, 0.88, 0)
+errLabel.TextXAlignment = Enum.TextXAlignment.Center
+
+-- ================================================
+-- MENU SCREEN
+-- ================================================
+local menuFrame = Instance.new("Frame", frame)
+menuFrame.Size             = UDim2.new(1, 0, 1, -68)
+menuFrame.Position         = UDim2.new(0, 0, 0, 42)
+menuFrame.BackgroundTransparency = 1
+menuFrame.Visible          = false
+
+local tabBar = Instance.new("Frame", menuFrame)
+tabBar.Size             = UDim2.new(1, 0, 0, 34)
+tabBar.BackgroundColor3 = C.BG3
+tabBar.BorderSizePixel  = 0
+local tabLayout = Instance.new("UIListLayout", tabBar)
+tabLayout.FillDirection = Enum.FillDirection.Horizontal
+tabLayout.SortOrder     = Enum.SortOrder.LayoutOrder
+
+local tabNames = { "AUTO FARM", "TELEPORT", "MISC", "CREDITS" }
+local tabFrames, tabBtns = {}, {}
+
+local function switchTab(idx)
+	for i, f in ipairs(tabFrames) do
+		f.Visible         = (i == idx)
+		tabBtns[i].TextColor3 = (i == idx) and C.ACCENT or C.MUTED
+	end
+end
+
+for i, name in ipairs(tabNames) do
+	local btn = Instance.new("TextButton", tabBar)
+	btn.Size                = UDim2.new(0.25, 0, 1, 0)
+	btn.BackgroundTransparency = 1
+	btn.Text                = name
+	btn.TextSize            = 10
+	btn.Font                = Enum.Font.GothamBold
+	btn.TextColor3          = (i == 1) and C.ACCENT or C.MUTED
+	btn.BorderSizePixel     = 0
+	btn.LayoutOrder         = i
+	tabBtns[i]              = btn
+	btn.MouseButton1Click:Connect(function() switchTab(i) end)
+end
+
+local function makeTabFrame()
+	local f = Instance.new("ScrollingFrame", menuFrame)
+	f.Size                 = UDim2.new(1, 0, 1, -34)
+	f.Position             = UDim2.new(0, 0, 0, 34)
+	f.BackgroundTransparency = 1
+	f.BorderSizePixel      = 0
+	f.ScrollBarThickness   = 3
+	f.ScrollBarImageColor3 = C.BORDER
+	f.CanvasSize           = UDim2.new(0, 0, 0, 0)
+	f.AutomaticCanvasSize  = Enum.AutomaticSize.Y
+	local layout = Instance.new("UIListLayout", f)
+	layout.Padding    = UDim.new(0, 6)
+	layout.SortOrder  = Enum.SortOrder.LayoutOrder
+	local pad = Instance.new("UIPadding", f)
+	pad.PaddingLeft   = UDim.new(0, 12); pad.PaddingRight  = UDim.new(0, 12)
+	pad.PaddingTop    = UDim.new(0, 10); pad.PaddingBottom = UDim.new(0, 10)
+	return f
+end
+
+local function makeToggle(parent, labelTxt, subTxt, stateKey, order, onToggle)
+	local row = Instance.new("Frame", parent)
+	row.Size             = UDim2.new(1, 0, 0, 46)
+	row.BackgroundColor3 = C.BG2
+	row.BorderSizePixel  = 0
+	row.LayoutOrder      = order
+	corner(row)
+	local rs       = Instance.new("UIStroke", row)
+	rs.Color        = C.BORDER; rs.Thickness = 1
+
+	local lbl = label(row, labelTxt, 13, C.TEXT, Enum.Font.GothamBold)
+	lbl.Size     = UDim2.new(0.65, 0, 0, 18); lbl.Position = UDim2.new(0, 12, 0, 7)
+	local sub = label(row, subTxt, 11, C.MUTED, Enum.Font.Gotham)
+	sub.Size     = UDim2.new(0.65, 0, 0, 14); sub.Position = UDim2.new(0, 12, 0, 25)
+
+	local pill = Instance.new("Frame", row)
+	pill.Size             = UDim2.new(0, 38, 0, 20)
+	pill.Position         = UDim2.new(1, -50, 0.5, -10)
+	pill.BackgroundColor3 = state[stateKey] and C.TOGGLE_ON or C.TOGGLE_OFF
+	pill.BorderSizePixel  = 0
+	corner(pill, 10)
+
+	local knob = Instance.new("Frame", pill)
+	knob.Size             = UDim2.new(0, 14, 0, 14)
+	knob.Position         = state[stateKey] and UDim2.new(1,-17,0.5,-7) or UDim2.new(0,3,0.5,-7)
+	knob.BackgroundColor3 = state[stateKey] and C.TEXT or C.MUTED
+	knob.BorderSizePixel  = 0
+	corner(knob, 10)
+
+	local btn = Instance.new("TextButton", row)
+	btn.Size                = UDim2.new(1, 0, 1, 0)
+	btn.BackgroundTransparency = 1
+	btn.Text                = ""
+	btn.MouseButton1Click:Connect(function()
+		state[stateKey] = not state[stateKey]
+		local on = state[stateKey]
+		TweenService:Create(pill, TweenInfo.new(0.2), {BackgroundColor3 = on and C.TOGGLE_ON or C.TOGGLE_OFF}):Play()
+		TweenService:Create(knob, TweenInfo.new(0.2), {
+			Position         = on and UDim2.new(1,-17,0.5,-7) or UDim2.new(0,3,0.5,-7),
+			BackgroundColor3 = on and C.TEXT or C.MUTED,
+		}):Play()
+		if onToggle then onToggle(on) end
+	end)
+end
+
+local function makeActionBtn(parent, text, callback, order, accentColor)
+	local btn = Instance.new("TextButton", parent)
+	btn.Size             = UDim2.new(1, 0, 0, 38)
+	btn.BackgroundColor3 = C.BG2
+	btn.Text             = ""; btn.BorderSizePixel = 0; btn.LayoutOrder = order
+	corner(btn)
+	local s = Instance.new("UIStroke", btn); s.Color = C.BORDER
+
+	local dotColor = accentColor or C.ACCENT
+	local dot = Instance.new("Frame", btn)
+	dot.Size             = UDim2.new(0, 6, 0, 6); dot.Position = UDim2.new(0, 12, 0.5, -3)
+	dot.BackgroundColor3 = dotColor; dot.BorderSizePixel = 0; corner(dot, 10)
+
+	local lbl = label(btn, text, 13, C.TEXT, Enum.Font.GothamBold)
+	lbl.Size            = UDim2.new(1, -36, 1, 0); lbl.Position = UDim2.new(0, 26, 0, 0)
+	lbl.TextXAlignment  = Enum.TextXAlignment.Left
+
+	btn.MouseButton1Click:Connect(function()
+		TweenService:Create(btn, TweenInfo.new(0.1), {BackgroundColor3 = C.BORDER}):Play()
+		task.wait(0.1)
+		TweenService:Create(btn, TweenInfo.new(0.1), {BackgroundColor3 = C.BG2}):Play()
+		if callback then callback() end
+	end)
+	return btn
+end
+
+-- ================================================
+-- TAB 1: AUTO FARM
+-- ================================================
+tabFrames[1] = makeTabFrame()
+makeToggle(tabFrames[1], "Auto Farm", "Farm otomatis terus menerus", "AutoFarm", 1)
+makeToggle(tabFrames[1], "Auto Kill", "Bunuh enemy otomatis",        "AutoKill", 2)
+makeToggle(tabFrames[1], "Anti AFK",  "Mencegah kick karena AFK",   "AntiAFK",  3)
+
+-- ================================================
+-- AUTO BUY v2 CARD
+-- ================================================
+local buyCard = Instance.new("Frame", tabFrames[1])
+buyCard.Size             = UDim2.new(1, 0, 0, 180)
+buyCard.BackgroundColor3 = C.BG2
+buyCard.BorderSizePixel  = 0
+buyCard.LayoutOrder      = 4
+corner(buyCard)
+local buyStroke      = Instance.new("UIStroke", buyCard)
+buyStroke.Color      = C.BORDER; buyStroke.Thickness = 1
+
+local buyHeaderLbl = label(buyCard, "Auto Buy  (StorePurchase)", 13, C.TEXT, Enum.Font.GothamBold)
+buyHeaderLbl.Size     = UDim2.new(1, -24, 0, 18)
+buyHeaderLbl.Position = UDim2.new(0, 12, 0, 10)
+
+local buySubLbl = label(buyCard, "Water  |  Gelatin  |  Sugar Block Bag", 10, C.MUTED, Enum.Font.Gotham)
+buySubLbl.Size     = UDim2.new(1, -24, 0, 14)
+buySubLbl.Position = UDim2.new(0, 12, 0, 27)
+
+-- Divider
+local divider = Instance.new("Frame", buyCard)
+divider.Size             = UDim2.new(1, -24, 0, 1)
+divider.Position         = UDim2.new(0, 12, 0, 46)
+divider.BackgroundColor3 = C.BORDER; divider.BorderSizePixel = 0
+
+-- Label "Jumlah beli per item"
+local inputTitle = label(buyCard, "Jumlah beli per item :", 11, C.MUTED, Enum.Font.Gotham)
+inputTitle.Size     = UDim2.new(1, -24, 0, 14)
+inputTitle.Position = UDim2.new(0, 12, 0, 55)
+
+-- Row: tombol [ - ]  [TextBox]  [ + ]
+local MIN_BUY, MAX_BUY = 1, 9999
+
+-- Tombol kurang (-)
+local btnMinus = Instance.new("TextButton", buyCard)
+btnMinus.Size             = UDim2.new(0, 32, 0, 32)
+btnMinus.Position         = UDim2.new(0, 12, 0, 76)
+btnMinus.BackgroundColor3 = C.BG3
+btnMinus.Text             = "-"
+btnMinus.TextColor3       = C.TEXT
+btnMinus.TextSize         = 18
+btnMinus.Font             = Enum.Font.GothamBold
+btnMinus.BorderSizePixel  = 0
+corner(btnMinus, 6)
+local minusStroke = Instance.new("UIStroke", btnMinus)
+minusStroke.Color = C.BORDER; minusStroke.Thickness = 1
+
+-- TextBox input angka (tengah)
+local buyInputBox = Instance.new("TextBox", buyCard)
+buyInputBox.Size             = UDim2.new(1, -100, 0, 32)
+buyInputBox.Position         = UDim2.new(0, 50, 0, 76)
+buyInputBox.BackgroundColor3 = C.BG3
+buyInputBox.Text             = "50"
+buyInputBox.TextColor3       = C.ACCENT
+buyInputBox.PlaceholderText  = "1 - 9999"
+buyInputBox.PlaceholderColor3 = C.MUTED
+buyInputBox.TextSize         = 15
+buyInputBox.Font             = Enum.Font.GothamBold
+buyInputBox.TextXAlignment   = Enum.TextXAlignment.Center
+buyInputBox.BorderSizePixel  = 0
+buyInputBox.ClearTextOnFocus = false
+corner(buyInputBox, 6)
+local inputStroke = Instance.new("UIStroke", buyInputBox)
+inputStroke.Color = C.BORDER; inputStroke.Thickness = 1
+
+-- Tombol tambah (+)
+local btnPlus = Instance.new("TextButton", buyCard)
+btnPlus.Size             = UDim2.new(0, 32, 0, 32)
+btnPlus.Position         = UDim2.new(1, -44, 0, 76)
+btnPlus.BackgroundColor3 = C.BG3
+btnPlus.Text             = "+"
+btnPlus.TextColor3       = C.TEXT
+btnPlus.TextSize         = 18
+btnPlus.Font             = Enum.Font.GothamBold
+btnPlus.BorderSizePixel  = 0
+corner(btnPlus, 6)
+local plusStroke = Instance.new("UIStroke", btnPlus)
+plusStroke.Color = C.BORDER; plusStroke.Thickness = 1
+
+-- Hint min-max
+local hintLbl = label(buyCard, "Shift + klik  -/+  untuk step 10", 10, C.MUTED, Enum.Font.Gotham)
+hintLbl.Size     = UDim2.new(1, -24, 0, 12)
+hintLbl.Position = UDim2.new(0, 12, 0, 113)
+
+-- Status label
+local statusBuyLbl = label(buyCard, "Siap beli", 11, C.MUTED, Enum.Font.Gotham)
+statusBuyLbl.Size     = UDim2.new(1, -24, 0, 14)
+statusBuyLbl.Position = UDim2.new(0, 12, 0, 130)
+
+-- ── Tombol BUY utama (1x klik, lebar penuh, warna accent solid) ──
+local buyMainBtn = Instance.new("TextButton", buyCard)
+buyMainBtn.Size             = UDim2.new(1, -24, 0, 36)
+buyMainBtn.Position         = UDim2.new(0, 12, 0, 150)
+buyMainBtn.BackgroundColor3 = C.ACCENT
+buyMainBtn.Text             = "BUY  x" .. tostring(autoBuyAmount)
+buyMainBtn.TextColor3       = C.TEXT
+buyMainBtn.TextSize         = 14
+buyMainBtn.Font             = Enum.Font.GothamBold
+buyMainBtn.BorderSizePixel  = 0
+corner(buyMainBtn, 7)
+local buyMainStroke = Instance.new("UIStroke", buyMainBtn)
+buyMainStroke.Color     = Color3.fromRGB(80, 150, 255)
+buyMainStroke.Thickness = 1
+
+local buyRunning = false
+buyMainBtn.MouseButton1Click:Connect(function()
+	if buyRunning then return end
+	buyRunning = true
+	-- Animasi tekan
+	TweenService:Create(buyMainBtn, TweenInfo.new(0.08), {BackgroundColor3 = Color3.fromRGB(25, 90, 200)}):Play()
+	task.wait(0.08)
+	TweenService:Create(buyMainBtn, TweenInfo.new(0.12), {BackgroundColor3 = C.ACCENT}):Play()
+
+	statusBuyLbl.Text       = "Membeli x" .. autoBuyAmount .. "..."
+	statusBuyLbl.TextColor3  = C.ACCENT
+	buyMainBtn.Text         = "BUYING..."
+
+	task.spawn(function()
+		doBuyAll(autoBuyAmount)
+		statusBuyLbl.Text       = "Selesai: beli x" .. autoBuyAmount .. " per item"
+		statusBuyLbl.TextColor3  = C.SUCCESS
+		buyMainBtn.Text         = "BUY  x" .. tostring(autoBuyAmount)
+		task.wait(2)
+		statusBuyLbl.Text       = "Siap beli"
+		statusBuyLbl.TextColor3  = C.MUTED
+		buyRunning = false
+	end)
+end)
+
+-- Resize card
+buyCard.Size = UDim2.new(1, 0, 0, 198)
+
+-- ── Logic input angka ──
+local function applyBuyAmount(val)
+	local n = tonumber(val)
+	if not n then n = autoBuyAmount end
+	n = math.clamp(math.floor(n), MIN_BUY, MAX_BUY)
+	autoBuyAmount    = n
+	buyInputBox.Text = tostring(n)
+	if buyMainBtn then
+		buyMainBtn.Text = "BUY  x" .. tostring(n)
+	end
+	-- Highlight border hijau sesaat
+	TweenService:Create(inputStroke, TweenInfo.new(0.15), {Color = C.SUCCESS}):Play()
+	task.delay(0.8, function()
+		TweenService:Create(inputStroke, TweenInfo.new(0.3), {Color = C.BORDER}):Play()
+	end)
+end
+
+-- Konfirmasi saat fokus hilang atau Enter ditekan
+buyInputBox.FocusLost:Connect(function(enterPressed)
+	applyBuyAmount(buyInputBox.Text)
+end)
+
+-- Filter karakter — hanya angka boleh masuk
+buyInputBox:GetPropertyChangedSignal("Text"):Connect(function()
+	local cleaned = buyInputBox.Text:gsub("[^%d]", "")
+	if cleaned ~= buyInputBox.Text then
+		buyInputBox.Text = cleaned
+	end
+end)
+
+-- Highlight border saat fokus
+buyInputBox.Focused:Connect(function()
+	TweenService:Create(inputStroke, TweenInfo.new(0.15), {Color = C.ACCENT}):Play()
+end)
+
+-- Tombol -
+btnMinus.MouseButton1Click:Connect(function()
+	local step = UIS:IsKeyDown(Enum.KeyCode.LeftShift) and 10 or 1
+	applyBuyAmount(autoBuyAmount - step)
+	TweenService:Create(btnMinus, TweenInfo.new(0.08), {BackgroundColor3 = C.BORDER}):Play()
+	task.delay(0.1, function()
+		TweenService:Create(btnMinus, TweenInfo.new(0.1), {BackgroundColor3 = C.BG3}):Play()
+	end)
+end)
+
+-- Tombol +
+btnPlus.MouseButton1Click:Connect(function()
+	local step = UIS:IsKeyDown(Enum.KeyCode.LeftShift) and 10 or 1
+	applyBuyAmount(autoBuyAmount + step)
+	TweenService:Create(btnPlus, TweenInfo.new(0.08), {BackgroundColor3 = C.BORDER}):Play()
+	task.delay(0.1, function()
+		TweenService:Create(btnPlus, TweenInfo.new(0.1), {BackgroundColor3 = C.BG3}):Play()
+	end)
+end)
+
+-- Set nilai awal
+applyBuyAmount(50)
+
+-- ================================================
+-- AUTO SELL CARD  (Tab 1 - bawah Auto Buy)
+-- ================================================
+local sellCard = Instance.new("Frame", tabFrames[1])
+sellCard.Size             = UDim2.new(1, 0, 0, 136)
+sellCard.BackgroundColor3 = C.BG2
+sellCard.BorderSizePixel  = 0
+sellCard.LayoutOrder      = 5
+corner(sellCard)
+local sellStroke      = Instance.new("UIStroke", sellCard)
+sellStroke.Color      = C.BORDER; sellStroke.Thickness = 1
+
+local sellHeaderLbl = label(sellCard, "Auto Sell  (Lamont Bell)", 13, C.TEXT, Enum.Font.GothamBold)
+sellHeaderLbl.Size     = UDim2.new(0.65, 0, 0, 18)
+sellHeaderLbl.Position = UDim2.new(0, 12, 0, 10)
+
+local sellSubLbl = label(sellCard, "Jual Small / Medium / Large Bag ke NPC Lamont Bell", 10, C.MUTED, Enum.Font.Gotham)
+sellSubLbl.Size     = UDim2.new(1, -100, 0, 14)
+sellSubLbl.Position = UDim2.new(0, 12, 0, 27)
+
+-- Toggle pill Sell
+local sellPill = Instance.new("Frame", sellCard)
+sellPill.Size             = UDim2.new(0, 38, 0, 20)
+sellPill.Position         = UDim2.new(1, -50, 0, 10)
+sellPill.BackgroundColor3 = C.TOGGLE_OFF
+sellPill.BorderSizePixel  = 0
+corner(sellPill, 10)
+
+local sellKnob = Instance.new("Frame", sellPill)
+sellKnob.Size             = UDim2.new(0, 14, 0, 14)
+sellKnob.Position         = UDim2.new(0, 3, 0.5, -7)
+sellKnob.BackgroundColor3 = C.MUTED
+sellKnob.BorderSizePixel  = 0
+corner(sellKnob, 10)
+
+local sellToggleBtn = Instance.new("TextButton", sellCard)
+sellToggleBtn.Size                = UDim2.new(0, 80, 0, 40)
+sellToggleBtn.Position            = UDim2.new(1, -90, 0, 0)
+sellToggleBtn.BackgroundTransparency = 1
+sellToggleBtn.Text                = ""
+sellToggleBtn.MouseButton1Click:Connect(function()
+	autoSellEnabled = not autoSellEnabled
+	TweenService:Create(sellPill, TweenInfo.new(0.2), {
+		BackgroundColor3 = autoSellEnabled and C.SELL_CLR or C.TOGGLE_OFF
+	}):Play()
+	TweenService:Create(sellKnob, TweenInfo.new(0.2), {
+		Position         = autoSellEnabled and UDim2.new(1,-17,0.5,-7) or UDim2.new(0,3,0.5,-7),
+		BackgroundColor3 = autoSellEnabled and C.TEXT or C.MUTED,
+	}):Play()
+end)
+
+-- Divider
+local sellDiv = Instance.new("Frame", sellCard)
+sellDiv.Size             = UDim2.new(1, -24, 0, 1)
+sellDiv.Position         = UDim2.new(0, 12, 0, 48)
+sellDiv.BackgroundColor3 = C.BORDER; sellDiv.BorderSizePixel = 0
+
+-- Status sell
+local statusSellLbl = label(sellCard, "Status: OFF", 11, C.MUTED, Enum.Font.Gotham)
+statusSellLbl.Size     = UDim2.new(1, -24, 0, 14)
+statusSellLbl.Position = UDim2.new(0, 12, 0, 58)
+
+-- Tombol Sell Now (manual sekali)
+local sellNowBtn = makeActionBtn(sellCard, "Sell Now (sekali jalan)", function()
+	if autoSellRunning then return end
+	task.spawn(function()
+		autoSellRunning = true
+		statusSellLbl.Text      = "Status: Selling..."
+		statusSellLbl.TextColor3 = C.ORANGE
+		local n = doSellAll()
+		statusSellLbl.Text       = "Selesai: Jual " .. n .. " item"
+		statusSellLbl.TextColor3  = C.SUCCESS
+		task.wait(3)
+		if not autoSellEnabled then
+			statusSellLbl.Text      = "Status: OFF"
+			statusSellLbl.TextColor3 = C.MUTED
+		end
+		autoSellRunning = false
+	end)
+end, 0, C.SELL_CLR)
+sellNowBtn.Size     = UDim2.new(1, -24, 0, 34)
+sellNowBtn.Position = UDim2.new(0, 12, 0, 82)
+sellNowBtn.LayoutOrder = nil
+
+-- ================================================
+-- INVENTORY CARD  (Tab 1 - bawah Auto Sell)
+-- ================================================
+local invCard = Instance.new("Frame", tabFrames[1])
+invCard.BackgroundColor3 = C.BG2
+invCard.BorderSizePixel  = 0
+invCard.LayoutOrder      = 6
+corner(invCard)
+local invStroke = Instance.new("UIStroke", invCard)
+invStroke.Color = C.BORDER; invStroke.Thickness = 1
+
+local invHeaderLbl = label(invCard, "📦  Inventory (Bought)", 13, C.TEXT, Enum.Font.GothamBold)
+invHeaderLbl.Size     = UDim2.new(0.7, 0, 0, 18)
+invHeaderLbl.Position = UDim2.new(0, 12, 0, 10)
+
+local invDiv = Instance.new("Frame", invCard)
+invDiv.Size             = UDim2.new(1, -24, 0, 1)
+invDiv.Position         = UDim2.new(0, 12, 0, 34)
+invDiv.BackgroundColor3 = C.BORDER; invDiv.BorderSizePixel = 0
+
+local invResetBtn = Instance.new("TextButton", invCard)
+invResetBtn.Size             = UDim2.new(0, 54, 0, 18)
+invResetBtn.Position         = UDim2.new(1, -66, 0, 10)
+invResetBtn.BackgroundColor3 = C.DANGER
+invResetBtn.Text             = "RESET"
+invResetBtn.TextColor3       = C.TEXT
+invResetBtn.TextSize         = 10
+invResetBtn.Font             = Enum.Font.GothamBold
+invResetBtn.BorderSizePixel  = 0
+corner(invResetBtn, 5)
+invResetBtn.MouseButton1Click:Connect(resetInventory)
+
+local rowYStart = 44
+local rowHeight = 36
+local rowGap    = 6
+
+for i, itemData in ipairs(INVENTORY_DISPLAY) do
+	local yPos = rowYStart + (i - 1) * (rowHeight + rowGap)
+	local row  = Instance.new("Frame", invCard)
+	row.Size             = UDim2.new(1, -24, 0, rowHeight)
+	row.Position         = UDim2.new(0, 12, 0, yPos)
+	row.BackgroundColor3 = C.BG3
+	row.BorderSizePixel  = 0
+	corner(row, 6)
+	local rowStroke = Instance.new("UIStroke", row)
+	rowStroke.Color = C.BORDER; rowStroke.Thickness = 1
+
+	local dot = Instance.new("Frame", row)
+	dot.Size             = UDim2.new(0, 6, 0, 6)
+	dot.Position         = UDim2.new(0, 10, 0.5, -3)
+	dot.BackgroundColor3 = C.SUCCESS
+	dot.BorderSizePixel  = 0
+	corner(dot, 10)
+
+	local nameLbl = label(row, itemData.icon .. "  " .. itemData.label, 12, C.TEXT, Enum.Font.GothamBold)
+	nameLbl.Size     = UDim2.new(0.65, 0, 1, 0)
+	nameLbl.Position = UDim2.new(0, 24, 0, 0)
+
+	local badgeBg = Instance.new("Frame", row)
+	badgeBg.Size             = UDim2.new(0, 52, 0, 22)
+	badgeBg.Position         = UDim2.new(1, -62, 0.5, -11)
+	badgeBg.BackgroundColor3 = C.BG
+	badgeBg.BorderSizePixel  = 0
+	corner(badgeBg, 6)
+	local badgeStroke = Instance.new("UIStroke", badgeBg)
+	badgeStroke.Color = C.ACCENT; badgeStroke.Thickness = 1
+
+	local countLbl = label(badgeBg, "0", 13, C.ACCENT, Enum.Font.GothamBold)
+	countLbl.Size           = UDim2.new(1, 0, 1, 0)
+	countLbl.Position       = UDim2.new(0, 0, 0, 0)
+	countLbl.TextXAlignment = Enum.TextXAlignment.Center
+
+	inventoryLabels[itemData.key] = countLbl
+end
+
+local totalCardHeight = rowYStart + #INVENTORY_DISPLAY * (rowHeight + rowGap) + 10
+invCard.Size = UDim2.new(1, 0, 0, totalCardHeight)
+
+-- ================================================
+-- AUTO MASAK CARD  (Tab 1 - bawah Inventory)
+-- ================================================
+local cookCard = Instance.new("Frame", tabFrames[1])
+cookCard.Size             = UDim2.new(1, 0, 0, 232)
+cookCard.BackgroundColor3 = C.BG2
+cookCard.BorderSizePixel  = 0
+cookCard.LayoutOrder      = 7
+corner(cookCard)
+local cookStroke = Instance.new("UIStroke", cookCard)
+cookStroke.Color = C.BORDER; cookStroke.Thickness = 1
+
+-- Header
+local cookHeaderLbl = label(cookCard, "🍳  Auto Masak  (MS System)", 13, C.TEXT, Enum.Font.GothamBold)
+cookHeaderLbl.Size     = UDim2.new(0.65, 0, 0, 18)
+cookHeaderLbl.Position = UDim2.new(0, 12, 0, 10)
+
+local cookSubLbl = label(cookCard, "Water → Sugar → Gelatin → Empty Bag (loop)", 10, C.MUTED, Enum.Font.Gotham)
+cookSubLbl.Size     = UDim2.new(1, -100, 0, 14)
+cookSubLbl.Position = UDim2.new(0, 12, 0, 27)
+
+-- Toggle pill Cook
+local cookPill = Instance.new("Frame", cookCard)
+cookPill.Size             = UDim2.new(0, 38, 0, 20)
+cookPill.Position         = UDim2.new(1, -50, 0, 10)
+cookPill.BackgroundColor3 = C.TOGGLE_OFF
+cookPill.BorderSizePixel  = 0
+corner(cookPill, 10)
+
+local cookKnob = Instance.new("Frame", cookPill)
+cookKnob.Size             = UDim2.new(0, 14, 0, 14)
+cookKnob.Position         = UDim2.new(0, 3, 0.5, -7)
+cookKnob.BackgroundColor3 = C.MUTED
+cookKnob.BorderSizePixel  = 0
+corner(cookKnob, 10)
+
+local cookToggleArea = Instance.new("TextButton", cookCard)
+cookToggleArea.Size                = UDim2.new(0, 80, 0, 40)
+cookToggleArea.Position            = UDim2.new(1, -90, 0, 0)
+cookToggleArea.BackgroundTransparency = 1
+cookToggleArea.Text                = ""
+cookToggleArea.MouseButton1Click:Connect(function()
+	autoCookEnabled = not autoCookEnabled
+	TweenService:Create(cookPill, TweenInfo.new(0.2), {
+		BackgroundColor3 = autoCookEnabled and C.COOK_CLR or C.TOGGLE_OFF
+	}):Play()
+	TweenService:Create(cookKnob, TweenInfo.new(0.2), {
+		Position         = autoCookEnabled and UDim2.new(1,-17,0.5,-7) or UDim2.new(0,3,0.5,-7),
+		BackgroundColor3 = autoCookEnabled and C.TEXT or C.MUTED,
+	}):Play()
+	if autoCookEnabled and not autoCookRunning then
+		task.spawn(cookMainLoop)
+	end
+end)
+
+-- Divider
+local cookDiv = Instance.new("Frame", cookCard)
+cookDiv.Size             = UDim2.new(1, -24, 0, 1)
+cookDiv.Position         = UDim2.new(0, 12, 0, 48)
+cookDiv.BackgroundColor3 = C.BORDER; cookDiv.BorderSizePixel = 0
+
+-- Timing info rows
+local timingInfo = {
+	{ label = "💧 Water",        val = COOK_TIMING.water   .. "s" },
+	{ label = "🍬 Sugar",        val = COOK_TIMING.sugar   .. "s" },
+	{ label = "🟡 Gelatin",      val = COOK_TIMING.gelatin .. "s" },
+	{ label = "📦 Empty Bag",    val = COOK_TIMING.empty   .. "s" },
+	{ label = "⏱ Jeda siklus",  val = COOK_TIMING.rest    .. "s" },
+}
+
+for i, info in ipairs(timingInfo) do
+	local rowY = 56 + (i - 1) * 22
+
+	local tLbl = label(cookCard, info.label, 11, C.MUTED, Enum.Font.Gotham)
+	tLbl.Size     = UDim2.new(0.6, 0, 0, 16)
+	tLbl.Position = UDim2.new(0, 12, 0, rowY)
+
+	local vLbl = label(cookCard, info.val, 11, C.ACCENT, Enum.Font.GothamBold)
+	vLbl.Size           = UDim2.new(0.35, 0, 0, 16)
+	vLbl.Position       = UDim2.new(0.62, 0, 0, rowY)
+	vLbl.TextXAlignment = Enum.TextXAlignment.Left
+end
+
+-- Divider sebelum status & tombol
+local cookDiv2 = Instance.new("Frame", cookCard)
+cookDiv2.Size             = UDim2.new(1, -24, 0, 1)
+cookDiv2.Position         = UDim2.new(0, 12, 0, 170)
+cookDiv2.BackgroundColor3 = C.BORDER; cookDiv2.BorderSizePixel = 0
+
+-- Status label (diisi oleh cookMainLoop)
+cookStatusLbl = label(cookCard, "Status: OFF", 11, C.MUTED, Enum.Font.Gotham)
+cookStatusLbl.Size     = UDim2.new(1, -24, 0, 14)
+cookStatusLbl.Position = UDim2.new(0, 12, 0, 178)
+
+-- Tombol Cook Now (1 siklus manual)
+local cookNowBtn = makeActionBtn(cookCard, "Masak Sekarang (1 siklus)", function()
+	if autoCookRunning then return end
+	task.spawn(function()
+		autoCookRunning = true
+		cookStatusLbl.Text       = "⏳ Siklus manual..."
+		cookStatusLbl.TextColor3  = C.COOK_CLR
+		pcall(cookOneCycle)
+		cookStatusLbl.Text       = "✅ Siklus manual selesai!"
+		cookStatusLbl.TextColor3  = C.SUCCESS
+		task.wait(3)
+		if not autoCookEnabled then
+			cookStatusLbl.Text       = "Status: OFF"
+			cookStatusLbl.TextColor3  = C.MUTED
+		end
+		autoCookRunning = false
+	end)
+end, 0, C.COOK_CLR)
+cookNowBtn.Size     = UDim2.new(1, -24, 0, 34)
+cookNowBtn.Position = UDim2.new(0, 12, 0, 196)
+cookNowBtn.LayoutOrder = nil
+
+-- ================================================
+-- TAB 2: TELEPORT  (fungsi baru dengan dukungan kendaraan)
+-- ================================================
+tabFrames[2] = makeTabFrame()
+tabFrames[2].Visible = false
+
+local tpLocations = {
+	{name = "MS Dealer",    cf = CFrame.new( 510,  3,  608)},
+	{name = "Casino",       cf = CFrame.new(1175, 20,   30)},
+	{name = "Apt Casino",   cf = CFrame.new(1190,  3, -243)},
+	{name = "Apt Sampah 1", cf = CFrame.new( 902, 10,   72)},
+	{name = "Apt Sampah 2", cf = CFrame.new( 931, 10,   72)},
+	{name = "Apt Tier 1",   cf = CFrame.new(1018, 10,  243)},
+	{name = "Apt Tier 2",   cf = CFrame.new(1018, 10,  214)},
+	{name = "Apt RS 2",     cf = CFrame.new(1108, 10,  427)},
+	{name = "Apt RS 1",     cf = CFrame.new(1109, 10,  456)},
+}
+
+local function TeleportTo(cf)
+	pcall(function()
+		local ch = plr.Character
+		if not ch then return end
+		local hm = ch:FindFirstChildOfClass("Humanoid")
+
+		-- Jika sedang duduk di kendaraan, teleport seluruh kendaraan
+		if hm and hm.SeatPart then
+			local seat = hm.SeatPart
+			local veh  = seat.Parent
+			while veh and not veh:IsA("Model") do veh = veh.Parent end
+			if veh then
+				local root    = veh.PrimaryPart or seat
+				local hrpLocal = ch:FindFirstChild("HumanoidRootPart")
+				-- Reset semua velocity kendaraan sebelum pindah
+				for _, p in ipairs(veh:GetDescendants()) do
+					if p:IsA("BasePart") then
+						pcall(function()
+							p.AssemblyLinearVelocity  = Vector3.zero
+							p.AssemblyAngularVelocity = Vector3.zero
+						end)
+					end
+				end
+				local vcf = cf
+				if hrpLocal then
+					local ok, rel = pcall(function() return root.CFrame:Inverse() * hrpLocal.CFrame end)
+					if ok and rel then vcf = cf * rel:Inverse() end
+				end
+				task.wait(0.05)
+				veh:PivotTo(vcf)
+				return
+			end
+		end
+
+		-- Teleport biasa (jalan kaki)
+		local hrpLocal = ch:FindFirstChild("HumanoidRootPart")
+		if hrpLocal then hrpLocal.CFrame = cf end
+	end)
+end
+
+for i, loc in ipairs(tpLocations) do
+	makeActionBtn(tabFrames[2], loc.name, function()
+		TeleportTo(loc.cf)
+	end, i)
+end
+
+-- ================================================
+-- TAB 3: MISC
+-- ================================================
+tabFrames[3] = makeTabFrame()
+tabFrames[3].Visible = false
+
+makeToggle(tabFrames[3], "Fly",        "Terbang bebas",         "Fly",       1)
+makeToggle(tabFrames[3], "Speed Hack", "Kecepatan karakter x3", "SpeedHack", 2)
+makeToggle(tabFrames[3], "Noclip",     "Tembus dinding",        "Noclip",    3)
+makeToggle(tabFrames[3], "ESP",        "Lihat player lain",     "ESP",       4)
+
+-- DELETE OBJECT CARD
+local delCard = Instance.new("Frame", tabFrames[3])
+delCard.Size             = UDim2.new(1, 0, 0, 182)
+delCard.BackgroundColor3 = C.BG2
+delCard.BorderSizePixel  = 0
+delCard.LayoutOrder      = 5
+corner(delCard)
+local delStroke = Instance.new("UIStroke", delCard)
+delStroke.Color = C.BORDER; delStroke.Thickness = 1
+
+local delHeaderLbl = label(delCard, "Hapus Objek", 13, C.TEXT, Enum.Font.GothamBold)
+delHeaderLbl.Size     = UDim2.new(0.55, 0, 0, 18)
+delHeaderLbl.Position = UDim2.new(0, 12, 0, 10)
+
+local delSubLbl = label(delCard, "Klik objek di dunia untuk menghapus", 10, C.MUTED, Enum.Font.Gotham)
+delSubLbl.Size     = UDim2.new(1, -100, 0, 14)
+delSubLbl.Position = UDim2.new(0, 12, 0, 27)
+
+local delPill = Instance.new("Frame", delCard)
+delPill.Size             = UDim2.new(0, 38, 0, 20)
+delPill.Position         = UDim2.new(1, -50, 0, 10)
+delPill.BackgroundColor3 = C.TOGGLE_OFF
+delPill.BorderSizePixel  = 0
+corner(delPill, 10)
+
+local delKnob = Instance.new("Frame", delPill)
+delKnob.Size             = UDim2.new(0, 14, 0, 14)
+delKnob.Position         = UDim2.new(0, 3, 0.5, -7)
+delKnob.BackgroundColor3 = C.MUTED
+delKnob.BorderSizePixel  = 0
+corner(delKnob, 10)
+
+local delToggleBtn = Instance.new("TextButton", delCard)
+delToggleBtn.Size                = UDim2.new(0, 80, 0, 40)
+delToggleBtn.Position            = UDim2.new(1, -90, 0, 0)
+delToggleBtn.BackgroundTransparency = 1
+delToggleBtn.Text                = ""
+delToggleBtn.MouseButton1Click:Connect(function()
+	local on = not state.DeleteMode
+	setDeleteMode(on)
+	TweenService:Create(delPill, TweenInfo.new(0.2), {
+		BackgroundColor3 = on and C.ORANGE or C.TOGGLE_OFF
+	}):Play()
+	TweenService:Create(delKnob, TweenInfo.new(0.2), {
+		Position         = on and UDim2.new(1,-17,0.5,-7) or UDim2.new(0,3,0.5,-7),
+		BackgroundColor3 = on and C.TEXT or C.MUTED,
+	}):Play()
+end)
+
+local delDiv = Instance.new("Frame", delCard)
+delDiv.Size             = UDim2.new(1, -24, 0, 1)
+delDiv.Position         = UDim2.new(0, 12, 0, 50)
+delDiv.BackgroundColor3 = C.BORDER; delDiv.BorderSizePixel = 0
+
+local hotkeyLbl = label(delCard, "Tekan  [Z]  untuk Undo hapus terakhir", 11, C.MUTED, Enum.Font.Gotham)
+hotkeyLbl.Size     = UDim2.new(1, -24, 0, 14)
+hotkeyLbl.Position = UDim2.new(0, 12, 0, 60)
+
+undoCountLbl = label(delCard, "Tersimpan: 0/" .. MAX_UNDO, 11, C.MUTED, Enum.Font.GothamBold)
+undoCountLbl.Size     = UDim2.new(1, -24, 0, 14)
+undoCountLbl.Position = UDim2.new(0, 12, 0, 78)
+
+local undoBtn = makeActionBtn(delCard, "Undo Hapus Terakhir  [Z]", function()
+	undoDelete()
+end, 0, C.ORANGE)
+undoBtn.Size     = UDim2.new(1, -24, 0, 34)
+undoBtn.Position = UDim2.new(0, 12, 0, 96)
+undoBtn.LayoutOrder = nil
+
+local clearBtn = makeActionBtn(delCard, "Hapus Semua Riwayat Undo", function()
+	deleteStack = {}
+	updateUndoLabel()
+end, 0, C.DANGER)
+clearBtn.Size     = UDim2.new(1, -24, 0, 34)
+clearBtn.Position = UDim2.new(0, 12, 0, 138)
+
+-- ================================================
+-- AIMBOT CARD  (Tab 3 - MISC)
+-- ================================================
+local aimbotTargetPart = "Head"
+
+local aimCard = Instance.new("Frame", tabFrames[3])
+aimCard.BackgroundColor3 = C.BG2
+aimCard.BorderSizePixel  = 0
+aimCard.LayoutOrder      = 6
+corner(aimCard)
+local aimStroke = Instance.new("UIStroke", aimCard)
+aimStroke.Color = C.BORDER; aimStroke.Thickness = 1
+
+local aimHeaderLbl = label(aimCard, "🎯  Aimbot", 13, C.TEXT, Enum.Font.GothamBold)
+aimHeaderLbl.Size     = UDim2.new(0.55, 0, 0, 18)
+aimHeaderLbl.Position = UDim2.new(0, 12, 0, 10)
+
+local aimSubLbl = label(aimCard, "Tahan klik kanan untuk lock target", 10, C.MUTED, Enum.Font.Gotham)
+aimSubLbl.Size     = UDim2.new(1, -100, 0, 14)
+aimSubLbl.Position = UDim2.new(0, 12, 0, 27)
+
+local aimPill = Instance.new("Frame", aimCard)
+aimPill.Size             = UDim2.new(0, 38, 0, 20)
+aimPill.Position         = UDim2.new(1, -50, 0, 10)
+aimPill.BackgroundColor3 = C.TOGGLE_OFF
+aimPill.BorderSizePixel  = 0
+corner(aimPill, 10)
+
+local aimKnob = Instance.new("Frame", aimPill)
+aimKnob.Size             = UDim2.new(0, 14, 0, 14)
+aimKnob.Position         = UDim2.new(0, 3, 0.5, -7)
+aimKnob.BackgroundColor3 = C.MUTED
+aimKnob.BorderSizePixel  = 0
+corner(aimKnob, 10)
+
+local aimToggleBtn = Instance.new("TextButton", aimCard)
+aimToggleBtn.Size                = UDim2.new(0, 80, 0, 40)
+aimToggleBtn.Position            = UDim2.new(1, -90, 0, 0)
+aimToggleBtn.BackgroundTransparency = 1
+aimToggleBtn.Text                = ""
+aimToggleBtn.MouseButton1Click:Connect(function()
+	state.Aimbot = not state.Aimbot
+	local on = state.Aimbot
+	TweenService:Create(aimPill, TweenInfo.new(0.2), {
+		BackgroundColor3 = on and C.DANGER or C.TOGGLE_OFF
+	}):Play()
+	TweenService:Create(aimKnob, TweenInfo.new(0.2), {
+		Position         = on and UDim2.new(1,-17,0.5,-7) or UDim2.new(0,3,0.5,-7),
+		BackgroundColor3 = on and C.TEXT or C.MUTED,
+	}):Play()
+end)
+
+local aimDiv = Instance.new("Frame", aimCard)
+aimDiv.Size             = UDim2.new(1, -24, 0, 1)
+aimDiv.Position         = UDim2.new(0, 12, 0, 48)
+aimDiv.BackgroundColor3 = C.BORDER; aimDiv.BorderSizePixel = 0
+
+local targetLbl = label(aimCard, "Target Bagian Tubuh :", 11, C.MUTED, Enum.Font.Gotham)
+targetLbl.Size     = UDim2.new(1, -24, 0, 14)
+targetLbl.Position = UDim2.new(0, 12, 0, 56)
+
+local TARGET_PARTS = {
+	{ label = "Head",       part = "Head"             },
+	{ label = "Torso",      part = "HumanoidRootPart" },
+	{ label = "Left Arm",   part = "Left Arm"         },
+	{ label = "Right Arm",  part = "Right Arm"        },
+	{ label = "Left Leg",   part = "Left Leg"         },
+	{ label = "Right Leg",  part = "Right Leg"        },
+}
+
+local selectedPartBtns = {}
+local partBtnYStart = 74
+local partBtnH = 26
+local partBtnGap = 4
+local colW   = 0.47
+local colGap = 0.06
+
+for i, opt in ipairs(TARGET_PARTS) do
+	local col  = (i - 1) % 2
+	local row  = math.floor((i - 1) / 2)
+	local xPos = col == 0 and 0.03 or (0.03 + colW + colGap)
+	local yPos = partBtnYStart + row * (partBtnH + partBtnGap)
+
+	local btn = Instance.new("TextButton", aimCard)
+	btn.Size             = UDim2.new(colW, 0, 0, partBtnH)
+	btn.Position         = UDim2.new(xPos, 0, 0, yPos)
+	btn.BackgroundColor3 = opt.part == aimbotTargetPart and C.ACCENT or C.BG3
+	btn.Text             = opt.label
+	btn.TextColor3       = opt.part == aimbotTargetPart and C.TEXT or C.MUTED
+	btn.TextSize         = 11
+	btn.Font             = Enum.Font.GothamBold
+	btn.BorderSizePixel  = 0
+	corner(btn, 5)
+	local bs = Instance.new("UIStroke", btn)
+	bs.Color    = opt.part == aimbotTargetPart and C.ACCENT or C.BORDER
+	bs.Thickness = 1
+
+	selectedPartBtns[i] = { btn = btn, stroke = bs, part = opt.part }
+
+	btn.MouseButton1Click:Connect(function()
+		aimbotTargetPart = opt.part
+		for _, b in ipairs(selectedPartBtns) do
+			local active = (b.part == aimbotTargetPart)
+			TweenService:Create(b.btn, TweenInfo.new(0.15), {
+				BackgroundColor3 = active and C.ACCENT or C.BG3,
+				TextColor3       = active and C.TEXT   or C.MUTED,
+			}):Play()
+			b.stroke.Color = active and C.ACCENT or C.BORDER
+		end
+	end)
+end
+
+local aimStatusLbl = label(aimCard, "Status: OFF  |  Target: Head", 10, C.MUTED, Enum.Font.Gotham)
+aimStatusLbl.Size     = UDim2.new(1, -24, 0, 14)
+aimStatusLbl.Position = UDim2.new(0, 12, 0, partBtnYStart + 3 * (partBtnH + partBtnGap) + 6)
+
+local aimCardH = partBtnYStart + 3 * (partBtnH + partBtnGap) + 28
+aimCard.Size = UDim2.new(1, 0, 0, aimCardH)
+
+-- ================================================
+-- TAB 4: CREDITS
+-- ================================================
+tabFrames[4] = makeTabFrame()
+tabFrames[4].Visible = false
+
+local creditCard = Instance.new("Frame", tabFrames[4])
+creditCard.Size             = UDim2.new(1, 0, 0, 150)
+creditCard.BackgroundColor3 = C.BG2
+creditCard.BorderSizePixel  = 0
+creditCard.LayoutOrder      = 1
+corner(creditCard)
+Instance.new("UIStroke", creditCard).Color = C.BORDER
+
+local avatar = Instance.new("Frame", creditCard)
+avatar.Size             = UDim2.new(0, 52, 0, 52)
+avatar.Position         = UDim2.new(0.5, -26, 0, 16)
+avatar.BackgroundColor3 = C.ACCENT
+avatar.BorderSizePixel  = 0; corner(avatar, 26)
+
+local avatarLbl = Instance.new("TextLabel", avatar)
+avatarLbl.Size                = UDim2.new(1, 0, 1, 0)
+avatarLbl.BackgroundTransparency = 1
+avatarLbl.Text      = "K"; avatarLbl.TextColor3 = C.TEXT
+avatarLbl.TextSize  = 22; avatarLbl.Font = Enum.Font.GothamBold
+
+local devName = label(creditCard, "KEMERUS", 16, C.TEXT, Enum.Font.GothamBold)
+devName.Size     = UDim2.new(1, 0, 0, 20); devName.Position = UDim2.new(0, 0, 0, 74)
+devName.TextXAlignment = Enum.TextXAlignment.Center
+
+local devRole = label(creditCard, "Developer & Creator", 12, C.MUTED, Enum.Font.Gotham)
+devRole.Size     = UDim2.new(1, 0, 0, 16); devRole.Position = UDim2.new(0, 0, 0, 94)
+devRole.TextXAlignment = Enum.TextXAlignment.Center
+
+local devDesc = label(creditCard, "Script dibuat oleh Kemerus  •  v2.0  •  2025", 11, C.MUTED, Enum.Font.Gotham)
+devDesc.Size     = UDim2.new(1, 0, 0, 16); devDesc.Position = UDim2.new(0, 0, 0, 124)
+devDesc.TextXAlignment = Enum.TextXAlignment.Center
+
+-- ================================================
+-- LOGIN LOGIC
+-- ================================================
+local function showMenu()
+	loginFrame.Visible  = false
+	menuFrame.Visible   = true
+	statusDot.BackgroundColor3 = C.SUCCESS
+	statusTxt.Text             = "CONNECTED  •  KEMERUS HUB"
+	statusTxt.TextColor3       = C.SUCCESS
+end
+
+loginBtn.MouseButton1Click:Connect(function()
+	if keybox.Text == KEY then
+		TweenService:Create(loginFrame, TweenInfo.new(0.4), {BackgroundTransparency = 1}):Play()
+		task.wait(0.4); showMenu()
+	else
+		keybox.Text           = ""
+		keybox.PlaceholderText = "Key Salah!"
+		errLabel.Text         = "Key tidak valid. Coba lagi."
+		keyStroke.Color       = C.DANGER
+		task.wait(2)
+		keybox.PlaceholderText = "Masukkan Key..."
+		errLabel.Text         = ""
+		keyStroke.Color       = C.BORDER
+	end
+end)
+
+-- ================================================
+-- FEATURE LOGIC
+-- ================================================
+
+-- Anti AFK
+local vUser = game:GetService("VirtualUser")
+plr.Idled:Connect(function()
+	if state.AntiAFK then
+		vUser:Button2Down(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
+		task.wait(1)
+		vUser:Button2Up(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
+	end
+end)
+
+-- ================================================
+-- AUTO SELL LOOP (jual setelah setiap buy round)
+-- ================================================
+task.spawn(function()
+	while true do
+		task.wait(4)
+		if autoSellEnabled and not autoSellRunning then
+			autoSellRunning = true
+			statusSellLbl.Text      = "Status: ON  •  Selling..."
+			statusSellLbl.TextColor3 = C.SELL_CLR
+			task.spawn(function()
+				local n = doSellAll()
+				if autoSellEnabled then
+					statusSellLbl.Text      = "Status: ON  •  Sold " .. n
+					statusSellLbl.TextColor3 = C.SUCCESS
+				else
+					statusSellLbl.Text      = "Status: OFF"
+					statusSellLbl.TextColor3 = C.MUTED
+				end
+				autoSellRunning = false
+			end)
+		elseif not autoSellEnabled then
+			statusSellLbl.Text      = "Status: OFF"
+			statusSellLbl.TextColor3 = C.MUTED
+		end
+	end
+end)
+
+-- Speed Hack
+local BASE_SPEED = 16
+local SPEED_HACK = 48
+
+local function applySpeed()
+	if hum and hum.Parent then
+		hum.WalkSpeed = state.SpeedHack and SPEED_HACK or BASE_SPEED
+	end
+end
+
+plr.CharacterAdded:Connect(function(newChar)
+	char = newChar
+	hrp  = newChar:WaitForChild("HumanoidRootPart")
+	hum  = newChar:WaitForChild("Humanoid")
+	task.wait(0.5)
+	applySpeed()
+end)
+
+-- Noclip
+RunService.Stepped:Connect(function()
+	if state.Noclip then
+		for _, part in ipairs(char:GetDescendants()) do
+			if part:IsA("BasePart") then part.CanCollide = false end
+		end
+	end
+end)
+
+-- Fly
+local flyBody
+local function startFly()
+	flyBody          = Instance.new("BodyVelocity", hrp)
+	flyBody.Velocity = Vector3.new(0,0,0)
+	flyBody.MaxForce = Vector3.new(1e5,1e5,1e5)
+end
+local function stopFly()
+	if flyBody then flyBody:Destroy() end
+end
+
+RunService.Heartbeat:Connect(function()
+	if state.Fly then
+		if not flyBody or not flyBody.Parent then startFly() end
+		local cam = workspace.CurrentCamera
+		flyBody.Velocity =
+			cam.CFrame.LookVector * (UIS:IsKeyDown(Enum.KeyCode.W) and 60 or UIS:IsKeyDown(Enum.KeyCode.S) and -60 or 0)
+			+ Vector3.new(0, UIS:IsKeyDown(Enum.KeyCode.Space) and 40 or UIS:IsKeyDown(Enum.KeyCode.LeftControl) and -40 or 0, 0)
+	else
+		stopFly()
+	end
+end)
+
+-- ================================================
+-- AIMBOT SYSTEM
+-- ================================================
+local Camera = workspace.CurrentCamera
+
+local function getClosestTarget()
+	local closestPlayer = nil
+	local closestDist   = math.huge
+	local screenCenter  = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
+
+	for _, target in ipairs(Players:GetPlayers()) do
+		if target ~= plr and target.Character then
+			local targetHum = target.Character:FindFirstChildOfClass("Humanoid")
+			if targetHum and targetHum.Health > 0 then
+				local part = target.Character:FindFirstChild(aimbotTargetPart)
+					or target.Character:FindFirstChild("HumanoidRootPart")
+				if part then
+					local screenPos, onScreen = Camera:WorldToViewportPoint(part.Position)
+					if onScreen then
+						local dist2D = (Vector2.new(screenPos.X, screenPos.Y) - screenCenter).Magnitude
+						if dist2D < closestDist then
+							closestDist   = dist2D
+							closestPlayer = part
+						end
+					end
+				end
+			end
+		end
+	end
+	return closestPlayer
+end
+
+local aimbotHolding = false
+UIS.InputBegan:Connect(function(input, gpe)
+	if gpe then return end
+	if input.UserInputType == Enum.UserInputType.MouseButton2 then
+		aimbotHolding = true
+	end
+end)
+UIS.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton2 then
+		aimbotHolding = false
+	end
+end)
+
+RunService.RenderStepped:Connect(function()
+	if not state.Aimbot then return end
+	if not aimbotHolding then
+		aimStatusLbl.Text      = "Status: ON  |  Target: " .. aimbotTargetPart .. "  |  Tahan RMB"
+		aimStatusLbl.TextColor3 = C.MUTED
+		return
+	end
+	local targetPart = getClosestTarget()
+	if targetPart then
+		local lookCF = CFrame.lookAt(Camera.CFrame.Position, targetPart.Position)
+		Camera.CFrame = Camera.CFrame:Lerp(lookCF, 0.3)
+		aimStatusLbl.Text      = "🔴 LOCKED: " .. targetPart.Parent.Name .. "  [" .. aimbotTargetPart .. "]"
+		aimStatusLbl.TextColor3 = C.DANGER
+	else
+		aimStatusLbl.Text      = "Status: ON  |  Tidak ada target"
+		aimStatusLbl.TextColor3 = C.MUTED
+	end
+end)
+
+-- ================================================
+-- ESP SYSTEM
+-- ================================================
+local espObjects = {}
+
+local function createESP(target)
+	if target == plr then return end
+	if espObjects[target] then return end
+	local targetChar = target.Character
+	if not targetChar then return end
+	local head = targetChar:FindFirstChild("Head")
+	if not head then return end
+
+	local billboard = Instance.new("BillboardGui")
+	billboard.Name        = "KemerusESPName"
+	billboard.Size        = UDim2.new(0, 140, 0, 36)
+	billboard.StudsOffset = Vector3.new(0, 3, 0)
+	billboard.AlwaysOnTop = true
+	billboard.Adornee     = head
+	billboard.Parent      = targetChar
+
+	local nameLabel = Instance.new("TextLabel", billboard)
+	nameLabel.Size                   = UDim2.new(1, 0, 1, 0)
+	nameLabel.BackgroundTransparency = 1
+	nameLabel.Text                   = target.DisplayName .. "\n[" .. target.Name .. "]"
+	nameLabel.TextColor3             = Color3.fromRGB(40, 200, 255)
+	nameLabel.TextStrokeColor3       = Color3.new(0, 0, 0)
+	nameLabel.TextStrokeTransparency = 0
+	nameLabel.TextSize               = 13
+	nameLabel.Font                   = Enum.Font.GothamBold
+
+	espObjects[target] = { billboard = billboard }
+end
+
+local function removeESP(target)
+	if espObjects[target] then
+		pcall(function() espObjects[target].billboard:Destroy() end)
+		espObjects[target] = nil
+	end
+end
+
+local function clearAllESP()
+	for target in pairs(espObjects) do removeESP(target) end
+end
+
+RunService.Heartbeat:Connect(function()
+	if not state.ESP then clearAllESP(); return end
+	for _, target in ipairs(Players:GetPlayers()) do
+		if target ~= plr and target.Character then createESP(target) end
+	end
+	for target in pairs(espObjects) do
+		if not target.Parent then removeESP(target) end
+	end
+end)
+
+Players.PlayerRemoving:Connect(removeESP)
+
+for _, target in ipairs(Players:GetPlayers()) do
+	if target ~= plr then
+		target.CharacterAdded:Connect(function()
+			task.wait(1)
+			if state.ESP then removeESP(target); createESP(target) end
+		end)
+	end
+end
+
+Players.PlayerAdded:Connect(function(target)
+	target.CharacterAdded:Connect(function()
+		task.wait(1)
+		if state.ESP then removeESP(target); createESP(target) end
+	end)
+end)
+
+-- ================================================
+-- INISIALISASI
+-- ================================================
+updateUndoLabel()
+
+print("[KEMERUS HUB v2.0] Loaded!")
+print("  ► Auto Buy   : Toggle di Tab AUTO FARM  (StorePurchase FireServer)")
+print("  ► Auto Sell  : Toggle di Tab AUTO FARM  (ProximityPrompt Lamont Bell)")
+print("  ► Auto Masak : Toggle di Tab AUTO FARM  (ProximityPrompt + Tool equip loop)")
+print("  ► Inventory  : Tracking item yang dibeli otomatis")
+print("  ► Teleport   : Mendukung teleport saat di dalam kendaraan")
